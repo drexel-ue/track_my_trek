@@ -12,18 +12,16 @@ module.exports = {
     },
     devtool: 'source-map',
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['env', 'react']
-                }
-            },
-            {
-                test: /\.node$/,
-                loader: 'node-loader'
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['@babel/env', '@babel/react']
+                    }
+                },
             }
         ]
     }
