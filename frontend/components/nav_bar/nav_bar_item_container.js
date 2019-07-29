@@ -3,7 +3,7 @@ import NavBarItem from './nav_bar_item';
 
 const msp = (_, ownProps) => ({
     to: ownProps.to || '/',
-    title: ownProps.title
+    title: ownProps.title,
 })
 const mdp = _ => ({})
 

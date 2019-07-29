@@ -18,12 +18,13 @@ export default () => {
     return <div id='nav_bar'>
         <ul>
             <HomeButton />
-            {titles.map(title =>
+            {titles.map((title, index) =>
                 <NavBarItemContainer
-                    title={title} />)
+                    title={title}
+                    key={index} />)
             }
-            <LoginButtonContainer />
-            <SignupButtonContainer />
+            <LoginButtonContainer key='login_button' />
+            <SignupButtonContainer key='signup_button' />
         </ul>
     </div>
 }
