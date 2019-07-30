@@ -58,3 +58,9 @@
     font-size: 1.5vw;
     font-style: italic
 }
+.info .landing_app_store {
+    width:3vw;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between
+}

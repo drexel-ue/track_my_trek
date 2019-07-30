@@ -1,6 +1,7 @@
 import React from 'react'
 import SignupButtonContainer from './nav_bar/signup_button_container';
 import LoginButtonContainer from './nav_bar/login_button_container';
+import AppStoreLink from './svgs/download_from_app_store';
 
 export default props => {
     const topLine = <div className='top_line'></div>
@@ -26,6 +27,10 @@ export default props => {
                         <div>Already a member?</div>
                         <LoginButtonContainer placement='call_to_start_session' />
                     </div>
+                    {/* <div className='landing_app_store'>
+                        <AppStoreLink />
+                        <AppStoreLink />
+                    </div> */}
                 </div>
             </div>
         </div>
