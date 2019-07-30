@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { login } from '../../actions/session';
 import StartSessionButton from './start_session_button';
 
 const msp = (state, ownProps) => ({

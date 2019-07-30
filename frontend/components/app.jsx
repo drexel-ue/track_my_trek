@@ -1,10 +1,9 @@
 import React from 'react';
-// import LoginFormContainer from './login_form_container';
-// import SignupFormContainer from './signup_form_container';
 import NavBar from './nav_bar/nav_bar';
 import { Route } from 'react-router-dom';
-import Arbitrary from './app_container'
+import UserRerouter from './user_rerouter'
 import LandingPage from './landing_page';
+import SignupFormContainer from './session/signup_form_conainter';
 
 const App = () => (
   <div>
@@ -13,9 +12,10 @@ const App = () => (
     </header>
 
     <Route exact path='/' component={LandingPage} />
+    {/* <Route exact path='/signup' component={SignupFormContainer} /> */}
 
-    {/* < Arbitrary path="/login" component={LoginFormContainer}/>
-    < Arbitrary path="/signup" component={SignupFormContainer}/> */}
+    {/* < UserRerouter path="/login" component={LoginFormContainer}/> */}
+    < UserRerouter path="/signup" component={SignupFormContainer} />
 
   </div>
 );
