@@ -1,10 +1,10 @@
 import React from 'react'
 
 export default props =>
-    <button
-        id={props.type + '_button'}
+    <div
+        className={props.type + '_button'}
         onClick={props.handleClick}>
-        <div id='overlay'>
+        <div className='overlay'>
             {props.type.toUpperCase()}
         </div>
-    </button>
+    </div>

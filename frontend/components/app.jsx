@@ -17,7 +17,6 @@ const App = () => (
     {/* < Arbitrary path="/login" component={LoginFormContainer}/>
     < Arbitrary path="/signup" component={SignupFormContainer}/> */}
 
-
   </div>
 );
 
