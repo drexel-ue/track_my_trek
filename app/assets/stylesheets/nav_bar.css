@@ -16,31 +16,20 @@
     padding-right:50px
  }
  #nav_bar #home_button {
-    padding:0 100px 0 0;
+    padding-right: 7vw;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.5vw;
     letter-spacing: 4px;
  }
  #nav_bar #home_button:hover {
     color: #6d717a;
  }
- #login_button, #signup_button {
+ .login_button, .signup_button {
      display: inline;
  }
- #login_button {
-    border: none;
-    margin:0px 0px 0 40px;
-    padding: 10px 20px;
- }
- #signup_button {
-    color: white;
-    background-color: #1ddd7c;
-    border: none;
-    border-radius: 4px;
-    margin:0px 20px;
-    padding: 10px 20px;
-}
-#overlay {
+
+ 
+.overlay {
     display: inline;
 }
 /* #overlay:hover {

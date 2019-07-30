@@ -2,8 +2,9 @@ import { connect } from 'react-redux'
 import { login } from '../../actions/session';
 import StartSessionButton from './start_session_button';
 
-const msp = () => ({
-    type: 'login'
+const msp = (state, ownProps) => ({
+    type: 'login',
+    placement: ownProps.placement
 })
 const mdp = dispatch => ({
     handleClick: user => dispatch(login(user))

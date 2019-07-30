@@ -23,8 +23,8 @@ export default () => {
                     title={title}
                     key={index} />)
             }
-            <LoginButtonContainer key='login_button' />
-            <SignupButtonContainer key='signup_button' />
+            <LoginButtonContainer key='login_button' placement='nav' />
+            <SignupButtonContainer key='signup_button' placement='nav' />
         </ul>
     </div>
 }
