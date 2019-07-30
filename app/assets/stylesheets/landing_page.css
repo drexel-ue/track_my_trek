@@ -1,13 +1,13 @@
-/* #landing_page {
+/* .landing_page {
 } */
-#call_to_start_session {
+.call_to_start_session {
  position: relative;
 
 }
-/* #call_to_start_session #pic {
+/* .call_to_start_session .pic {
     position: relative;
 } */
-#call_to_start_session #info {
+.call_to_start_session .info {
     position: absolute;
     top: 2vw;
     right: 2vw;
@@ -17,28 +17,28 @@
     width: 100%;
     
 }
-#info #top_line {
+.info .top_line {
     height: 2.5px;
     width: 150px;
     background-color: white;
     outline: inset;
     margin-left: auto;
 }
-#info #keep_every_step {
+.info .keep_every_step {
     padding: 20px 0;
     color: white;
     font-size: 5vw;
     font-weight: bolder;
     margin-left: auto;
 }
-#info #bottom_line {
+.info .bottom_line {
     height: 2.5px;
     width: 150px;
     background-color: white;
     outline: inset;
     margin-left: auto;
 }
-#info #description {
+.info .description {
     top:100px;
     padding: 20px 0;
     width: 30vw;
