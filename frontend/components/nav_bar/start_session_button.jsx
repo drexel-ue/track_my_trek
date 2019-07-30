@@ -9,13 +9,13 @@ export default ({ type, placement, handleClick }) => {
         'font-size': '1.2vw'
     }
     const landingLogin = {
-        border: 'none',
+        border: 'solid white 3px',
+        'border-radius':'4px',
         margin: '0px 0px 0 40px',
         padding: '10px 20px',
-        height: '70px',
         'font-size': '1.2vw'
     }
-    const navSignup= {
+    const navSignup = {
         color: 'white',
         'background-color': '#1ddd7c',
         border: 'none',
@@ -23,16 +23,16 @@ export default ({ type, placement, handleClick }) => {
         padding: '10px 20px',
         'font-size': '1.2vw'
     }
-    const landingSignup= {
+    const landingSignup = {
         color: 'white',
         'background-color': '#1ddd7c',
         border: 'none',
         'border-radius': '4px',
-        'margin-left':'auto',
+        'margin-left': 'auto',
         padding: '10px 20px',
         'font-size': '1.6vw',
         width: '12vw',
-        'text-align':'center'
+        'text-align': 'center'
     }
 
     return (
@@ -45,7 +45,10 @@ export default ({ type, placement, handleClick }) => {
                     : placement == 'nav' ? navSignup : landingSignup
             }>
             <div className='overlay'>
-                {type.toUpperCase()}
+                {
+                    placement == 'call_to_start_session' && type == 'login'
+                        ? 'log in'.toUpperCase()
+                        : type.toUpperCase()}
             </div>
         </div>
     )

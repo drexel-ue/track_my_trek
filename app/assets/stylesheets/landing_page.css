@@ -46,3 +46,15 @@
     text-align: right;
     font-size: 1.6vw;
 }
+.info .already_a_member {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    padding: 2vw 0;
+
+}
+.already_a_member > div:first-of-type {
+    font-size: 1.5vw;
+    font-style: italic
+}

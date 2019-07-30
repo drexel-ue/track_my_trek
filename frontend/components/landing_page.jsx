@@ -1,5 +1,6 @@
 import React from 'react'
 import SignupButtonContainer from './nav_bar/signup_button_container';
+import LoginButtonContainer from './nav_bar/login_button_container';
 
 export default props => {
     const topLine = <div className='top_line'></div>
@@ -21,6 +22,10 @@ export default props => {
                         Track a Trek of any kind, with the support of your closest friends.
                     </div>
                     <SignupButtonContainer placement='call_to_start_session' />
+                    <div className='already_a_member'>
+                        <div>Already a member?</div>
+                        <LoginButtonContainer placement='call_to_start_session' />
+                    </div>
                 </div>
             </div>
         </div>
