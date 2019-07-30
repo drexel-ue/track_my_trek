@@ -7,7 +7,7 @@ import SignupButtonContainer from './signup_button_container';
 export default () => {
     const titles = [
         'Training',
-        'Routes',
+        'Treks',
         'Challenges',
         'Go MVP',
         'Blog',

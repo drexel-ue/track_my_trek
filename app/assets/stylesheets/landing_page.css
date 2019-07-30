@@ -1,0 +1,37 @@
+/* #landing_page {
+} */
+#call_to_start_session {
+    position: relative;
+}
+#call_to_start_session #info {
+    display: flex;
+    justify-content: end;
+    color: white;
+    width: 50%;
+}
+#info #top_line {
+    height: 2.5px;
+    width: 150px;
+    background-color: white;
+    outline: inset;
+}
+#info #keep_every_step {
+    padding: 20px 0;
+    color: white;
+    font-size: 50px;
+    font-weight: bolder;
+}
+#info #bottom_line {
+    float: right;
+    height: 2.5px;
+    width: 150px;
+    background-color: white;
+    outline: inset;
+}
+#info #description {
+    float: right;  
+    top:100px;
+    padding: 20px 0;
+    width: 100px;
+    text-align: right;
+}
