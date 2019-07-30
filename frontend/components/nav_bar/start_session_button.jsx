@@ -4,5 +4,7 @@ export default props =>
     <button
         id={props.type + '_button'}
         onClick={props.handleClick}>
-        {props.type.toUpperCase()}
+        <div id='overlay'>
+            {props.type.toUpperCase()}
+        </div>
     </button>
