@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 import { signup } from '../../actions/session';
 import StartSessionButton from './start_session_button';
 
@@ -7,7 +8,6 @@ const msp = (state, ownProps) => ({
     placement: ownProps.placement
 })
 const mdp = dispatch => ({
-    handleClick: user => dispatch(signup(user))
 })
 
-export default connect(msp, mdp)(StartSessionButton)
+export default withRouter(connect(msp, mdp)(StartSessionButton))

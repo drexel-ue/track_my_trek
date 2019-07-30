@@ -1,44 +1,44 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default ({ type, placement, handleClick }) => {
+export default ({ type, placement }) => {
     const navLogin = {
         border: 'none',
-        'margin-right': '2vw',
-        'margin-left': '5vw',
+        marginRight: '2vw',
+        marginLeft: '5vw',
         padding: '10px 20px',
-        'font-size': '1.2vw'
+        fontSize: '1.2vw'
     }
     const landingLogin = {
         border: 'solid white 3px',
-        'border-radius':'4px',
+        borderRadius: '4px',
         margin: '0px 0px 0 40px',
         padding: '10px 20px',
-        'font-size': '1.2vw'
+        fontSize: '1.2vw'
     }
     const navSignup = {
         color: 'white',
-        'background-color': '#1ddd7c',
+        backgroundColor: '#1ddd7c',
         border: 'none',
-        'border-radius': '4px',
+        borderRadius: '4px',
         padding: '10px 20px',
-        'font-size': '1.2vw'
+        fontSize: '1.2vw'
     }
     const landingSignup = {
         color: 'white',
-        'background-color': '#1ddd7c',
+        backgroundColor: '#1ddd7c',
         border: 'none',
-        'border-radius': '4px',
-        'margin-left': 'auto',
+        borderRadius: '4px',
+        marginLeft: 'auto',
         padding: '10px 20px',
-        'font-size': '1.6vw',
+        fontSize: '1.6vw',
         width: '12vw',
-        'text-align': 'center'
+        textAlign: 'center'
     }
 
     return (
         <div
             className={type + '_button'}
-            onClick={handleClick}
             style={
                 type == 'login' ?
                     placement == 'nav' ? navLogin : landingLogin

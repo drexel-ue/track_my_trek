@@ -7,7 +7,6 @@ const msp = (state, ownProps) => ({
     placement: ownProps.placement
 })
 const mdp = dispatch => ({
-    handleClick: user => dispatch(login(user))
 })
 
 export default connect(msp, mdp)(StartSessionButton)
