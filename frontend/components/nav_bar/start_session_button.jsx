@@ -28,9 +28,11 @@ export default ({ type, placement, handleClick }) => {
         'background-color': '#1ddd7c',
         border: 'none',
         'border-radius': '4px',
-        margin:'0px 20px',
+        'margin-left':'auto',
         padding: '10px 20px',
-        'font-size': '1.2vw'
+        'font-size': '1.6vw',
+        width: '12vw',
+        'text-align':'center'
     }
 
     return (
