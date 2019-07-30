@@ -5,8 +5,6 @@ import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log('bnskjdnljnsjlknb');
-
     let preloadedState = {};
 
     if (window.current_user) {
