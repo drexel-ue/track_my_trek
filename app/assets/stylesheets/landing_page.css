@@ -19,7 +19,7 @@
 }
 .info .top_line {
     height: 2.5px;
-    width: 150px;
+    width: 16vw;
     background-color: white;
     outline: inset;
     margin-left: auto;
@@ -33,7 +33,7 @@
 }
 .info .bottom_line {
     height: 2.5px;
-    width: 150px;
+    width: 16vw;
     background-color: white;
     outline: inset;
     margin-left: auto;
