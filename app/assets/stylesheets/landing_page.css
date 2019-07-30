@@ -46,6 +46,10 @@
     text-align: right;
     font-size: 1.6vw;
 }
+.info a{
+    margin-left: auto;
+    padding: 8px 0;
+}
 .info .already_a_member {
     display: flex;
     justify-content: space-between;
@@ -58,9 +62,9 @@
     font-size: 1.5vw;
     font-style: italic
 }
-.info .landing_app_store {
+/* .info .landing_app_store {
     width:3vw;
     margin-left: auto;
     display: flex;
     justify-content: space-between
-}
+} */

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 export default ({ type, placement }) => {
     const navLogin = {
         border: 'none',
@@ -37,19 +36,22 @@ export default ({ type, placement }) => {
     }
 
     return (
-        <div
-            className={type + '_button'}
-            style={
-                type == 'login' ?
-                    placement == 'nav' ? navLogin : landingLogin
-                    : placement == 'nav' ? navSignup : landingSignup
-            }>
-            <div className='overlay'>
-                {
-                    placement == 'call_to_start_session' && type == 'login'
-                        ? 'log in'.toUpperCase()
-                        : type.toUpperCase()}
+        <Link to={'/' + type}>
+            <div
+                className={type + '_button'}
+                style={
+                    type == 'login' ?
+                        placement == 'nav' ? navLogin : landingLogin
+                        : placement == 'nav' ? navSignup : landingSignup
+                }>
+                <div className='overlay'>
+                    {
+                        placement == 'call_to_start_session' && type == 'login'
+                            ? 'log in'.toUpperCase()
+                            : type.toUpperCase()
+                    }
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
