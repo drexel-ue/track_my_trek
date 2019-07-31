@@ -1,3 +1,6 @@
+#session_form {
+    font-size: 1.2vw;
+}
 #session_form > div {
     display:flex;
     flex-direction: column;
@@ -77,9 +80,17 @@
 .notification_subscription_row {
     display: flex;
     align-items: center;
-    font-size: 1.2vw;
     padding: 1vw 0;
 }
 #session_form .notification_checkbox {
     height: 2vw;
+}
+#session_form .privacy_and_terms_links {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+#session_form .submit_session_form {
+    width: 30vw;
+    margin: 1vw auto;
 }

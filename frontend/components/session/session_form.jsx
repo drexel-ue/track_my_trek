@@ -113,11 +113,21 @@ export default class SessionForm extends React.Component {
                         Yes, I would like to receive by email the latest news, innovation updates, and offers from TrackMyTrel and Hyper Armour.
                     </div>
                 </div>
+                <div className='privacy_and_terms_links'>
+                    <div>
+                        By signing up with MapMyRun, you agree to our Privacy Policy & Terms of Use.
+                    </div>
+                </div>
             </div>
 
         return (
             <form id='session_form' onSubmit={this.submit}>
                 {signupForm}
+                <input
+                    type="submit"
+                    onClick={this.submit}
+                    class='submit_session_form'
+                    value={this.props.type.toUpperCase()} />
             </form>
         )
     }
