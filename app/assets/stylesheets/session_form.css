@@ -52,6 +52,10 @@
     position: absolute;
     top: 10px;
     left: -10px;
+    height: 13vw;
+    width: 7vw;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 #session_form .show {
     display: flex;
@@ -103,3 +107,9 @@
     background-color: rgb(29, 221, 124);
     color: white;
 }
+/* #year_content {
+    height: 10vw;
+    width: 5vw;
+    overflow: hidden;
+    overflow-y: scroll;
+} */

@@ -24,8 +24,14 @@ export default class SessionForm extends React.Component {
     }
 
     pickDate(field, value) {
-        console.log(value)
-        return () => this.setState({ [field]: value })
+        return (event) => {
+            event.preventDefault()
+            console.log('field', field)
+            console.log('value', value)
+            console.log('old state', this.state)
+            this.setState({ [field]: value })
+            console.log('new state', this.state)
+        }
     }
 
     render() {
