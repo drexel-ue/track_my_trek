@@ -148,10 +148,17 @@ export default class SessionForm extends React.Component {
                     <button
                         className='country_button'
                         onClick={this.toggleDropdown('country_select_content')}>
-                        United States
+                        {this.state.country}
                     </button>
                     <div id='country_select_content'>
-                        {countries.map(country => country)}
+                        {countries.map((country, index) =>
+                            <button
+                                key={index}
+                                onClick={this.pickDate('country', country)}
+                                style={{ width: '100%' }}>
+                                {country}
+                            </button>
+                        )}
                     </div>
                 </div>
                 <div className='notification_subscription_row'>

@@ -13,7 +13,7 @@ const msp = () => ({
         birthMonth: 'Month',
         birthYear: 'Year',
         gender: undefined,
-        country: undefined
+        country: 'United States'
     }
 })
 const mdp = dispatch => ({
