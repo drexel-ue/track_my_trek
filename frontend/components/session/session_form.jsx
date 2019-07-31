@@ -41,6 +41,8 @@ export default class SessionForm extends React.Component {
             'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
         ]
 
+        const years = [...Array(109).keys()].reverse()
+
         const signupForm =
             <div>
                 <input
@@ -71,11 +73,11 @@ export default class SessionForm extends React.Component {
                         >Day</button>
                         <div id="day_content">
                             {days.map(day =>
-                                <div
+                                <button
                                     key={day}
                                     onClick={this.pickDate('birthDay', day)}>
                                     {day}
-                                </div>
+                                </button>
                             )}
                         </div>
                     </div>
@@ -86,11 +88,11 @@ export default class SessionForm extends React.Component {
                         >Month</button>
                         <div id="month_content">
                             {months.map((month, index) =>
-                                <div
+                                <button
                                     key={index + 1}
                                     onClick={this.pickDate('birthMonth', index + 1)}>
                                     {month}
-                                </div>
+                                </button>
                             )}
                         </div>
                     </div>
@@ -99,9 +101,13 @@ export default class SessionForm extends React.Component {
                             className="dropbtn"
                             onClick={this.toggleDropdown('year_content')}>Year</button>
                         <div id="year_content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            {years.map((year) =>
+                                <button
+                                    key={year}
+                                    onClick={this.pickDate('birthYear', year + 1899)}>
+                                    {year + 1899}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
