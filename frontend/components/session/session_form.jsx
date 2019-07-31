@@ -23,8 +23,9 @@ export default class SessionForm extends React.Component {
         }
     }
 
-    pickDate(field) {
-        return event => this.setState({ [field]: event.target.value })
+    pickDate(field, value) {
+        console.log(value)
+        return () => this.setState({ [field]: value })
     }
 
     render() {
@@ -35,6 +36,10 @@ export default class SessionForm extends React.Component {
                 [4, 6, 9, 11]
                     .includes(this.state.birthMonth) ? [...Array(31).keys()].slice(1) :
                     [...Array(29).keys()].slice(1)
+
+        const months = [
+            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+        ]
 
         const signupForm =
             <div>
@@ -68,7 +73,7 @@ export default class SessionForm extends React.Component {
                             {days.map(day =>
                                 <div
                                     key={day}
-                                    onClick={this.pickDate('birthDay')}>
+                                    onClick={this.pickDate('birthDay', day)}>
                                     {day}
                                 </div>
                             )}
@@ -80,9 +85,13 @@ export default class SessionForm extends React.Component {
                             onClick={this.toggleDropdown('month_content')}
                         >Month</button>
                         <div id="month_content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            {months.map((month, index) =>
+                                <div
+                                    key={index + 1}
+                                    onClick={this.pickDate('birthMonth', index + 1)}>
+                                    {month}
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div id="year_dropdown" className="dropdown">
