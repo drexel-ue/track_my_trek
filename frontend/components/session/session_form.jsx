@@ -17,7 +17,10 @@ export default class SessionForm extends React.Component {
     }
 
     toggleDropdown(field) {
-        document.getElementById(field).classList.toggle("show");
+        return event => {
+            event.preventDefault()
+            document.getElementById(field).classList.toggle('show')
+        }
     }
 
     render() {
@@ -45,25 +48,33 @@ export default class SessionForm extends React.Component {
                     onChange={this.onChange('password')}
                     placeholder='Password' />
                 <div className='date_input_row'>
-                    <div id="day_dropdown" class="dropdown">
-                        <button class="dropbtn">Day</button>
-                        <div class="dropdown_content">
+                    <div id="day_dropdown" className="dropdown">
+                        <button
+                            className="dropbtn"
+                            onClick={this.toggleDropdown('day_content')}
+                        >Day</button>
+                        <div id="day_content">
                             <a href="#">Link 1</a>
                             <a href="#">Link 2</a>
                             <a href="#">Link 3</a>
                         </div>
                     </div>
-                    <div id="month_dropdown" class="dropdown">
-                        <button class="dropbtn">Month</button>
-                        <div class="dropdown_content">
+                    <div id="month_dropdown" className="dropdown">
+                        <button
+                            className="dropbtn"
+                            onClick={this.toggleDropdown('month_content')}
+                        >Month</button>
+                        <div id="month_content">
                             <a href="#">Link 1</a>
                             <a href="#">Link 2</a>
                             <a href="#">Link 3</a>
                         </div>
                     </div>
-                    <div id="year_dropdown" class="dropdown">
-                        <button class="dropbtn">Year</button>
-                        <div class="dropdown_content">
+                    <div id="year_dropdown" className="dropdown">
+                        <button
+                            className="dropbtn"
+                            onClick={this.toggleDropdown('year_content')}>Year</button>
+                        <div id="year_content">
                             <a href="#">Link 1</a>
                             <a href="#">Link 2</a>
                             <a href="#">Link 3</a>
