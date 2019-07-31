@@ -9,11 +9,11 @@ const msp = state => ({
         lastName: '',
         username: '',
         password: '',
-        birthDay: null,
-        birthMonth: null,
-        birthYear: null,
-        gender: null,
-        country: null
+        birthDay: undefined,
+        birthMonth: undefined,
+        birthYear: undefined,
+        gender: undefined,
+        country: undefined
     }
 })
 const mdp = dispatch => ({

@@ -23,7 +23,18 @@ export default class SessionForm extends React.Component {
         }
     }
 
+    pickDate(field) {
+        return event => this.setState({ [field]: event.target.value })
+    }
+
     render() {
+        const days = this.state.birthMonth === undefined ?
+            [...Array(32).keys()].slice(1) :
+            [1, 3, 5, 7, 8, 10, 12]
+                .includes(this.state.birthMonth) ? [...Array(32).keys()].slice(1) :
+                [4, 6, 9, 11]
+                    .includes(this.state.birthMonth) ? [...Array(31).keys()].slice(1) :
+                    [...Array(29).keys()].slice(1)
 
         const signupForm =
             <div>
@@ -54,9 +65,13 @@ export default class SessionForm extends React.Component {
                             onClick={this.toggleDropdown('day_content')}
                         >Day</button>
                         <div id="day_content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            {days.map(day =>
+                                <div
+                                    key={day}
+                                    onClick={this.pickDate('birthDay')}>
+                                    {day}
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div id="month_dropdown" className="dropdown">
