@@ -33,6 +33,13 @@ export default class SessionForm extends React.Component {
         }
     }
 
+    setGender(value) {
+        return event => {
+            event.preventDefault()
+            this.setState({ 'gender': value })
+        }
+    }
+
     pickDate(field, value) {
         return (event) => {
             event.preventDefault()
@@ -83,7 +90,7 @@ export default class SessionForm extends React.Component {
                         <button
                             className="dropbtn"
                             onClick={this.toggleDropdown('day_content')}
-                        >Day</button>
+                        >{this.state.birthDay}</button>
                         <div id="day_content">
                             {days.map(day =>
                                 <button
@@ -98,7 +105,7 @@ export default class SessionForm extends React.Component {
                         <button
                             className="dropbtn"
                             onClick={this.toggleDropdown('month_content')}
-                        >Month</button>
+                        >{months[this.state.birthMonth - 1] || 'Month'}</button>
                         <div id="month_content">
                             {months.map((month, index) =>
                                 <button
@@ -112,7 +119,7 @@ export default class SessionForm extends React.Component {
                     <div id="year_dropdown" className="dropdown">
                         <button
                             className="dropbtn"
-                            onClick={this.toggleDropdown('year_content')}>Year</button>
+                            onClick={this.toggleDropdown('year_content')}>{this.state.birthYear}</button>
                         <div id="year_content">
                             {years.map((year) =>
                                 <button
@@ -132,7 +139,8 @@ export default class SessionForm extends React.Component {
                     </button>
                     <button
                         id='female'
-                        className='gender_button'>
+                        className='gender_button'
+                        onClick={this.setGender('male')}>
                         Female
                     </button>
                 </div>
