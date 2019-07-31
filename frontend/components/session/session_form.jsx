@@ -1,10 +1,12 @@
 import React from 'react'
+import countries from '../consts/countries'
 
 export default class SessionForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.user
         this.submit = this.submit.bind(this)
+        window.addEventListener('click', this.removeShow)
     }
 
     onChange(field) {
@@ -19,18 +21,22 @@ export default class SessionForm extends React.Component {
     toggleDropdown(field) {
         return event => {
             event.preventDefault()
+            event.stopPropagation()
             document.getElementById(field).classList.toggle('show')
+        }
+    }
+
+    removeShow() {
+        const els = document.getElementsByClassName('show')
+        for (let index = 0; index < els.length; index++) {
+            els[index].classList.remove('show')
         }
     }
 
     pickDate(field, value) {
         return (event) => {
             event.preventDefault()
-            console.log('field', field)
-            console.log('value', value)
-            console.log('old state', this.state)
             this.setState({ [field]: value })
-            console.log('new state', this.state)
         }
     }
 
@@ -48,6 +54,7 @@ export default class SessionForm extends React.Component {
         ]
 
         const years = [...Array(109).keys()].reverse()
+
 
         const signupForm =
             <div>
@@ -136,9 +143,7 @@ export default class SessionForm extends React.Component {
                         United States
                     </button>
                     <div id='country_select_content'>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        {countries.map(country => country)}
                     </div>
                 </div>
                 <div className='notification_subscription_row'>
@@ -164,7 +169,6 @@ export default class SessionForm extends React.Component {
         return (
             <form id='session_form'>
                 {signupForm}
-
             </form>
         )
     }
