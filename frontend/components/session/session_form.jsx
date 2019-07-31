@@ -126,7 +126,7 @@ export default class SessionForm extends React.Component {
                 <input
                     type="submit"
                     onClick={this.submit}
-                    class='submit_session_form'
+                    className='submit_session_form'
                     value={this.props.type.toUpperCase()} />
             </form>
         )
