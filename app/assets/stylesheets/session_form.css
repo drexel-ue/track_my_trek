@@ -53,3 +53,28 @@
 #session_form .show {
     display: flex;
 }
+.gender_select_row {
+    display: flex;
+    justify-content: space-between;
+    margin: 1vw 0;
+}
+.gender_select_row button {
+    height: 4vw;
+}
+.gender_select_row #male {
+    width: 47.5%
+}
+.gender_select_row #female {
+    width: 47.5%
+}
+.country_select {
+    position: relative;
+}
+.country_button {
+    width: 100%;
+    height: 4vw
+}
+/* #country_select_content {
+    top: 0;
+    left: auto;
+} */

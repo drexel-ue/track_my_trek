@@ -81,6 +81,30 @@ export default class SessionForm extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div className='gender_select_row'>
+                    <button
+                        id='male'
+                        className='gender_button'>
+                        Male
+                    </button>
+                    <button
+                        id='female'
+                        className='gender_button'>
+                        Female
+                    </button>
+                </div>
+                <div className='country_select'>
+                    <button
+                        className='country_button'
+                        onClick={this.toggleDropdown('country_select_content')}>
+                        United States
+                    </button>
+                    <div id='country_select_content'>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
             </div>
 
         return (
