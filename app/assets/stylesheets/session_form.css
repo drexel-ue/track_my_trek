@@ -74,7 +74,12 @@
     width: 100%;
     height: 4vw
 }
-/* #country_select_content {
-    top: 0;
-    left: auto;
-} */
+.notification_subscription_row {
+    display: flex;
+    align-items: center;
+    font-size: 1.2vw;
+    padding: 1vw 0;
+}
+#session_form .notification_checkbox {
+    height: 2vw;
+}

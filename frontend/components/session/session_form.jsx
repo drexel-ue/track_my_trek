@@ -105,6 +105,14 @@ export default class SessionForm extends React.Component {
                         <a href="#">Link 3</a>
                     </div>
                 </div>
+                <div className='notification_subscription_row'>
+                    <input
+                        type="checkbox"
+                        className='notification_checkbox' />
+                    <div className='notification_speal'>
+                        Yes, I would like to receive by email the latest news, innovation updates, and offers from TrackMyTrel and Hyper Armour.
+                    </div>
+                </div>
             </div>
 
         return (
