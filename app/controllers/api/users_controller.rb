@@ -12,13 +12,16 @@ class Api::UsersController < ApplicationController
             render :show
         else
             @errors = @user.errors.full_messages
-            render :errors
+            render :errors, status: 402
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(
+            :username, :password, :first_name, :last_name,
+            :birth_date, :gender, :country, :subscribed
+        )
     end
 end

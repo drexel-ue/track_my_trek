@@ -5,14 +5,15 @@ import { signup } from '../../actions/session';
 const msp = () => ({
     type: 'signup',
     user: {
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         username: '',
         password: '',
-        birthDay: 'Day',
-        birthMonth: 'Month',
-        birthYear: 'Year',
-        gender: undefined,
+        birth_day: 'Day',
+        birth_month: 'Month',
+        birth_year: 'Year',
+        gender: 'Male',
+        subscribed: false,
         country: 'United States'
     }
 })

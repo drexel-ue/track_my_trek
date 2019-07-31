@@ -48,12 +48,12 @@ export default class SessionForm extends React.Component {
     }
 
     render() {
-        const days = this.state.birthMonth === undefined ?
+        const days = this.state.birth_month === undefined ?
             [...Array(32).keys()].slice(1) :
             [1, 3, 5, 7, 8, 10, 12]
-                .includes(this.state.birthMonth) ? [...Array(32).keys()].slice(1) :
+                .includes(this.state.birth_month) ? [...Array(32).keys()].slice(1) :
                 [4, 6, 9, 11]
-                    .includes(this.state.birthMonth) ? [...Array(31).keys()].slice(1) :
+                    .includes(this.state.birth_month) ? [...Array(31).keys()].slice(1) :
                     [...Array(29).keys()].slice(1)
 
         const months = [
@@ -67,13 +67,13 @@ export default class SessionForm extends React.Component {
             <div>
                 <input
                     type="text"
-                    value={this.state.firstName}
-                    onChange={this.onChange('firstName')}
+                    value={this.state.first_name}
+                    onChange={this.onChange('first_name')}
                     placeholder='First name' />
                 <input
                     type="text"
-                    value={this.state.lastName}
-                    onChange={this.onChange('lastName')}
+                    value={this.state.last_name}
+                    onChange={this.onChange('last_name')}
                     placeholder='Last name' />
                 <input
                     type="email"
@@ -90,12 +90,12 @@ export default class SessionForm extends React.Component {
                         <button
                             className="dropbtn"
                             onClick={this.toggleDropdown('day_content')}
-                        >{this.state.birthDay}</button>
+                        >{this.state.birth_day}</button>
                         <div id="day_content">
                             {days.map(day =>
                                 <button
                                     key={day}
-                                    onClick={this.pickDate('birthDay', day)}>
+                                    onClick={this.pickDate('birth_day', day)}>
                                     {day}
                                 </button>
                             )}
@@ -105,12 +105,12 @@ export default class SessionForm extends React.Component {
                         <button
                             className="dropbtn"
                             onClick={this.toggleDropdown('month_content')}
-                        >{months[this.state.birthMonth - 1] || 'Month'}</button>
+                        >{months[this.state.birth_month - 1] || 'Month'}</button>
                         <div id="month_content">
                             {months.map((month, index) =>
                                 <button
                                     key={index + 1}
-                                    onClick={this.pickDate('birthMonth', index + 1)}>
+                                    onClick={this.pickDate('birth_month', index + 1)}>
                                     {month}
                                 </button>
                             )}
@@ -119,12 +119,12 @@ export default class SessionForm extends React.Component {
                     <div id="year_dropdown" className="dropdown">
                         <button
                             className="dropbtn"
-                            onClick={this.toggleDropdown('year_content')}>{this.state.birthYear}</button>
+                            onClick={this.toggleDropdown('year_content')}>{this.state.birth_year}</button>
                         <div id="year_content">
                             {years.map((year) =>
                                 <button
                                     key={year}
-                                    onClick={this.pickDate('birthYear', year + 1899)}>
+                                    onClick={this.pickDate('birth_year', year + 1899)}>
                                     {year + 1899}
                                 </button>
                             )}
