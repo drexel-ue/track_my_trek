@@ -1,0 +1,52 @@
+#session_form > div {
+    display:flex;
+    flex-direction: column;
+    width: 30vw;
+    margin:auto
+}
+#session_form input {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 4vw;
+    margin: .75vw 0;
+}
+.date_input_row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#day_dropdown {
+    width: 7.5vw;
+    position: relative;
+}
+#day_dropdown button {
+    width: 100%;
+    height: 4vw
+}
+#month_dropdown {
+    width: 12.5vw;
+    position: relative;
+}
+#month_dropdown button {
+    width: 100%;
+    height: 4vw
+}
+#year_dropdown {
+    width: 7.5vw;
+    position: relative;
+}
+#year_dropdown button {
+    width: 100%;
+    height: 4vw
+}
+#session_form .dropdown_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+}
