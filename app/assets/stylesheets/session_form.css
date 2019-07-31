@@ -94,3 +94,12 @@
     width: 30vw;
     margin: 1vw auto;
 }
+#session_form .privacy_and_terms_links {
+    margin: 1vw auto;
+}
+
+#session_form .submit_session_form {
+    height: 4vw;
+    background-color: rgb(29, 221, 124);
+    color: white;
+}

@@ -118,16 +118,17 @@ export default class SessionForm extends React.Component {
                         By signing up with MapMyRun, you agree to our Privacy Policy & Terms of Use.
                     </div>
                 </div>
+                <button
+                    onClick={this.submit}
+                    className='submit_session_form' >
+                    {this.props.type.toUpperCase()}
+                </button>
             </div>
 
         return (
-            <form id='session_form' onSubmit={this.submit}>
+            <form id='session_form'>
                 {signupForm}
-                <input
-                    type="submit"
-                    onClick={this.submit}
-                    className='submit_session_form'
-                    value={this.props.type.toUpperCase()} />
+
             </form>
         )
     }
