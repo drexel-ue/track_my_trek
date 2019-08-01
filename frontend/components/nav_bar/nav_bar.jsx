@@ -10,6 +10,15 @@ export default class NavBar extends React.Component {
         this.loggedIn = this.props.loggedIn
     }
 
+    userCheck() {
+        return (
+            <div className='session_buttons'>
+                <LoginButtonContainer key='login_button' placement='nav' />
+                <SignupButtonContainer key='signup_button' placement='nav' />
+            </div>
+        )
+    }
+
     render() {
         const titles = [
             'Training',
@@ -29,8 +38,7 @@ export default class NavBar extends React.Component {
                         title={title}
                         key={index} />)
                 }
-                <LoginButtonContainer key='login_button' placement='nav' />
-                <SignupButtonContainer key='signup_button' placement='nav' />
+                {this.loggedIn ? '' : this.userCheck()}
             </ul>
         </div>
     }

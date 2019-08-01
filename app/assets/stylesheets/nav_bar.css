@@ -32,13 +32,6 @@
 .overlay {
     display: inline;
 }
-/* #overlay:hover {
-    position: absolute;
-    top: 0;
-    width:100%;
-    height:100%;
-    left: 0;
-    background-color:#000;
-    opacity:0.5;
-    display: block;
-} */
+.session_buttons {
+   display: inline
+}
