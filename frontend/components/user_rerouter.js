@@ -13,7 +13,7 @@ const Arbitrary = (props) => {
     let { userId, component: Component, path } = props
     return < Route
         path={path}
-        render={(props) => !userId ? <Component {...props} /> : <Redirect to="/" />} />
+        render={(props) => !userId ? <Component {...props} /> : <Redirect to="/dashboard" />} />
 }
 
 export default withRouter(connect(msp, mdp)(Arbitrary));
