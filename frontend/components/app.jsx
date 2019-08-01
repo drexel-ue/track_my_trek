@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './nav_bar/nav_bar';
+import NavBarContainer from './nav_bar/nav_bar_container';
 import { Route } from 'react-router-dom';
 import UserRerouter from './user_rerouter'
 import LandingPage from './landing_page';
@@ -10,7 +10,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 const App = () => (
   <div>
     <header>
-      <NavBar />
+      <NavBarContainer />
     </header>
 
     <Route exact path='/' component={LandingPage} />
