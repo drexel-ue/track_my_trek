@@ -4,7 +4,9 @@ import React from 'react'
 export default class TrekCreateMap extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { leftStep: true }
+        this.leftStep = true
+        this.key = '712bf675-0c2c-4c45-9e79-c6b2731f54ad'
+        this.profile
     }
     componentDidMount() {
         const mapOptions = {
@@ -21,14 +23,14 @@ export default class TrekCreateMap extends React.Component {
 
     placeMarkerAndPanTo(latLng, map) {
         let image = {
-            url: this.state.leftStep ?
+            url: this.leftStep ?
                 'https://image.flaticon.com/icons/svg/2/2058.svg'
                 : 'https://image.flaticon.com/icons/svg/1/1390.svg',
             scaledSize: new google.maps.Size(20, 20),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(10, 10)
         }
-        this.setState({ leftStep: !this.state.leftStep })
+        this.leftStep = !this.leftStep
         let marker = new google.maps.Marker({
             position: latLng,
             map: map,
