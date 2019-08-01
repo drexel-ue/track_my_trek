@@ -4,7 +4,7 @@ import SideBar from './trek_create_side_bar'
 
 export default () => {
     return (
-        <div>
+        <div className='trek_create_sidebar'>
             <SideBar />
             <TrekCreateMap />
         </div>

@@ -11,6 +11,13 @@ export default class TrekCreateSearcbar extends React.Component {
             this.setState({ location: event.target.value })
     }
 
+    toggleGeDirections(event) {
+        console.log('dlbbbj')
+        event.preventDefault()
+        event.stopPropagation()
+        document.getElementById('get_directions_div').classList.toggle('show')
+    }
+
     render() {
         const locationInput = field => <input
             type="text"
@@ -24,10 +31,10 @@ export default class TrekCreateSearcbar extends React.Component {
                 {locationInput('location')}
                 <button id='search_button'>Search</button>
                 <button className='expand_button'>X</button>
-                <div id='get_directions_div'>
-                    <div className='hide_div'>
+                <div id='get_directions_div' className='hidden'>
+                    <div className='hide_get_directions_div'>
                         <div>Treking to:</div>
-                        <button>X</button>
+                        <button onClick={this.toggleGeDirections}>X</button>
                     </div>
                     <div className='goint_to_input_row'>
                         {locationInput('goingTo')}
@@ -40,7 +47,7 @@ export default class TrekCreateSearcbar extends React.Component {
                     </div>
                 </div>
                 <div className='show_get_directions'>
-                    <button>Get Directions</button>
+                    <button onClick={this.toggleGeDirections}>Get Directions</button>
                 </div>
             </div>
         )

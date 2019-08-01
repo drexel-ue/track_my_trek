@@ -3,3 +3,16 @@
     height: 52vw;
     width: 76%;
 }
+.trek_create_sidebar {
+    display: flex
+}
+.hide_get_directions_div {
+    display: flex;
+    justify-content: space-between
+}
+.hidden {
+    display: none
+}
+.search_bar .show {
+    display: block
+}
