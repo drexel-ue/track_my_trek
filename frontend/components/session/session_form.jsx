@@ -181,9 +181,28 @@ export default class SessionForm extends React.Component {
                 </button>
             </div>
 
+        const loginForm =
+            <div>
+                <input
+                    type="email"
+                    value={this.state.username}
+                    onChange={this.onChange('username')}
+                    placeholder='Email' />
+                <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange('password')}
+                    placeholder='Password' />
+                <button
+                    onClick={this.submit}
+                    className='submit_session_form' >
+                    {this.props.type.toUpperCase()}
+                </button>
+            </div>
+
         return (
             <form id='session_form'>
-                {signupForm}
+                {this.props.type == 'login' ? loginForm : signupForm}
             </form>
         )
     }
