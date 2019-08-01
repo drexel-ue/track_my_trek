@@ -1,3 +1,12 @@
+<%if current_user%>
+    <script>
+    window.current_user = {
+        'id': <%=current_user.id%>,
+        'username': '<%=current_user.username%>'
+    };
+    </script>
+<%end%>
+
 <div id='root'>
     <img 
     src='https://bloximages.chicago2.vip.townnews.com/ncnewsonline.com/content/tncms/assets/v3/editorial/5/70/570c3871-56b3-5883-b05e-f5963c507a57/54012dc24880f.image.jpg?resize=500%2C657'
