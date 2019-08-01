@@ -6,6 +6,7 @@ import LandingPage from './landing_page';
 import SignupFormContainer from './session/signup_form_conainter'
 import LoginFormContainer from './session/login_form_container'
 import DashboardContainer from './dashboard/dashboard_container';
+import TrekCreate from './trek/trek_create';
 
 const App = () => (
   <div>
@@ -15,7 +16,9 @@ const App = () => (
 
     <Route exact path='/' component={LandingPage} />
 
-    <Route exact path='/dashboard' component={DashboardContainer} />
+    <Route path='/dashboard' component={DashboardContainer} />
+
+    <Route path='/treks/create' component={TrekCreate} />
 
     < UserRerouter path="/login" component={LoginFormContainer} />
     < UserRerouter path="/signup" component={SignupFormContainer} />
