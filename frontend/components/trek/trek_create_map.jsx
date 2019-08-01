@@ -11,17 +11,15 @@ export default class TrekCreateMap extends React.Component {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
 
         this.map.addListener('click', (event) => {
-            placeMarkerAndPanTo(event.latLng, map);
+            this.placeMarkerAndPanTo(event.latLng, this.map);
         });
     }
 
     placeMarkerAndPanTo(latLng, map) {
         let marker = new google.maps.Marker({
             position: latLng,
-            // map: map
+            map: map
         });
-        marker.setMap(map)
-        this.map.panTo(latLng);
     }
 
     render() {
