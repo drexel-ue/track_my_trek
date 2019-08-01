@@ -16,6 +16,7 @@ export default class TrekCreateSearcbar extends React.Component {
         event.preventDefault()
         event.stopPropagation()
         document.getElementById('get_directions_div').classList.toggle('show')
+        document.getElementById('search_button').classList.toggle('hidden')
     }
 
     render() {
