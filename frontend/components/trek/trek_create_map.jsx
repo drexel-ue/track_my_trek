@@ -1,6 +1,5 @@
 
 import React from 'react'
-import bootPrint from '../consts/boot_print'
 
 export default class TrekCreateMap extends React.Component {
     constructor(props) {

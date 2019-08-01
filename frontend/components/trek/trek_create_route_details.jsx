@@ -16,12 +16,12 @@ export default class RouteDetails extends React.Component {
         return (
             <div className='route_details'>
                 <button>Route Details</button>
-                <div>
+                <div id='rout_details_content'>
                     <input
                         type="text"
                         value={this.state.mapName}
                         onChange={this.handleInput}
-                        placeholder='What do we call this map?'
+                        placeholder='Name this map'
                     />
                 </div>
             </div>
