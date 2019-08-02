@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class RouteDirections extends React.Component {
+export default class TrekDirections extends React.Component {
     render() {
         return (
             <div className='route_directions'>

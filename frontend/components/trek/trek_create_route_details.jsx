@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class RouteDetails extends React.Component {
+export default class TrekDetails extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
