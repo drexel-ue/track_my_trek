@@ -38,8 +38,6 @@ export default class TrekCreateMap extends React.Component {
                     })
                 })
 
-                console.log('coords', coords)
-
                 const polyPath = new google.maps.Polyline({
                     path: coords,
                     geodesic: true,
@@ -52,8 +50,9 @@ export default class TrekCreateMap extends React.Component {
 
                 that.props.handleNewSteps(json.paths[0].instructions)
             })
-            .catch(function (err) {
+            .catch(err => {
                 console.error(err.message);
+                that.props.handleErrors([err.message])
             });
         let image = {
             url: this.leftStep ?
