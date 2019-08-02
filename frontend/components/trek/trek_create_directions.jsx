@@ -7,6 +7,11 @@ export default class TrekDirections extends React.Component {
         this.steps = this.props.steps
     }
 
+    // componentDidUpdate() {
+    //     this.steps = this.props.steps
+    //     console.log(this.steps)
+    // }
+
     render() {
         return (
             <div className='route_directions'>
