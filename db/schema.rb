@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_232120) do
+ActiveRecord::Schema.define(version: 2019_08_02_195317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "treks", force: :cascade do |t|
+    t.string "map_name", null: false
+    t.string "activity", null: false
+    t.text "description"
+    t.string "starts_from"
+    t.string "privacy", default: "friends"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_treks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
@@ -27,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_07_31_232120) do
     t.boolean "subscribed"
     t.string "country"
     t.date "birth_date"
+  end
+
+  create_table "waypoint", force: :cascade do |t|
+    t.decimal "lat", precision: 10, scale: 2, null: false
+    t.decimal "lng", precision: 10, scale: 2, null: false
+    t.integer "trek_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trek_id"], name: "index_waypoint_on_trek_id"
   end
 
 end
