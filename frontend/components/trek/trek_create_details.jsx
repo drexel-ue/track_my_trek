@@ -7,11 +7,18 @@ export default class TrekDetails extends React.Component {
             mapName: '',
             activity: '',
         }
+        this.saveRoute = this.saveRoute.bind(this)
     }
 
     handleInput(field) {
         return event =>
             this.setState({ [field]: event.target.value })
+    }
+
+    saveRoute(event) {
+        debugger
+        event.preventDefault()
+        this.props.saveRoute(this.props.waypoints)
     }
 
     render() {
@@ -53,6 +60,9 @@ export default class TrekDetails extends React.Component {
                                 )
                             }
                         </ul>
+                        <button
+                            onClick={this.saveRoute}
+                        >SAVE ROUTE</button>
                     </div>
                 </div>
             </div>

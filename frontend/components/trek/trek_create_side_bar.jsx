@@ -1,6 +1,6 @@
 import React from 'react'
 import TrekCreateSearcbar from './trek_create_searchbar';
-import TrekDetails from './trek_create_details';
+import TrekDetailsContainer from './trek_details_container'
 import TrekDirectionsContainer from './trek_create_directions_container';
 
 export default props => {
@@ -8,7 +8,7 @@ export default props => {
         <div className='create_sidebar'>
             <div>Choose Trek Location</div>
             <TrekCreateSearcbar />
-            <TrekDetails />
+            <TrekDetailsContainer />
             <TrekDirectionsContainer />
         </div>
     )

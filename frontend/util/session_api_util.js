@@ -1,4 +1,4 @@
-export const signup = (userData) => {
+export const signup = userData => {
     const user = {
         first_name: userData.first_name,
         last_name: userData.last_name,
@@ -17,7 +17,7 @@ export const signup = (userData) => {
     })
 };
 
-export const login = (user) => $.ajax({
+export const login = user => $.ajax({
     url: 'api/session',
     method: 'post',
     data: { user }
