@@ -11,7 +11,7 @@
 #
 
 class Waypoint < ApplicationRecord
-    valiates :lat, :lng, :trek_id, presence: true
+    validates :lat, :lng, :trek_id, presence: true
 
     belongs_to :trek
 end
