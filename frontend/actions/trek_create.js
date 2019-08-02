@@ -5,7 +5,4 @@ const receiveSteps = steps => ({
     steps
 })
 
-export const setSteps = steps => dispatch => {
-    debugger
-    dispatch(receiveSteps(steps))
-}
+export const setSteps = steps => dispatch => dispatch(receiveSteps(steps))

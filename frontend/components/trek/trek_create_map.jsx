@@ -26,6 +26,7 @@ export default class TrekCreateMap extends React.Component {
 
     placeMarkerAndPanTo(latLng, map) {
         this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()))
+        const that = this
         if (this.router.points.length > 1) this.router.doRequest()
             .then(function (json) {
                 let coords = []
@@ -49,7 +50,7 @@ export default class TrekCreateMap extends React.Component {
 
                 polyPath.setMap(map);
 
-                // this.props.handleNewSteps(json.paths[0].instructions)
+                that.props.handleNewSteps(json.paths[0].instructions)
             })
             .catch(function (err) {
                 console.error(err.message);
