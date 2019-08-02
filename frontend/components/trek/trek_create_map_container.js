@@ -1,4 +1,4 @@
-import { connect } from 'lodash'
+import { connect } from 'react-redux'
 import { setSteps } from '../../actions/trek_create';
 import TrekCreateMap from './trek_create_map';
 
