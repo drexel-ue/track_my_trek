@@ -14,7 +14,7 @@ export default class TrekCreateMap extends React.Component {
     componentDidMount() {
         const mapOptions = {
             center: { lat: 37.7758, lng: -122.435 },
-            zoom: 13
+            zoom: 15
         };
 
         this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -26,6 +26,14 @@ export default class TrekCreateMap extends React.Component {
 
     placeMarkerAndPanTo(latLng, map) {
         this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()))
+        if (this.router.points.length > 1) this.router.doRequest()
+            .then(function (json) {
+                // Add your own result handling here
+                console.log(json);
+            })
+            .catch(function (err) {
+                console.error(err.message);
+            });
         let image = {
             url: this.leftStep ?
                 'https://image.flaticon.com/icons/svg/2/2058.svg'
