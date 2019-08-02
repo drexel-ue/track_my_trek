@@ -5,8 +5,11 @@ export default class TrekCreateMap extends React.Component {
     constructor(props) {
         super(props)
         this.leftStep = true
-        this.key = '712bf675-0c2c-4c45-9e79-c6b2731f54ad'
-        this.profile
+        this.router = new GraphHopper.Routing({
+            key: '712bf675-0c2c-4c45-9e79-c6b2731f54ad',
+            vehicle: "foot",
+            elevation: false
+        });
     }
     componentDidMount() {
         const mapOptions = {
@@ -22,6 +25,7 @@ export default class TrekCreateMap extends React.Component {
     }
 
     placeMarkerAndPanTo(latLng, map) {
+        this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()))
         let image = {
             url: this.leftStep ?
                 'https://image.flaticon.com/icons/svg/2/2058.svg'
@@ -32,9 +36,10 @@ export default class TrekCreateMap extends React.Component {
         }
         this.leftStep = !this.leftStep
         let marker = new google.maps.Marker({
+            animation: google.maps.Animation.BOUNCE,
             position: latLng,
-            map: map,
-            icon: image
+            icon: image,
+            map
         });
     }
 
