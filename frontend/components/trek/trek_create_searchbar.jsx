@@ -12,7 +12,6 @@ export default class TrekCreateSearcbar extends React.Component {
     }
 
     toggleGeDirections(event) {
-        console.log('dlbbbj')
         event.preventDefault()
         event.stopPropagation()
         document.getElementById('get_directions_div').classList.toggle('show')
