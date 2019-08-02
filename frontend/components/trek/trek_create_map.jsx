@@ -10,6 +10,7 @@ export default class TrekCreateMap extends React.Component {
             vehicle: "foot",
             elevation: false
         });
+        this.state = { waypoints: [] }
     }
     componentDidMount() {
         const mapOptions = {
@@ -68,6 +69,8 @@ export default class TrekCreateMap extends React.Component {
             icon: image,
             map
         });
+        const waypoints = [...this.state.waypoints, { lat: marker.position.lat(), lng: marker.position.lng() }]
+        this.setState({ waypoints })
     }
 
     render() {
