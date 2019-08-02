@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import TrekDirections from './trek_create_directions';
+import RouteDirections from './trek_create_directions';
 
-const msp = ({ steps }) => ({
-    steps
+const msp = ({ entities }) => ({
+    steps: entities.steps
 })
 const mdp = dispatch => ({})
 
-export default connect(msp, mdp)(TrekDirections)
+export default connect(msp, mdp)(RouteDirections)
