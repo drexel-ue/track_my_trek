@@ -71,6 +71,7 @@ export default class TrekCreateMap extends React.Component {
         });
         const waypoints = [...this.state.waypoints, { lat: marker.position.lat(), lng: marker.position.lng() }]
         this.setState({ waypoints })
+        this.props.setWaypoints(this.state.waypoints)
     }
 
     render() {
