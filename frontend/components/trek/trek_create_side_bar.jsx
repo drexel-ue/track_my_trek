@@ -1,6 +1,6 @@
 import React from 'react'
 import TrekCreateSearcbar from './trek_create_searchbar';
-import TrekDetails from './trek_create_route_details';
+import TrekDetails from './trek_create_details';
 import TrekDirectionsContainer from './trek_create_directions_container';
 
 export default props => {
