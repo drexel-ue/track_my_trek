@@ -30,7 +30,6 @@ export default class TrekCreateMap extends React.Component {
         if (this.router.points.length > 1) this.router.doRequest()
             .then(json => {
                 let coords = []
-                console.log(json.paths[0])
                 json.paths[0].points.coordinates.forEach(point => {
                     coords.push({
                         lat: point[1],
