@@ -28,7 +28,7 @@ export default class TrekCreateMap extends React.Component {
         this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()))
         const that = this
         if (this.router.points.length > 1) this.router.doRequest()
-            .then(function (json) {
+            .then(json => {
                 let coords = []
                 console.log(json.paths[0])
                 json.paths[0].points.coordinates.forEach(point => {
