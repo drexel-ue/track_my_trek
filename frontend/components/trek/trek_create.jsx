@@ -1,12 +1,12 @@
 import React from 'react'
-import TrekCreateMap from './trek_create_map'
+import TrekCreateMapContainer from './trek_create_map_container'
 import SideBar from './trek_create_side_bar'
 
 export default () => {
     return (
         <div className='trek_create_sidebar'>
             <SideBar />
-            <TrekCreateMap />
+            <TrekCreateMapContainer />
         </div>
     )
 }

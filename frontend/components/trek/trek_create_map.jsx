@@ -38,7 +38,7 @@ export default class TrekCreateMap extends React.Component {
                         })
                     })
                 })
-                // console.log(coords)
+                // this.props.json.paths[0].instructions
                 const polyPath = new google.maps.Polyline({
                     path: coords,
                     geodesic: true,
