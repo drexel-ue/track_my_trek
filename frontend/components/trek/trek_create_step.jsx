@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default ({ text, distance }) => {
+export default ({ step }) => {
     return (
         <div className='trek_step'>
-            <div>distance</div>
-            <div>text</div>
+            <div>{step.distance}</div>
+            <div>{step.text}</div>
         </div>
     )
 }
