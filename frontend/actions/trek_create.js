@@ -17,4 +17,4 @@ const receiveWaypoints = waypoints => ({
 
 export const setSteps = steps => dispatch => dispatch(receiveSteps(steps))
 export const setErrors = error => dispatch => dispatch(receiveStepsError(error))
-// export const set
+export const setWaypoints = waypoints => dispatch => dispatch(receiveWaypoints(waypoints))
