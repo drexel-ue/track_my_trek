@@ -28,7 +28,7 @@ export default class TrekCreateMap extends React.Component {
         this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()))
         if (this.router.points.length > 1) this.router.doRequest()
             .then(function (json) {
-                // console.log(json)
+                console.log(json)
                 let coords = []
                 json.paths[0].instructions.forEach(inst => {
                     inst.points.forEach(point => {
@@ -38,8 +38,9 @@ export default class TrekCreateMap extends React.Component {
                         })
                     })
                 })
+                // console.log(coords)
                 const polyPath = new google.maps.Polyline({
-                    path: coords.slice(0, coords.length - 1),
+                    path: coords,
                     geodesic: true,
                     strokeColor: '#FF0000',
                     strokeOpacity: 1.0,
