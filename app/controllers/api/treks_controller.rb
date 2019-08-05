@@ -1,14 +1,13 @@
 class Api::TreksController < ApplicationController
     def create
-        data = params[:trek]
+        data = trek_params
         data[:user_id] = current_user.id
-        debugger
         @trek = Trek.new(data)
-        debugger
         if @trek.save
             render :create
         else
             @errors = @trek.errors.full_messages
+            render :errors, status: 400
         end
 
         waypoints = params[:waypoints].values
@@ -16,9 +15,17 @@ class Api::TreksController < ApplicationController
             point[:trek_id] = @trek.id
         end
 
-        debugger
-
         Waypoint.create(waypoints)
+    end
+
+    private
+
+    def trek_params
+        params.require(:trek).permit(:activity, :map_name, :user_id)
+    end
+
+    def waypoint_params
+        params.require(:waypoints).permit(:lat, :lng, :trek_id)
     end
 
 end
