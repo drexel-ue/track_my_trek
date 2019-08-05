@@ -12,7 +12,10 @@ export default class TrekShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchTrek(this.props.match.params.id)
-            .then(response => this.setState({ trek: response.trek }))
+            .then(response => {
+                debugger
+                this.setState({ trek: response.trek })
+            })
     }
 
     navigation() {
@@ -49,26 +52,26 @@ export default class TrekShow extends React.Component {
                     <div className='begins_in_created_by'>
                         <div>
                             <p className='label'>BEGINS IN: </p>
-                            <p className='body'>{this.state.trek.begins_in</p>
-                        </div>
+                            <p className='body'>{this.state.trek.begins_in}</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                )
-            }
-        
+        )
+    }
+
     render() {
         return (
             <div className='trek_show'>
-                    <div className='main_content'>
-                        {this.navigation()}
-                        {this.mapName()}
-                        {this.writtenDeats()}
-                    </div>
+                <div className='main_content'>
+                    {this.navigation()}
+                    {this.mapName()}
+                    {this.writtenDeats()}
+                </div>
 
-                    <div className='sidebar'></div>
-                </div >
-                )
-            }
+                <div className='sidebar'></div>
+            </div >
+        )
+    }
 }

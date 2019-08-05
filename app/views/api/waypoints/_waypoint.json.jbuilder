@@ -1,0 +1,1 @@
+json.extract! waypoint, :lat, :lng

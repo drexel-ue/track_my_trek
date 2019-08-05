@@ -20,6 +20,7 @@ class Api::TreksController < ApplicationController
 
     def show
         @trek = Trek.find(params[:id])
+        @waypoints = Waypoint.where(['trek_id = :id', {id: @trek.id}])
     end
 
     private
