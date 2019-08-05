@@ -12,7 +12,7 @@ export default class TrekShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchTrek(this.props.match.params.id)
-            .then(trek => this.setState({ trek }))
+            .then(response => this.setState({ trek: response.trek }))
     }
 
     navigation() {
@@ -24,6 +24,7 @@ export default class TrekShow extends React.Component {
     }
 
     mapName() {
+        // debugger
         return (
             <div className='map_name'>
                 {this.state.trek.map_name}
@@ -31,23 +32,43 @@ export default class TrekShow extends React.Component {
         )
     }
 
-    render() {
+    writtenDeats() {
         return (
-            <div className='trek_show'>
-                <div className='main_content'>
-                    {this.navigation()}
-                    {this.mapName()}
-                    <div className='distance_and_climb'>
-                        <div className='distance'>
-                            <div>Distance</div>
-                            {this.state.trek.distance}
-                            <p>miles</p>
+            <div className='written_deats'>
+                <div className='distance_and_climb'>
+                    <div className='distance'>
+                        <div>Distance</div>
+                        {this.state.trek.distance}
+                        <p>miles</p>
+                        <div>climb</div>
+                        {this.state.trek.climb}
+                        <p>{this.state.trek.climb}ft</p>
+                    </div>
+                </div>
+                <div className='description'>
+                    <div className='begins_in_created_by'>
+                        <div>
+                            <p className='label'>BEGINS IN: </p>
+                            <p className='body'>{this.state.trek.begins_in</p>
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div className='sidebar'></div>
-            </div >
-        )
-    }
+                )
+            }
+        
+    render() {
+        return (
+            <div className='trek_show'>
+                    <div className='main_content'>
+                        {this.navigation()}
+                        {this.mapName()}
+                        {this.writtenDeats()}
+                    </div>
+
+                    <div className='sidebar'></div>
+                </div >
+                )
+            }
 }
