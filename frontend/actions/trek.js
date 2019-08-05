@@ -34,3 +34,5 @@ export const fetchTrek = id => dispatch =>
             waypoints: dispatch(receiveWaypoints(response.waypoints))
         })
     )
+export const fethLocation = point =>
+    TrekApiUtil.fetchLocation(point).then((response) => console.log(response))

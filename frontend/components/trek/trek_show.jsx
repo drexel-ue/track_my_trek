@@ -12,14 +12,25 @@ export default class TrekShow extends React.Component {
     }
 
     componentDidMount() {
+        let that = this
         this.props.fetchTrek(this.props.match.params.id)
             .then(response =>
                 this.setState({
                     trek: response.trek.trek,
                     waypoints: response.waypoints.waypoints
-                })
+                }, () => this.props.fetchLocation(this.state.waypoints[0])
+                    .then(response => {
+                        const result = response.hits[0]
+                        this.setState({
+                            begins_in: `${result.city}, ${result.state}, ${result.country}`
+                        }, () => console.log(that.state)
+                        )
+                    }
+                    )
+                )
             )
     }
+
 
     navigation() {
         return (
