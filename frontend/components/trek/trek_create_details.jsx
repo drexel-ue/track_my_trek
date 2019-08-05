@@ -1,4 +1,5 @@
 import React from 'react'
+import { merge } from 'lodash'
 
 export default class TrekDetails extends React.Component {
     constructor(props) {
@@ -16,9 +17,9 @@ export default class TrekDetails extends React.Component {
     }
 
     saveRoute(event) {
-        debugger
         event.preventDefault()
-        this.props.saveRoute(this.props.waypoints)
+        // debugger
+        this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
     }
 
     render() {

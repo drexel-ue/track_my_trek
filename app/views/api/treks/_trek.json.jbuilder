@@ -1,0 +1,1 @@
+json.extract! trek, :id, :activity, :map_name

@@ -1,8 +1,14 @@
-export const saveRoute = waypoints => {
-    debugger
-    $.ajax({
-        url: 'api/waypoints',
+export const saveTrek = trekData => {
+
+    return $.ajax({
+        url: 'api/treks',
         method: 'post',
-        data: { waypoints }
+        data: {
+            trek: {
+                map_name: trekData.mapName,
+                activity: trekData.activity
+            },
+            waypoints: trekData.waypoints
+        }
     })
 }
