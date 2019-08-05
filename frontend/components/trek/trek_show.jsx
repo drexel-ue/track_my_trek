@@ -6,16 +6,17 @@ export default class TrekShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            trek: this.props.trek
+            trek: this.props.trek,
+            waypoints: this.props.waypoints
         }
     }
 
     componentDidMount() {
         this.props.fetchTrek(this.props.match.params.id)
-            .then(response => {
-                debugger
-                this.setState({ trek: response.trek })
-            })
+            .then(response => this.setState({
+                trek: response.trek,
+                waypoints: response.waypoints
+            }))
     }
 
     navigation() {
@@ -27,7 +28,6 @@ export default class TrekShow extends React.Component {
     }
 
     mapName() {
-        // debugger
         return (
             <div className='map_name'>
                 {this.state.trek.map_name}

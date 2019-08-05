@@ -10,7 +10,8 @@ const msp = ({ entities }, ownProps) => {
         distance: '"The"'
     }
     return ({
-        trek: entities.treks[ownProps.match.params.id] || defaultTrek
+        trek: entities.treks[ownProps.match.params.id] || defaultTrek,
+        waypoints: entities.waypoints
     })
 }
 const mdp = dispatch => ({

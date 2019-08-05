@@ -28,7 +28,9 @@ export const setWaypoints = waypoints => dispatch => dispatch(receiveWaypoints(w
 export const saveRoute = trekData => dispatch =>
     TrekApiUtil.saveTrek(trekData).then(trek => dispatch(receiveTrek(trek)))
 export const fetchTrek = id => dispatch =>
-    TrekApiUtil.fetchTrek(id).then(response => {
-        dispatch(receiveTrek(response.trek))
-        dispatch(receiveWaypoints(response.waypoints))
-    })
+    TrekApiUtil.fetchTrek(id).then(response => (
+        {
+            trek: dispatch(receiveTrek(response.trek)),
+            waypoints: dispatch(receiveWaypoints(response.waypoints))
+        })
+    )
