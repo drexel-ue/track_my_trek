@@ -1,4 +1,5 @@
 import * as TrekApiUtil from '../util/trek_api_util'
+import { receiveUser } from './session'
 
 export const RECEIVE_STEPS = 'RECEIVE_STEPS'
 export const RECEIVE_STEPS_ERROR = 'RECEIVE_STEPS_ERROR'
@@ -31,7 +32,8 @@ export const fetchTrek = id => dispatch =>
     TrekApiUtil.fetchTrek(id).then(response => (
         {
             trek: dispatch(receiveTrek(response.trek)),
-            waypoints: dispatch(receiveWaypoints(response.waypoints))
+            waypoints: dispatch(receiveWaypoints(response.waypoints)),
+            user: dispatch(receiveUser(response.user))
         })
     )
 export const fethLocation = point =>

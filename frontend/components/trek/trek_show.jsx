@@ -16,7 +16,8 @@ export default class TrekShow extends React.Component {
             .then(response =>
                 this.setState({
                     trek: response.trek.trek,
-                    waypoints: response.waypoints.waypoints
+                    waypoints: response.waypoints.waypoints,
+                    user: response.user.user
                 }, () => this.props.fetchLocation(this.state.waypoints[0])
                     .then(response => {
                         const result = response.hits[0]
