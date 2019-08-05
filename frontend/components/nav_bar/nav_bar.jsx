@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
         this.loggedIn = this.props.loggedIn
     }
 
-    userCheck() {
+    authButtons() {
         return (
             <div className='session_buttons'>
                 <LoginButtonContainer key='login_button' placement='nav' />
@@ -38,7 +38,7 @@ export default class NavBar extends React.Component {
                         title={title}
                         key={index} />)
                 }
-                {this.loggedIn ? '' : this.userCheck()}
+                {this.loggedIn ? '' : this.authButtons()}
             </ul>
         </div>
     }

@@ -35,3 +35,11 @@
 .session_buttons {
    display: inline
 }
+.nav_menu {
+   /* display: inline; */
+   width: 70px;
+}
+/* .nav_menu_button {
+   display: flex;
+   flex-direction: column;
+} */
