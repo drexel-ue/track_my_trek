@@ -8,6 +8,11 @@ export default class TrekDetails extends React.Component {
             mapName: '',
             activity: '',
         }
+        this.router = new GraphHopper.Routing({
+            key: '712bf675-0c2c-4c45-9e79-c6b2731f54ad',
+            vehicle: "foot",
+            elevation: false
+        })
         this.saveRoute = this.saveRoute.bind(this)
     }
 
@@ -17,9 +22,18 @@ export default class TrekDetails extends React.Component {
     }
 
     saveRoute(event) {
+        let that = this
         event.preventDefault()
-        this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
-            .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+        this.props.waypoints.forEach(waypoint => {
+            this.router.addPoint(new GHInput(waypoint.lat, waypoint.lng))
+        })
+        this.router.doRequest()
+            .then(json => {
+                that.setState({ distance: json.paths[0].distance / 160.9344 },
+                    () => this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
+                        .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+                )
+            })
     }
 
     render() {

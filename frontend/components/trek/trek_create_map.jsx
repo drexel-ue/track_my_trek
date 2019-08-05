@@ -9,7 +9,7 @@ export default class TrekCreateMap extends React.Component {
             key: '712bf675-0c2c-4c45-9e79-c6b2731f54ad',
             vehicle: "foot",
             elevation: false
-        });
+        })
         this.state = { waypoints: [] }
     }
     componentDidMount() {
@@ -30,6 +30,7 @@ export default class TrekCreateMap extends React.Component {
         const that = this
         if (this.router.points.length > 1) this.router.doRequest()
             .then(json => {
+                console.log(json)
                 let coords = []
                 json.paths[0].points.coordinates.forEach(point => {
                     coords.push({

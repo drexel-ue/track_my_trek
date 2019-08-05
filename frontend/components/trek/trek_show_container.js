@@ -8,11 +8,14 @@ const msp = ({ entities }, ownProps) => {
     const defaultTrek = {
         map_name: 'hmm...',
         activity: 'hmm...',
-        distance: '"The"'
     }
     return ({
         trek: entities.treks[ownProps.match.params.id] || defaultTrek,
-        waypoints: entities.waypoints
+        waypoints: entities.waypoints,
+        user: {
+            first_name: "test",
+            last_name: "test"
+        }
     })
 }
 const mdp = dispatch => ({

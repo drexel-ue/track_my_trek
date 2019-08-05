@@ -7,25 +7,30 @@ export default class TrekShow extends React.Component {
         super(props)
         this.state = {
             trek: this.props.trek,
-            waypoints: this.props.waypoints
+            waypoints: this.props.waypoints,
+            user: this.props.user
         }
     }
 
     componentDidMount() {
+        let that = this
         this.props.fetchTrek(this.props.match.params.id)
             .then(response =>
                 this.setState({
                     trek: response.trek.trek,
                     waypoints: response.waypoints.waypoints,
                     user: response.user.user
-                }, () => this.props.fetchLocation(this.state.waypoints[0])
-                    .then(response => {
-                        const result = response.hits[0]
-                        this.setState({
-                            begins_in: `${result.city}, ${result.state}, ${result.country}`
-                        })
-                    }
-                    )
+                }, () => {
+                    debugger
+                    this.props.fetchLocation(this.state.waypoints[0])
+                        .then(response => {
+                            const result = response.hits[0]
+                            this.setState({
+                                begins_in: `${result.city}, ${result.state}, ${result.country}`
+                            })
+                        }
+                        )
+                }
                 )
             )
     }
@@ -69,7 +74,7 @@ export default class TrekShow extends React.Component {
                     </div>
                     <div>
                         <p className='label'>CREATED BY: </p>
-                        <p className='body'>{this.state.begins_in}</p>
+                        <p className='body'>{this.state.user.first_name} {this.state.user.last_name}</p>
                     </div>
                 </div>
             </div>
