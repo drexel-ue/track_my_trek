@@ -5,7 +5,14 @@ export default class TrekShow extends React.Component {
 
     constructor(props) {
         super(props)
-        this.trek = this.props.trek
+        this.state = {
+            trek: this.props.trek
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchTrek(this.props.match.params.id)
+            .then(trek => this.setState({ trek }))
     }
 
     navigation() {
@@ -19,7 +26,7 @@ export default class TrekShow extends React.Component {
     mapName() {
         return (
             <div className='map_name'>
-                {this.trek.map_name}
+                {this.state.trek.map_name}
             </div>
         )
     }
@@ -33,7 +40,7 @@ export default class TrekShow extends React.Component {
                     <div className='distance_and_climb'>
                         <div className='distance'>
                             <div>Distance</div>
-                            {this.trek.distance}
+                            {this.state.trek.distance}
                             <p>miles</p>
                         </div>
                     </div>
