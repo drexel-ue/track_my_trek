@@ -18,8 +18,8 @@ export default class TrekDetails extends React.Component {
 
     saveRoute(event) {
         event.preventDefault()
-        // debugger
         this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
+            .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
     }
 
     render() {
