@@ -18,6 +18,10 @@ class Api::TreksController < ApplicationController
         Waypoint.create(waypoints)
     end
 
+    def show
+        @trek = Trek.find(params[:id])
+    end
+
     private
 
     def trek_params
