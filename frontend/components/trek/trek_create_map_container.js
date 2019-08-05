@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setSteps, setErrors, setWaypoints } from '../../actions/trek_create';
+import { setSteps, setErrors, setWaypoints } from '../../actions/trek';
 import TrekCreateMap from './trek_create_map';
 
 const msp = state => ({})

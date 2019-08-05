@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { saveRoute } from '../../actions/trek_create'
+import { saveRoute } from '../../actions/trek'
 import TrekDetails from './trek_create_details';
 
 const msp = ({ entities }) => ({

@@ -1,10 +1,10 @@
 import { merge } from 'lodash'
-import { RECEIVE_CREATE_STEPS } from '../actions/trek_create'
+import { RECEIVE_STEPS } from '../actions/trek'
 
 export default (state = [], action) => {
     Object.freeze(state)
     switch (action.type) {
-        case RECEIVE_CREATE_STEPS:
+        case RECEIVE_STEPS:
             return merge({}, action.steps)
         default:
             return state
