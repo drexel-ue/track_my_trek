@@ -12,7 +12,6 @@ export default class TrekShow extends React.Component {
     }
 
     componentDidMount() {
-        let that = this
         this.props.fetchTrek(this.props.match.params.id)
             .then(response =>
                 this.setState({
@@ -23,8 +22,7 @@ export default class TrekShow extends React.Component {
                         const result = response.hits[0]
                         this.setState({
                             begins_in: `${result.city}, ${result.state}, ${result.country}`
-                        }, () => console.log(that.state)
-                        )
+                        })
                     }
                     )
                 )
@@ -52,21 +50,25 @@ export default class TrekShow extends React.Component {
         return (
             <div className='written_deats'>
                 <div className='distance_and_climb'>
-                    <div className='distance'>
+                    <div className='the_distance'>
                         <div>Distance</div>
                         {this.state.trek.distance}
                         <p>miles</p>
+                    </div>
+                    <div className='the_climb'>
                         <div>climb</div>
                         {this.state.trek.climb}
                         <p>{this.state.trek.climb}ft</p>
                     </div>
                 </div>
                 <div className='description'>
-                    <div className='begins_in_created_by'>
-                        <div>
-                            <p className='label'>BEGINS IN: </p>
-                            <p className='body'>{this.state.trek.begins_in}</p>
-                        </div>
+                    <div>
+                        <p className='label'>BEGINS IN: </p>
+                        <p className='body'>{this.state.begins_in}</p>
+                    </div>
+                    <div>
+                        <p className='label'>CREATED BY: </p>
+                        <p className='body'>{this.state.begins_in}</p>
                     </div>
                 </div>
             </div>

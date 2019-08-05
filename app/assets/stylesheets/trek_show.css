@@ -1,5 +1,33 @@
 .trek_show {
-    width: 845px;
+    display: flex;
+    flex-direction: row;
     border: solid 1px black;
+    width: 845px;
     margin: 0 auto;
+}
+.trek_show .main_content {
+    border: solid 1px black;
+    width: 600px;
+}
+.distance_and_climb {
+    background-color: grey;
+    width: 100px;
+    border: solid 1px black;
+}
+.written_deats {
+    display: flex;
+    flex-direction: row;
+}
+.the_distance {
+}
+.the_climb {
+    border-top: solid 1px black;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+}
+.description > div {
+    display: flex;
+    flex-direction: row;
 }
