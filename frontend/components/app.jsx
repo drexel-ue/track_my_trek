@@ -8,6 +8,7 @@ import LoginFormContainer from './session/login_form_container'
 import DashboardContainer from './dashboard/dashboard_container'
 import TrekShowContainer from './trek/trek_show_container'
 import TrekCreate from './trek/trek_create'
+import NonUserRerouter from './non_user_rerouter';
 
 const App = () => (
   <div>
@@ -18,11 +19,11 @@ const App = () => (
     <Switch>
       <UserRerouter exact={true} path='/' component={LandingPage} />
 
-      <Route path='/dashboard' component={DashboardContainer} />
+      <NonUserRerouter path='/dashboard' component={DashboardContainer} />
 
-      <Route path='/treks/create' component={TrekCreate} />
+      <NonUserRerouter path='/treks/create' component={TrekCreate} />
 
-      <Route path='/treks/:id' component={TrekShowContainer} />
+      <NonUserRerouter path='/treks/:id' component={TrekShowContainer} />
 
       < UserRerouter path="/login" component={LoginFormContainer} />
       < UserRerouter path="/signup" component={SignupFormContainer} />
