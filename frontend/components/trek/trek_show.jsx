@@ -19,6 +19,13 @@ export default class TrekShow extends React.Component {
                     trek: response.trek.trek,
                     waypoints: response.waypoints.waypoints,
                     user: response.user.user
+                }, () => {
+                    const mapOptions = {
+                        center: { lat: 37.7758, lng: -122.435 },
+                        zoom: 15
+                    };
+
+                    this.map = new google.maps.Map(this.mapNode, mapOptions);
                 })
             )
     }
@@ -94,6 +101,10 @@ export default class TrekShow extends React.Component {
         )
     }
 
+    mapView() {
+        return <div id='map_container' ref={map => this.mapNode = map}></div>
+    }
+
     render() {
         return (
             <div className='trek_show'>
@@ -103,6 +114,7 @@ export default class TrekShow extends React.Component {
                     {this.writtenDeats()}
                     {this.privacyAndShare()}
                     {this.actionButtons()}
+                    {this.mapView()}
                 </div>
 
                 <div className='sidebar'></div>

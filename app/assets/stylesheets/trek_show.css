@@ -87,8 +87,12 @@
     color: white;
     padding: 0 10px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    border-bottom: solid 1px #c3c2c2;
 }
 .action_buttons .actions {
     background: #ff8714;
+}
+#map_container {
+    height: 300px;
+    width: 100%;
+    border: solid 1px #c3c2c2;
 }
