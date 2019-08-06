@@ -7,6 +7,9 @@ export default class TrekDetails extends React.Component {
         this.state = {
             mapName: '',
             activity: '',
+            description: undefined,
+            climb: 0,
+            distance: 0
         }
         this.router = new GraphHopper.Routing({
             key: '712bf675-0c2c-4c45-9e79-c6b2731f54ad',
@@ -29,9 +32,16 @@ export default class TrekDetails extends React.Component {
         })
         this.router.doRequest()
             .then(json => {
-                that.setState({ distance: json.paths[0].distance / 160.9344 },
-                    () => this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
-                        .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+                debugger
+                that.setState({
+                    distance: json.paths[0].distance / 160.9344,
+                    climb: json.paths[0].ascend / 160.9344
+                },
+                    () => {
+                        debugger
+                        this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
+                            .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+                    }
                 )
             })
     }
@@ -78,6 +88,12 @@ export default class TrekDetails extends React.Component {
                         <button
                             onClick={this.saveRoute}
                         >SAVE ROUTE</button>
+                        <textarea
+                            cols="30"
+                            rows="10"
+                            placeholder='Describe this Trek'
+                            onChange={this.handleInput('description')}
+                        ></textarea>
                     </div>
                 </div>
             </div>

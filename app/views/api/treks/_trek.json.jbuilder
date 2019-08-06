@@ -1,1 +1,1 @@
-json.extract! trek, :id, :activity, :map_name, :user_id
+json.extract! trek, :id, :activity, :map_name, :user_id, :description

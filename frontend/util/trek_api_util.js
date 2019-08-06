@@ -5,7 +5,8 @@ export const saveTrek = trekData => $.ajax({
         trek: {
             map_name: trekData.mapName,
             activity: trekData.activity,
-            description: trekData.description
+            description: trekData.description,
+            distance: trekData.distance
         },
         waypoints: trekData.waypoints
     }
