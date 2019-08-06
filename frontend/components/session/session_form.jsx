@@ -7,7 +7,6 @@ export default class SessionForm extends React.Component {
         super(props)
         this.state = this.props.user
         this.submit = this.submit.bind(this)
-        window.addEventListener('click', this.removeShow)
     }
 
     onChange(field) {
@@ -21,6 +20,7 @@ export default class SessionForm extends React.Component {
 
     toggleDropdown(field) {
         return event => {
+            this.removeShow()
             event.preventDefault()
             event.stopPropagation()
             document.getElementById(field).classList.toggle('show')
