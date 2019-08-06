@@ -59,7 +59,6 @@ export default class TrekShow extends React.Component {
                             lat: Number.parseFloat(point.lat),
                             lng: Number.parseFloat(point.lng)
                         })
-                        debugger
                     })
 
 
@@ -150,6 +149,8 @@ export default class TrekShow extends React.Component {
     mapView() {
         return <div id='map_container' ref={map => this.mapNode = map}></div>
     }
+
+    elevation() { }
 
     render() {
         return (
