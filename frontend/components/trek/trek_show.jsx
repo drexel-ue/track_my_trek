@@ -46,31 +46,23 @@ export default class TrekShow extends React.Component {
                 <div className='distance_and_climb'>
                     <div className='the_distance'>
                         <div>Distance</div>
-                        {this.state.trek.distance}
-                        <p>miles</p>
+                        <div className='distance_total'>{this.state.trek.distance}</div>
+                        <div>miles</div>
                     </div>
                     <div className='the_climb'>
                         <div>climb</div>
-                        <p>{this.state.trek.climb}ft</p>
+                        <div className='climb_total'>{this.state.trek.climb} ft</div>
                     </div>
                 </div>
                 <div className='description'>
-                    <div>
-                        <p className='label'>BEGINS IN: </p>
-                        <p className='body'>{this.state.trek.begins_in}</p>
-                    </div>
-                    <div>
-                        <p className='label'>CREATED BY: </p>
-                        <p className='body'>{this.state.user.first_name} {this.state.user.last_name}</p>
-                    </div>
-                    <div>
-                        <p className='label'>DESCRIPTION: </p>
-                        <p className='body'>{this.state.trek.description}</p>
-                    </div>
-                    <div>
-                        <p className='label'>TYPE: </p>
-                        <p className='body'>{this.state.trek.activity}</p>
-                    </div>
+                    <div className='label'>BEGINS IN: </div>
+                    <div className='body'>{this.state.trek.begins_in}</div>
+                    <div className='label'>CREATED BY: </div>
+                    <div className='body'><Link>{this.state.user.first_name} {this.state.user.last_name}</Link></div>
+                    <div className='label'>DESCRIPTION: </div>
+                    <div className='body'>{this.state.trek.description}</div>
+                    <div className='label'>TYPE: </div>
+                    <div className='body'>{this.state.trek.activity}</div>
                 </div>
             </div>
 
