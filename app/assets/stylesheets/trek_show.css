@@ -100,3 +100,27 @@
     height: 250px;
     width: 300px;
 }
+.create_box {
+    margin-bottom: 15px;
+    box-shadow: #e0e0e0 2px 2px 0;
+    height: 125px;
+    width: 300px;
+    border: solid 1px #c3c2c2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.create_box button {
+    height: 30px;
+    width: 280px;
+    background: linear-gradient(to bottom, #b6b6b6 5%, #a9a6a6 100%);
+    border-radius: 5px;
+    margin-right: 10px;
+    color: white;
+    padding: 0 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.create_box .workout_button {
+    background: #ff8714;
+}

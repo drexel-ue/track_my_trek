@@ -162,6 +162,16 @@ export default class TrekShow extends React.Component {
         )
     }
 
+    createBox() {
+        return (
+            <div className='create_box'>
+                <button>TRACK A TREK</button>
+                <button>CREATE A COURE</button>
+                <button className='workout_button'>LOG THIS WORKOUT</button>
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className='trek_show'>
@@ -176,6 +186,7 @@ export default class TrekShow extends React.Component {
 
                 <div className='sidebar'>
                     {this.spacerDiv()}
+                    {this.createBox()}
                 </div>
             </div >
         )
