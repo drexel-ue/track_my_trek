@@ -16,7 +16,7 @@ const App = () => (
     </header>
 
     <Switch>
-      <Route exact path='/' component={LandingPage} />
+      <UserRerouter exact={true} path='/' component={LandingPage} />
 
       <Route path='/dashboard' component={DashboardContainer} />
 

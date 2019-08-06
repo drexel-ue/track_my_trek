@@ -10,8 +10,9 @@ const mdp = dispatch => ({
 });
 
 const Arbitrary = (props) => {
-    let { userId, component: Component, path } = props
+    let { userId, component: Component, path, exact } = props
     return < Route
+        exact={exact || false}
         path={path}
         render={(props) => !userId ? <Component {...props} /> : <Redirect to="/dashboard" />} />
 }
