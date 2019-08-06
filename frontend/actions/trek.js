@@ -4,7 +4,8 @@ import { receiveUser } from './session'
 export const RECEIVE_STEPS = 'RECEIVE_STEPS'
 export const RECEIVE_STEPS_ERROR = 'RECEIVE_STEPS_ERROR'
 export const RECEIVE_WAYPOINTS = 'RECEIVE_WAYPOINTS'
-export const RECEIVE_TREK = 'RECEIVE_TREK';
+export const RECEIVE_POINTS = 'RECEIVE_POINTS'
+export const RECEIVE_TREK = 'RECEIVE_TREK'
 
 const receiveSteps = steps => ({
     type: RECEIVE_STEPS,
@@ -17,6 +18,10 @@ const receiveStepsError = error => ({
 const receiveWaypoints = waypoints => ({
     type: RECEIVE_WAYPOINTS,
     waypoints
+})
+const receivePoints = points => ({
+    type: RECEIVE_POINTS,
+    points
 })
 const receiveTrek = trek => ({
     type: RECEIVE_TREK,
@@ -33,7 +38,7 @@ export const fetchTrek = id => dispatch =>
         {
             trek: dispatch(receiveTrek(response.trek)),
             waypoints: dispatch(receiveWaypoints(response.waypoints)),
-            points: dispatch(receiveWaypoints(response.points)),
+            points: dispatch(receivePoints(response.points)),
             user: dispatch(receiveUser(response.user))
         })
     )
