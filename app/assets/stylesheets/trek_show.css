@@ -12,7 +12,7 @@
 }
 .distance_and_climb {
     background: linear-gradient(to bottom, #f6f4f4 0, #fbf9f9 100%);
-    width: 185px;
+    width: 145px;
     height: fit-content;
     border: 1px solid #c3c2c2;
     color: #999999;
@@ -53,9 +53,11 @@
     font-size: inherit;
 }
 .description {
+    width: 24pc;
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-gap: 10px;
+    grid-row-gap: 4ch;
     grid-auto-rows: minmax(auto, auto);
 }
 
