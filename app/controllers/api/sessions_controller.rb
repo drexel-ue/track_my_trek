@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
             login(@user)
             render :create
         else
-            @errors = ['Please check username or credentials fool']
+            @errors = ['Please review the form and submit again']
             render :errors, status: 400
         end
     end
@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
             logout!    
             render :destroy
         else
-            @errors = ["Ain't nobody logged in"]
+            @errors = ['No one is logged in']
             render :errors, status: 422
         end
     end

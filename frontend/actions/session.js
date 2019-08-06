@@ -22,15 +22,17 @@ export const signup = userData => dispatch =>
     SessionUtil.signup(userData)
         .then(user => dispatch(receiveUser(user)),
             error =>
-                dispatch(receiveErrors(error.responseJSON.errors))
+                alert(error.responseJSON.errors.join(' / '))
         );
+// dispatch(receiveErrors(error.responseJSON.errors))
 
 export const login = userData => dispatch =>
     SessionUtil.login(userData)
         .then(user => dispatch(receiveUser(user)),
             error =>
-                dispatch(receiveErrors(error.responseJSON.errors))
+                alert(error.responseJSON.errors)
         );
+// dispatch(receiveErrors(error.responseJSON.errors))
 
 export const logout = () => dispatch =>
     SessionUtil.logout()
