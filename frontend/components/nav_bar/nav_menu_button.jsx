@@ -8,6 +8,7 @@ export default class NavMenuButton extends React.Component {
     toggleContents(toggle) {
         return (event) => {
             event.preventDefault()
+            event.stopPropagation()
             const element = document.getElementById('nav_menu_contents')
             toggle == SHOW ?
                 element.classList.remove('hide') :
@@ -24,22 +25,40 @@ export default class NavMenuButton extends React.Component {
             'Logout'
         ]
 
+        const actions = [
+            () => { },
+            () => { },
+            () => { },
+            () => { },
+            this.props.logout
+        ]
+
         return (
-            <div className='nav_menu'>
+            <div
+                className='nav_menu'
+                onMouseOver={this.toggleContents(SHOW)}
+                onMouseLeave={this.toggleContents(HIDE)}
+            >
                 <div
                     id='nav_menu_button'
-                    onMouseOver={this.toggleContents(SHOW)}
-                    onMouseLeave={this.toggleContents(HIDE)}>
+                >
                     <button
                         className='profile_pic'>
                         pic
                 </button>
-                    <div id='nav_menu_contents' className='hide'>
+                    <div
+                        id='nav_menu_contents'
+                        className='hide'
+                    >
                         <ul>
                             {
                                 options.map((option, index) => (
                                     <li key={index}>
-                                        <button>{option}</button>
+                                        <button
+                                            onClick={actions[index]}
+                                        >
+                                            {option}
+                                        </button>
                                     </li>
                                 ))
                             }
