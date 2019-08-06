@@ -4,6 +4,16 @@
     height: -webkit-fill-available;
     color: #222628;
 }
+#session_form_container {
+    font-size: 14px;
+    background-color: #F0F0F0;
+    height: -webkit-fill-available;
+    color: #222628;
+}
+#session_form .link_to_other {
+    align-self: flex-end;
+    margin-top: 10px;
+}
 #session_form > div {
     display:flex;
     flex-direction: column;

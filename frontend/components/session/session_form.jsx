@@ -1,5 +1,6 @@
 import React from 'react'
 import countries from '../consts/countries'
+import { Link } from 'react-router-dom'
 
 export default class SessionForm extends React.Component {
     constructor(props) {
@@ -65,6 +66,11 @@ export default class SessionForm extends React.Component {
 
         const signupForm =
             <div>
+                <Link
+                    to={this.props.type == 'login' ? '/signup' : '/login'}
+                    className='link_to_other'>
+                    {this.props.type == 'login' ? 'SIGNUP' : 'LOGIN'}
+                </Link>
                 <input
                     type="text"
                     value={this.state.first_name}
@@ -183,6 +189,11 @@ export default class SessionForm extends React.Component {
 
         const loginForm =
             <div>
+                <Link
+                    to={this.props.type == 'login' ? '/signup' : '/login'}
+                    className='link_to_other'>
+                    {this.props.type == 'login' ? 'SIGNUP' : 'LOGIN'}
+                </Link>
                 <input
                     type="email"
                     value={this.state.username}
@@ -202,6 +213,7 @@ export default class SessionForm extends React.Component {
 
         return (
             <form id='session_form'>
+
                 {this.props.type == 'login' ? loginForm : signupForm}
             </form>
         )
