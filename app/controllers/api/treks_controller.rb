@@ -32,7 +32,7 @@ class Api::TreksController < ApplicationController
         @trek = Trek.find(params[:id])
         @user = User.find(@trek.user_id)
         @waypoints = Waypoint.where(['trek_id = :id', {id: @trek.id}])
-        @points = Waypoint.where(['trek_id = :id', {id: @trek.id}])
+        @points = Point.where(['trek_id = :id', {id: @trek.id}])
     end
 
     private

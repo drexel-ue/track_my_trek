@@ -30,7 +30,6 @@ export default class TrekCreateMap extends React.Component {
         const that = this
         if (this.router.points.length > 1) this.router.doRequest()
             .then(json => {
-                debugger
                 let coords = []
                 json.paths[0].points.coordinates.forEach(point => {
                     coords.push({
@@ -38,6 +37,8 @@ export default class TrekCreateMap extends React.Component {
                         lng: point[0]
                     })
                 })
+
+                that.setState({ points: coords })
 
                 const polyPath = new google.maps.Polyline({
                     path: coords,
@@ -73,6 +74,7 @@ export default class TrekCreateMap extends React.Component {
         const waypoints = [...this.state.waypoints, { lat: marker.position.lat(), lng: marker.position.lng() }]
         this.setState({ waypoints })
         this.props.setWaypoints(this.state.waypoints)
+        this.props.setPoints(this.state.points)
     }
 
     render() {

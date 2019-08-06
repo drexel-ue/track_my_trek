@@ -12,7 +12,7 @@ const msp = ({ entities }, ownProps) => {
     return ({
         trek: entities.treks[ownProps.match.params.id] || defaultTrek,
         waypoints: entities.waypoints,
-        waypoints: entities.points,
+        points: entities.points,
         user: {
             first_name: "test",
             last_name: "test"

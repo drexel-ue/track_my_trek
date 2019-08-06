@@ -8,6 +8,7 @@ export default class TrekShow extends React.Component {
         this.state = {
             trek: this.props.trek,
             waypoints: this.props.waypoints,
+            points: this.props.points,
             user: this.props.user
         }
     }
@@ -18,14 +19,15 @@ export default class TrekShow extends React.Component {
                 this.setState({
                     trek: response.trek.trek,
                     waypoints: response.waypoints.waypoints,
+                    points: response.points.points,
                     user: response.user.user
                 }, () => {
                     const mapOptions = {
                         center: {
-                            lat: Number.parseFloat(this.state.waypoints[0].lat),
-                            lng: Number.parseFloat(this.state.waypoints[0].lng)
+                            lat: Number.parseFloat(this.state.points[Math.round(((this.state.points.length - 1) / 2))].lat),
+                            lng: Number.parseFloat(this.state.points[Math.round(((this.state.points.length - 1) / 2))].lng)
                         },
-                        zoom: 15
+                        zoom: 14
                     };
 
                     this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -34,10 +36,7 @@ export default class TrekShow extends React.Component {
                     let leftStep = false
                     let that = this
 
-
-
-
-                    this.state.waypoints.forEach(point => {
+                    this.state.waypoints.forEach(waypoint => {
                         let image = {
                             url: leftStep ?
                                 'https://image.flaticon.com/icons/svg/2/2058.svg'
@@ -52,13 +51,15 @@ export default class TrekShow extends React.Component {
                         new google.maps.Marker({
                             animation: google.maps.Animation.BOUNCE,
                             position: {
-                                lat: Number.parseFloat(point.lat),
-                                lng: Number.parseFloat(point.lng)
+                                lat: Number.parseFloat(waypoint.lat),
+                                lng: Number.parseFloat(waypoint.lng)
                             },
                             icon: image,
                             map: that.map
                         })
+                    })
 
+                    this.state.points.forEach(point => {
                         coords.push({
                             lat: Number.parseFloat(point.lat),
                             lng: Number.parseFloat(point.lng)

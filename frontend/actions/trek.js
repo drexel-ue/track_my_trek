@@ -31,6 +31,7 @@ const receiveTrek = trek => ({
 export const setSteps = steps => dispatch => dispatch(receiveSteps(steps))
 export const setErrors = error => dispatch => dispatch(receiveStepsError(error))
 export const setWaypoints = waypoints => dispatch => dispatch(receiveWaypoints(waypoints))
+export const setPoints = points => dispatch => dispatch(receivePoints(points))
 export const saveRoute = trekData => dispatch =>
     TrekApiUtil.saveTrek(trekData).then(trek => dispatch(receiveTrek(trek)))
 export const fetchTrek = id => dispatch =>
