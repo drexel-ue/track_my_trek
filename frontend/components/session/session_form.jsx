@@ -172,12 +172,12 @@ export default class SessionForm extends React.Component {
                         type="checkbox"
                         className='notification_checkbox' />
                     <div className='notification_speal'>
-                        Yes, I would like to receive by email the latest news, innovation updates, and offers from TrackMyTrel and Hyper Armour.
+                        Yes, I would like to receive by email the latest news, innovation updates, and offers from TrackMyTrek and Good Vibes.
                     </div>
                 </div>
                 <div className='privacy_and_terms_links'>
                     <div>
-                        By signing up with MapMyRun, you agree to our Privacy Policy & Terms of Use.
+                        By signing up with TrackMyTrek, you agree to our Privacy Policy & Terms of Use.
                     </div>
                 </div>
                 <button
