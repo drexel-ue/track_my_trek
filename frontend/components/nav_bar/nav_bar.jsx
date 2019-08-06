@@ -3,6 +3,7 @@ import HomeButton from './home_button'
 import LoginButtonContainer from './login_button_container'
 import SignupButtonContainer from './signup_button_container'
 import NavBarItemContainer from './nav_bar_item_container'
+import NavMenuButtonContainer from './nav_menu_button_container';
 
 export default class NavBar extends React.Component {
     constructor(props) {
@@ -38,7 +39,7 @@ export default class NavBar extends React.Component {
                         title={title}
                         key={index} />)
                 }
-                {this.loggedIn ? '' : this.authButtons()}
+                {this.loggedIn ? <NavMenuButtonContainer /> : this.authButtons()}
             </ul>
         </div>
     }

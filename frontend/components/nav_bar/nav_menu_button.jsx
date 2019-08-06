@@ -1,6 +1,20 @@
 import React from 'react'
 
+const SHOW = 'SHOW'
+const HIDE = 'HIDE'
+
 export default class NavMenuButton extends React.Component {
+
+    toggleContents(toggle) {
+        return (event) => {
+            event.preventDefault()
+            const element = document.getElementById('nav_menu_contents')
+            toggle == SHOW ?
+                element.classList.remove('hide') :
+                element.classList.add('hide')
+        }
+    }
+
     render() {
         const options = [
             'Friends',
@@ -12,12 +26,15 @@ export default class NavMenuButton extends React.Component {
 
         return (
             <div className='nav_menu'>
-                <div className='nav_menu_button'>
+                <div
+                    id='nav_menu_button'
+                    onMouseOver={this.toggleContents(SHOW)}
+                    onMouseLeave={this.toggleContents(HIDE)}>
                     <button
                         className='profile_pic'>
                         pic
                 </button>
-                    <div className='nav_menu_contents'>
+                    <div id='nav_menu_contents' className='hide'>
                         <ul>
                             {
                                 options.map((option, index) => (
