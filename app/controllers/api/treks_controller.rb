@@ -3,8 +3,9 @@ class Api::TreksController < ApplicationController
         data = trek_params
         data[:user_id] = current_user.id
         distance = data[:distance]
+        climb = data[:climb]
         date =  Date.today()
-        data[:description] ||= "This is a #{distance} mi route in Cleveland, OH, United States. The route has a total ascent of 14.02 ft and has a maximum elevation of 703.18 ft. This route was created by #{current_user.first_name} #{current_user.last_name} on #{date}."
+        data[:description] ||= "This is a #{distance} mi route in Cleveland, OH, United States. The route has a total ascent of #{climb} ft. This route was created by #{current_user.first_name} #{current_user.last_name} on #{date}."
         @trek = Trek.new(data)
         if @trek.save
             render :create
@@ -30,7 +31,7 @@ class Api::TreksController < ApplicationController
     private
 
     def trek_params
-        params.require(:trek).permit(:activity, :map_name, :user_id, :description, :distance)
+        params.require(:trek).permit(:activity, :map_name, :user_id, :description, :distance, :climb)
     end
 
     def waypoint_params

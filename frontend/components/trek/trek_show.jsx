@@ -21,17 +21,8 @@ export default class TrekShow extends React.Component {
                     user: response.user.user
                 }, () => {
                     // debugger
-                    this.props.fetchLocation(this.state.waypoints[0])
-                        .then(response => {
-                            // debugger
-                            const result = response.hits[0]
-                            this.setState({
-                                begins_in: `${result.city}, ${result.state}, ${result.country}`
-                            })
-                        }
-                        )
-                }
-                )
+
+                })
             )
     }
 

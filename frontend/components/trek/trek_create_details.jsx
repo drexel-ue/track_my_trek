@@ -9,7 +9,8 @@ export default class TrekDetails extends React.Component {
             activity: '',
             description: undefined,
             climb: 0,
-            distance: 0
+            distance: 0,
+            beginsIn: ''
         }
         this.router = new GraphHopper.Routing({
             key: '712bf675-0c2c-4c45-9e79-c6b2731f54ad',
@@ -35,12 +36,21 @@ export default class TrekDetails extends React.Component {
                 debugger
                 that.setState({
                     distance: json.paths[0].distance / 160.9344,
-                    climb: json.paths[0].ascend / 160.9344
+                    climb: json.paths[0].ascend * 3.281
+
                 },
                     () => {
                         debugger
-                        this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
-                            .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+                        this.props.fetchLocation(this.props.waypoints[0])
+                            .then(response => {
+                                // debugger
+                                const result = response.hits[0]
+                                this.setState({
+                                    beginsIn: `${result.city}, ${result.state}, ${result.country}`
+                                }, () => this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
+                                    .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) }))
+                            })
+
                     }
                 )
             })
