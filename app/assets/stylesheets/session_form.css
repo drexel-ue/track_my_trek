@@ -1,10 +1,13 @@
 #session_form {
-    font-size: 1.2vw;
+    font-size: 14px;
+    background-color: #F0F0F0;
+    height: -webkit-fill-available;
+    color: #222628;
 }
 #session_form > div {
     display:flex;
     flex-direction: column;
-    width: 30vw;
+    width: 320px;
     margin:auto
 }
 #session_form input {
@@ -12,8 +15,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 4vw;
+    height: 44px;
     margin: .75vw 0;
+    background-color: transparent;
+    border: solid 1px #D3D6DC;
+}
+#session_form button {
+    height: 43px;
+    background-color: transparent;
 }
 .date_input_row {
     display: flex;
@@ -21,28 +30,25 @@
     justify-content: space-between;
 }
 #day_dropdown {
-    width: 7.5vw;
+    width: 27%;
     position: relative;
 }
 #day_dropdown button {
     width: 100%;
-    height: 4vw
 }
 #month_dropdown {
-    width: 12.5vw;
+    width: 35%;
     position: relative;
 }
 #month_dropdown button {
     width: 100%;
-    height: 4vw
 }
 #year_dropdown {
-    width: 7.5vw;
+    width: 27%;
     position: relative;
 }
 #year_dropdown button {
     width: 100%;
-    height: 4vw
 }
 #session_form [id*='_content'] {
     display: none;
@@ -65,9 +71,6 @@
     justify-content: space-between;
     margin: 1vw 0;
 }
-.gender_select_row button {
-    height: 4vw;
-}
 .gender_select_row #male {
     width: 47.5%
 }
@@ -79,7 +82,6 @@
 }
 .country_button {
     width: 100%;
-    height: 4vw
 }
 .notification_subscription_row {
     display: flex;
@@ -95,7 +97,7 @@
     margin: auto;
 }
 #session_form .submit_session_form {
-    width: 30vw;
+    width: 100%;
     margin: 1vw auto;
 }
 #session_form .privacy_and_terms_links {
@@ -103,7 +105,6 @@
 }
 
 #session_form .submit_session_form {
-    height: 4vw;
     background-color: rgb(29, 221, 124);
     color: white;
 }
