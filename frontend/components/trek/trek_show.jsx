@@ -152,6 +152,12 @@ export default class TrekShow extends React.Component {
 
     elevation() { }
 
+    spacerDiv() {
+        return (
+            <div className='spacer_div'></div>
+        )
+    }
+
     render() {
         return (
             <div className='trek_show'>
@@ -164,7 +170,9 @@ export default class TrekShow extends React.Component {
                     {this.mapView()}
                 </div>
 
-                <div className='sidebar'></div>
+                <div className='sidebar'>
+                    {this.spacerDiv()}
+                </div>
             </div >
         )
     }
