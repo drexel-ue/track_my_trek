@@ -19,14 +19,20 @@ class Api::TreksController < ApplicationController
         waypoints.each do |point|
             point[:trek_id] = @trek.id
         end
-
         Waypoint.create(waypoints)
+
+        points = params[:points].values
+        points.each do |point|
+            point[:trek_id] = @trek.id
+        end
+        Point.create(points)
     end
 
     def show
         @trek = Trek.find(params[:id])
         @user = User.find(@trek.user_id)
         @waypoints = Waypoint.where(['trek_id = :id', {id: @trek.id}])
+        @points = Waypoint.where(['trek_id = :id', {id: @trek.id}])
     end
 
     private
@@ -38,6 +44,10 @@ class Api::TreksController < ApplicationController
 
     def waypoint_params
         params.require(:waypoints).permit(:lat, :lng, :trek_id)
+    end
+
+    def point_params
+        params.require(:points).permit(:lat, :lng, :trek_id)
     end
 
 end
