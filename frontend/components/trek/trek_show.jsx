@@ -82,7 +82,17 @@ export default class TrekShow extends React.Component {
         )
     }
 
-    actionButtons() { }
+    actionButtons() {
+        return (
+            <div className='action_buttons'>
+                <button className='actions'>ACTIONS</button>
+                <button>PRINT</button>
+                <button>SEND TO PHONE</button>
+                <button>{/*TODO:STAR*/} BOOKMARK</button>
+                <button>EDIT</button>
+            </div>
+        )
+    }
 
     render() {
         return (
@@ -92,7 +102,7 @@ export default class TrekShow extends React.Component {
                     {this.mapName()}
                     {this.writtenDeats()}
                     {this.privacyAndShare()}
-
+                    {this.actionButtons()}
                 </div>
 
                 <div className='sidebar'></div>

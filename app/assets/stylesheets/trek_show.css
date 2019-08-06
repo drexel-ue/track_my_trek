@@ -75,3 +75,20 @@
     width: fit-content;
     margin-left: auto;
 }
+.action_buttons {
+    padding: 10px 0px 10px 20px;
+    border-bottom: solid 1px #c3c2c2;
+}
+.action_buttons button {
+    height: 40px;
+    background: linear-gradient(to bottom, #b6b6b6 5%, #a9a6a6 100%);
+    border-radius: 5px;
+    margin-right: 10px;
+    color: white;
+    padding: 0 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    border-bottom: solid 1px #c3c2c2;
+}
+.action_buttons .actions {
+    background: #ff8714;
+}
