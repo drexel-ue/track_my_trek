@@ -36,5 +36,4 @@ export const fetchTrek = id => dispatch =>
             user: dispatch(receiveUser(response.user))
         })
     )
-export const fethLocation = point =>
-    TrekApiUtil.fetchLocation(point).then((response) => console.log(response))
+export const fethLocation = point => TrekApiUtil.fetchLocation(point)

@@ -19,9 +19,6 @@ export default class TrekShow extends React.Component {
                     trek: response.trek.trek,
                     waypoints: response.waypoints.waypoints,
                     user: response.user.user
-                }, () => {
-                    // debugger
-
                 })
             )
     }

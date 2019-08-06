@@ -33,17 +33,14 @@ export default class TrekDetails extends React.Component {
         })
         this.router.doRequest()
             .then(json => {
-                debugger
                 that.setState({
                     distance: json.paths[0].distance / 160.9344,
                     climb: json.paths[0].ascend * 3.281
 
                 },
                     () => {
-                        debugger
                         this.props.fetchLocation(this.props.waypoints[0])
                             .then(response => {
-                                // debugger
                                 const result = response.hits[0]
                                 this.setState({
                                     beginsIn: `${result.city}, ${result.state}, ${result.country}`
