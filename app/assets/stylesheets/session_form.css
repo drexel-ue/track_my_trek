@@ -1,5 +1,4 @@
 #session_form {
-    font-size: 14px;
     background-color: #F0F0F0;
     height: -webkit-fill-available;
     color: #9297A3;
@@ -28,10 +27,15 @@
     margin: .75vw 0;
     background-color: transparent;
     border: solid 1px #D3D6DC;
+    font-size: 14px;
+    color: #9297A3;
 }
 #session_form button {
     height: 43px;
     background-color: transparent;
+    font-size: 14px;
+    color: #9297A3;
+
 }
 .date_input_row {
     display: flex;
@@ -96,6 +100,7 @@
     display: flex;
     align-items: center;
     padding: 1vw 0;
+    color: black;
 }
 #session_form .notification_checkbox {
     height: 2vw;
