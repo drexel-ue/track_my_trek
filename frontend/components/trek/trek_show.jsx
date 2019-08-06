@@ -21,11 +21,57 @@ export default class TrekShow extends React.Component {
                     user: response.user.user
                 }, () => {
                     const mapOptions = {
-                        center: { lat: 37.7758, lng: -122.435 },
+                        center: {
+                            lat: Number.parseFloat(this.state.waypoints[0].lat),
+                            lng: Number.parseFloat(this.state.waypoints[0].lng)
+                        },
                         zoom: 15
                     };
 
                     this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+                    let coords = []
+                    let leftStep = false
+                    let that = this
+                    this.state.waypoints.forEach(point => {
+                        let image = {
+                            url: leftStep ?
+                                'https://image.flaticon.com/icons/svg/2/2058.svg'
+                                : 'https://image.flaticon.com/icons/svg/1/1390.svg',
+                            scaledSize: new google.maps.Size(20, 20),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(10, 10)
+                        }
+
+                        leftStep = !leftStep
+
+                        new google.maps.Marker({
+                            animation: google.maps.Animation.BOUNCE,
+                            position: {
+                                lat: Number.parseFloat(point.lat),
+                                lng: Number.parseFloat(point.lng)
+                            },
+                            icon: image,
+                            map: that.map
+                        })
+
+                        coords.push({
+                            lat: Number.parseFloat(point.lat),
+                            lng: Number.parseFloat(point.lng)
+                        })
+                        debugger
+                    })
+
+
+                    const polyPath = new google.maps.Polyline({
+                        path: coords,
+                        geodesic: true,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+
+                    polyPath.setMap(that.map);
                 })
             )
     }
