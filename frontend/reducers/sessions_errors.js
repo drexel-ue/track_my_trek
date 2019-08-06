@@ -4,7 +4,7 @@ import {
 import { merge } from 'lodash';
 
 
-const defaultState = { errors: [] };
+const defaultState = [];
 
 export default (state = defaultState, action) => {
     Object.freeze(state);
@@ -13,7 +13,7 @@ export default (state = defaultState, action) => {
         case RECEIVE_USER:
             return defaultState;
         case RECEIVE_SESSION_ERRORS:
-                return merge({}, state, action.errors);
+            return merge([], action.errors);
         default:
             return state;
     }
