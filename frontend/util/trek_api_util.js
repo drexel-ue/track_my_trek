@@ -10,7 +10,8 @@ export const saveTrek = trekData => $.ajax({
             begins_in: trekData.beginsIn,
             climb: trekData.climb
         },
-        waypoints: trekData.waypoints
+        waypoints: trekData.waypoints,
+        points: trekData.points
     }
 })
 

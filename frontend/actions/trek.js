@@ -33,6 +33,7 @@ export const fetchTrek = id => dispatch =>
         {
             trek: dispatch(receiveTrek(response.trek)),
             waypoints: dispatch(receiveWaypoints(response.waypoints)),
+            points: dispatch(receiveWaypoints(response.points)),
             user: dispatch(receiveUser(response.user))
         })
     )

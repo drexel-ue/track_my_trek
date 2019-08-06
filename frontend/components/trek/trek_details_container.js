@@ -5,7 +5,8 @@ import { fetchLocation } from '../../util/trek_api_util';
 import TrekDetails from './trek_create_details'
 
 const msp = ({ entities }) => ({
-    waypoints: entities.waypoints
+    waypoints: entities.waypoints,
+    points: entities.points
 })
 const mdp = dispatch => ({
     saveRoute: waypoints => dispatch(saveRoute(waypoints)),
