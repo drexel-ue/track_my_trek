@@ -7,6 +7,7 @@ const msp = ({ entities }, ownProps) => {
     const defaultTrek = {
         map_name: 'hmm...',
         activity: 'hmm...',
+        privacy: 'hmm...'
     }
     return ({
         trek: entities.treks[ownProps.match.params.id] || defaultTrek,

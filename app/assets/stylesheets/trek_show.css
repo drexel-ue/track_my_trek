@@ -30,9 +30,6 @@
     align-items: center;
     padding: 10px;
 }
-.the_distance div {
-
-}
 .the_climb {
     border-top: 1px solid #c3c2c2;
     display: flex;
@@ -40,9 +37,6 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-}
-.the_climb div {
-    
 }
 .distance_total {
     color: black;
@@ -68,4 +62,16 @@
     font-size: 25px;
     padding: 10px 0;
     border-bottom: solid 1px #c3c2c2;
+}
+.privacy_and_share {
+    color: #999999;
+    padding: 10px 0;
+    border-bottom: solid 1px #c3c2c2;
+}
+.privacy {
+    padding-left: 20px
+}
+.share {
+    width: fit-content;
+    margin-left: auto;
 }
