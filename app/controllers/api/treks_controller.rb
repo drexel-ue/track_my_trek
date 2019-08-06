@@ -2,8 +2,8 @@ class Api::TreksController < ApplicationController
     def create
         data = trek_params
         data[:user_id] = current_user.id
-        distance = data[:distance]
-        climb = data[:climb]
+        distance = data[:distance].to_d.round(2)
+        climb = data[:climb].to_d.round(2)
         begins_in = data[:begins_in]
         date =  Date.today()
         data[:description] ||= "This is a #{distance} mi route in #{begins_in}. The route has a total ascent of #{climb} ft. This route was created by #{current_user.first_name} #{current_user.last_name} on #{date}."

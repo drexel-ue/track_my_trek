@@ -7,7 +7,8 @@ export const saveTrek = trekData => $.ajax({
             activity: trekData.activity,
             description: trekData.description,
             distance: trekData.distance,
-            begins_in: trekData.beginsIn
+            begins_in: trekData.beginsIn,
+            climb: trekData.climb
         },
         waypoints: trekData.waypoints
     }

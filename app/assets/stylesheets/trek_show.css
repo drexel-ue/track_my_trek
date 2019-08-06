@@ -4,24 +4,26 @@
     border: solid 1px black;
     width: 845px;
     margin: 0 auto;
+    font-size: 12px;
 }
 .trek_show .main_content {
     border: solid 1px black;
     width: 600px;
 }
 .distance_and_climb {
-    background-color: grey;
+    background: linear-gradient(to bottom, #f6f4f4 0, #fbf9f9 100%);
     width: 100px;
-    border: solid 1px black;
+    border: 1px solid #c3c2c2
 }
 .written_deats {
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
 }
 .the_distance {
 }
 .the_climb {
-    border-top: solid 1px black;
+    border-top: 1px solid #c3c2c2
 }
 .description {
     display: flex;
@@ -30,4 +32,12 @@
 .description > div {
     display: flex;
     flex-direction: row;
+}
+.trek_show a {
+    color: blue;
+}
+.map_name {
+    font-size: 25px;
+    padding: 10px 0;
+    border-bottom: solid 1px gray;
 }

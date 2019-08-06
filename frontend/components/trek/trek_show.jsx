@@ -51,14 +51,13 @@ export default class TrekShow extends React.Component {
                     </div>
                     <div className='the_climb'>
                         <div>climb</div>
-                        {this.state.trek.climb}
                         <p>{this.state.trek.climb}ft</p>
                     </div>
                 </div>
                 <div className='description'>
                     <div>
                         <p className='label'>BEGINS IN: </p>
-                        <p className='body'>{this.state.begins_in}</p>
+                        <p className='body'>{this.state.trek.begins_in}</p>
                     </div>
                     <div>
                         <p className='label'>CREATED BY: </p>
@@ -67,6 +66,10 @@ export default class TrekShow extends React.Component {
                     <div>
                         <p className='label'>DESCRIPTION: </p>
                         <p className='body'>{this.state.trek.description}</p>
+                    </div>
+                    <div>
+                        <p className='label'>TYPE: </p>
+                        <p className='body'>{this.state.trek.activity}</p>
                     </div>
                 </div>
             </div>
