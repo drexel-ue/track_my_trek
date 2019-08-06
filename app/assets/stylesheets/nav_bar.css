@@ -1,5 +1,5 @@
 #nav_bar{
-    margin:0;
+    margin:10px 0;
     height:40px;
     width: 100%;
     /* position: absolute; */
@@ -34,7 +34,7 @@
 }
 .session_buttons {
    display: inline;
-   
+
 }
 .nav_menu {
    float: right;
