@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_143800) do
+ActiveRecord::Schema.define(version: 2019_08_06_192814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "points", force: :cascade do |t|
+    t.decimal "lat", null: false
+    t.decimal "lng", null: false
+    t.integer "trek_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trek_id"], name: "index_points_on_trek_id"
+  end
 
   create_table "treks", force: :cascade do |t|
     t.string "map_name", null: false
@@ -45,8 +54,8 @@ ActiveRecord::Schema.define(version: 2019_08_06_143800) do
   end
 
   create_table "waypoints", force: :cascade do |t|
-    t.decimal "lat", precision: 10, scale: 2, null: false
-    t.decimal "lng", precision: 10, scale: 2, null: false
+    t.decimal "lat", null: false
+    t.decimal "lng", null: false
     t.integer "trek_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

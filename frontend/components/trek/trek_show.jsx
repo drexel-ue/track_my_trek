@@ -33,6 +33,10 @@ export default class TrekShow extends React.Component {
                     let coords = []
                     let leftStep = false
                     let that = this
+
+
+
+
                     this.state.waypoints.forEach(point => {
                         let image = {
                             url: leftStep ?
@@ -60,7 +64,6 @@ export default class TrekShow extends React.Component {
                             lng: Number.parseFloat(point.lng)
                         })
                     })
-
 
                     const polyPath = new google.maps.Polyline({
                         path: coords,

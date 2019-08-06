@@ -17,4 +17,5 @@ class Trek < ApplicationRecord
 
     belongs_to :user
     has_many :waypoints
+    has_many :points
 end

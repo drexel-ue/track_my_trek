@@ -44,8 +44,11 @@ export default class TrekDetails extends React.Component {
                                 const result = response.hits[0]
                                 this.setState({
                                     beginsIn: `${result.city}, ${result.state}, ${result.country}`
-                                }, () => this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
-                                    .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) }))
+                                }, () => {
+                                    this.props.saveRoute(merge({}, this.state, { waypoints: this.props.waypoints }))
+                                        .then(({ trek }) => { this.props.history.push(`/treks/${trek.id}`) })
+                                }
+                                )
                             })
 
                     }
