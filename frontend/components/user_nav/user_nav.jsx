@@ -3,21 +3,6 @@ import { Link } from 'react-router-dom'
 
 export default class UserNav extends React.Component {
 
-    // componentDidMount() {
-    //     this.determineShow()
-    // }
-
-    // componentDidUpdate() {
-    //     this.determineShow()
-    // }
-
-    determineShow() {
-        if (this.props.location.pathname == '/treks/create') {
-            document.getElementsByClassName('user_nav')[0].classList.add('hide')
-        }
-
-    }
-
     render() {
         return this.props.userId && this.props.location.pathname != '/treks/create' ? (
             <div className='user_nav'>

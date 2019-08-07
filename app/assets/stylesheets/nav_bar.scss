@@ -54,11 +54,24 @@
    border: none;
 }
 #nav_menu_contents {
+   background-color: transparent;
    position: absolute;
    z-index: 1;
+   padding-top: 10px;
+   right:2-px
 }
 #nav_menu_contents ul {
+   padding: 0;
    list-style-type: none;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+#nav_menu_contents ul div {
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   border: solid 1px;
 }
 .nav_menu:hover {
    #nav_menu_contents {
