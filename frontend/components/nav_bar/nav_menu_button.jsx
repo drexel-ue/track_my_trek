@@ -53,12 +53,9 @@ export default class NavMenuButton extends React.Component {
                         <ul>
                             {
                                 options.map((option, index) => (
-                                    <li key={index}>
-                                        <button
-                                            onClick={actions[index]}
-                                        >
-                                            {option}
-                                        </button>
+                                    <li key={index}
+                                        onClick={actions[index]}>
+                                        {option}
                                     </li>
                                 ))
                             }
