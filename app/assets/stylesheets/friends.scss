@@ -9,8 +9,9 @@
 .nav_row {
     width: 100%;
     border: 1px solid;
+    display: flex;
 }
-.nav_row a {
+.nav_row div {
     width: 33%;
     border: 1px solid;
 }
