@@ -12,10 +12,11 @@ export default class NavBar extends React.Component {
 
     authButtons() {
         return (
-            this.props.history.location.pathname != '/login' && this.props.history.location.pathname != '/signup' ? <div className='session_buttons'>
-                <LoginButtonContainer key='login_button' placement='nav' />
-                <SignupButtonContainer key='signup_button' placement='nav' />
-            </div> : <div></div>
+            this.props.history.location.pathname != '/login' && this.props.history.location.pathname != '/signup' ?
+                <div className='session_buttons'>
+                    <LoginButtonContainer key='login_button' placement='nav' />
+                    <SignupButtonContainer key='signup_button' placement='nav' />
+                </div> : <div></div>
         )
     }
 
@@ -29,7 +30,6 @@ export default class NavBar extends React.Component {
             'Shop'
         ]
 
-        // debugger
         return <div id='nav_bar'>
             <ul>
                 <HomeButton />

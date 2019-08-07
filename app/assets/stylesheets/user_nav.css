@@ -15,9 +15,10 @@
     list-style-type: none;
     padding-inline-start: 0px;
     margin: 0;
+    width: 900px;
 }
 .user_nav a {
-    width: 160px;
+    width: 25%;
     height: 40px;
     color: #6d717a;
     border-left: solid 1px #6d717a;
