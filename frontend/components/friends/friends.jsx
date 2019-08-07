@@ -10,7 +10,7 @@ export default class Friends extends React.Component {
         }
     }
 
-    stlyeSelect(match) {
+    persistStlyeSelect(match) {
         return this.props.location.pathname == match ? {
             borderTop: '3px solid #2F98D9',
             height: '48px',
@@ -25,17 +25,17 @@ export default class Friends extends React.Component {
                 <div className='title'>MY FRIENDS</div>
                 <ul className='nav_row'>
                     <div
-                        style={this.stlyeSelect('/friends')}
+                        style={this.persistStlyeSelect('/friends')}
                         onClick={this.pushTo('/friends')}>
                         MY FRIENDS
                         </div>
                     <div
-                        style={this.stlyeSelect('/friends/find')}
+                        style={this.persistStlyeSelect('/friends/find')}
                         onClick={this.pushTo('/friends/find')}>
                         FIND FRIENDS
                     </div>
                     <div
-                        style={this.stlyeSelect('/friends/invite')}
+                        style={this.persistStlyeSelect('/friends/invite')}
                         onClick={this.pushTo('/friends/invite')}>
                         INVITE FRIENDS
                     </div>
