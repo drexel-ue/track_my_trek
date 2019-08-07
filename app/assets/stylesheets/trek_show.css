@@ -1,8 +1,9 @@
 .trek_show {
+
     display: flex;
     flex-direction: row;
     width: 845px;
-    margin: 0 auto;
+    margin: 10px auto;
     font-size: 12px;
 }
 .trek_show .main_content {
