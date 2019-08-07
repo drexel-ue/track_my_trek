@@ -13,15 +13,18 @@
     flex-direction: row;
     justify-content: center;
     list-style-type: none;
+    padding-inline-start: 0px;
+    margin: 0;
 }
 #user_nav a {
     width: 160px;
     height: 40px;
-    text-align: center;
-    vertical-align: middle;
     color: #6d717a;
     border-left: solid 1px #6d717a;
     border-bottom: solid 2px #6d717a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #user_nav a:last-of-type {
     border-right: solid 1px #6d717a;
