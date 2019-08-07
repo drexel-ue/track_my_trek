@@ -43,23 +43,18 @@
    justify-content: end;
    margin-right: 280px;
    position: relative;
-   background-color: turquoise;
-}
-.nav_menu_button {
-   align-self: flex-end;
-   height: 20px;
-   width: 20px;
+   z-index: 1;
 }
 .profile_pic {
    height: 60px;
    width: 60px;
+   z-index: 1;
    background-color: transparent;
    border: none;
 }
 .nav_menu_contents {
    position: absolute;
    z-index: 1;
-   background-color: brown;
 }
 .nav_menu_contents ul {
    list-style-type: none;
