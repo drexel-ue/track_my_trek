@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
+import FriendsIndexContainer from './friends_index_container';
 
 export default class Friends extends React.Component {
 
@@ -44,10 +45,21 @@ export default class Friends extends React.Component {
         )
     }
 
+    switch() {
+        return (
+            <div className='switch'>
+                <Switch>
+                    <Route exact path='/friends' component={FriendsIndexContainer} />
+                </Switch>
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className='friends' >
                 {this.persist()}
+                {this.switch()}
             </div>
         )
     }
