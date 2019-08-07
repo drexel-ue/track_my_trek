@@ -1,4 +1,4 @@
-#user_nav {
+.user_nav {
     background-color: #f0f2f4;
     font-weight: 400;
     font-size: 14px;
@@ -8,7 +8,7 @@
     border-top: solid 1px #6d717a;
     border-bottom: solid 1px #6d717a;
 }
-#user_nav ul {
+.user_nav ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,7 +16,7 @@
     padding-inline-start: 0px;
     margin: 0;
 }
-#user_nav a {
+.user_nav a {
     width: 160px;
     height: 40px;
     color: #6d717a;
@@ -26,10 +26,13 @@
     justify-content: center;
     align-items: center;
 }
-#user_nav a:last-of-type {
+.user_nav a:last-of-type {
     border-right: solid 1px #6d717a;
 }
-#user_nav a:hover {
+.user_nav a:hover {
     color: black;
     border-bottom: solid 2px black;
+}
+.hide {
+    display:none;
 }

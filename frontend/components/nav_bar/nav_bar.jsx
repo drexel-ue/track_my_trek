@@ -8,7 +8,6 @@ import NavMenuButtonContainer from './nav_menu_button_container';
 export default class NavBar extends React.Component {
     constructor(props) {
         super(props)
-        this.loggedIn = this.props.loggedIn
     }
 
     authButtons() {
@@ -30,7 +29,7 @@ export default class NavBar extends React.Component {
             'Shop'
         ]
 
-
+        // debugger
         return <div id='nav_bar'>
             <ul>
                 <HomeButton />
@@ -39,7 +38,7 @@ export default class NavBar extends React.Component {
                         title={title}
                         key={index} />)
                 }
-                {this.loggedIn ? <NavMenuButtonContainer /> : this.authButtons()}
+                {this.props.loggedIn ? <NavMenuButtonContainer /> : this.authButtons()}
             </ul>
         </div>
     }

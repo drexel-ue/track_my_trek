@@ -3,23 +3,24 @@ import { Link } from 'react-router-dom'
 
 export default class UserNav extends React.Component {
 
-    componentDidMount() {
-        window.addEventListener('hashchange', () => this.determineShow)
-        console.log('mounted')
-    }
+    // componentDidMount() {
+    //     this.determineShow()
+    // }
+
+    // componentDidUpdate() {
+    //     this.determineShow()
+    // }
 
     determineShow() {
-        debugger
-        const self = document.getElementById('user_nav')
-        !this.props.userId || this.props.location.pathname == '/treks/create'
-            ? self.classList.add('hide')
-            : self.classList.remove('hide')
+        if (this.props.location.pathname == '/treks/create') {
+            document.getElementsByClassName('user_nav')[0].classList.add('hide')
+        }
 
     }
 
     render() {
-        return (
-            <div id='user_nav'>
+        return this.props.userId && this.props.location.pathname != '/treks/create' ? (
+            <div className='user_nav'>
                 <ul>
                     <Link to='/treks/create'>Track a Trek</Link>
                     <Link to='#'>Log Workout</Link>
@@ -27,6 +28,7 @@ export default class UserNav extends React.Component {
                     <Link to='#'>Create a Goal</Link>
                 </ul>
             </div>
-        )
+        ) :
+            <div></div>
     }
 }
