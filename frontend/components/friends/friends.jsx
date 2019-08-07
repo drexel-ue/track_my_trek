@@ -1,17 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default props => {
+export default class Friends extends React.Component {
 
+    persist() {
+        return (
+            <div>
+                <div className='title'>MY FRIENDS</div>
+                <ul className='nav_row'>
+                    <Link to='#'>MY FRIENDS</Link>
+                    <Link to='friends/find'>FIND FRIENDS</Link>
+                    <Link to='friends/invite'>INVITE FRIENDS</Link>
+                </ul>
+            </div>
+        )
+    }
 
-    return (
-        <div className='friends'>
-            <div className='title'>MY FRIENDS</div>
-            <ul className='nav_row'>
-                <Link to='#'></Link>
-                <Link to='fri'></Link>
-                <Link></Link>
-            </ul>
-        </div>
-    )
+    render() {
+        return (
+            <div className='friends' >
+                {this.persist()}
+            </div>
+        )
+    }
 }
