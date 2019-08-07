@@ -1,20 +1,6 @@
 import React from 'react'
 
-const SHOW = 'SHOW'
-const HIDE = 'HIDE'
-
 export default class NavMenuButton extends React.Component {
-
-    toggleContents(toggle) {
-        return (event) => {
-            event.preventDefault()
-            event.stopPropagation()
-            const element = document.getElementById('nav_menu_contents')
-            toggle == SHOW ?
-                element.classList.remove('hide') :
-                element.classList.add('hide')
-        }
-    }
 
     render() {
         const options = [
@@ -26,7 +12,7 @@ export default class NavMenuButton extends React.Component {
         ]
 
         const actions = [
-            () => { },
+            () => this.props.history.push('/friends'),
             () => { },
             () => { },
             () => { },

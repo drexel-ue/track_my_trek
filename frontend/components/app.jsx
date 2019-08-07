@@ -10,6 +10,7 @@ import TrekShowContainer from './trek/trek_show_container'
 import TrekCreate from './trek/trek_create'
 import NonUserRerouter from './non_user_rerouter';
 import UserNavContainer from './user_nav/user_nav_container';
+import FriendsContainer from './friends/friends_container';
 
 const App = () => (
   <div>
@@ -27,8 +28,11 @@ const App = () => (
 
       <NonUserRerouter path='/treks/:id' component={TrekShowContainer} />
 
-      < UserRerouter path="/login" component={LoginFormContainer} />
-      < UserRerouter path="/signup" component={SignupFormContainer} />
+      < UserRerouter path='/login' component={LoginFormContainer} />
+
+      < UserRerouter path='/signup' component={SignupFormContainer} />
+
+      <NonUserRerouter path='/friends' component={FriendsContainer} />
     </Switch>
 
 
