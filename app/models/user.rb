@@ -29,7 +29,7 @@ class User < ApplicationRecord
         foreign_key: :requestor_id
     has_many :received_requests,
         class_name: :FriendRequest,
-        foreign_key: :requestor_id
+        foreign_key: :requestee_id
 
     after_initialize :ensure_session_token
     
