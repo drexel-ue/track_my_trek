@@ -44,8 +44,8 @@ export default class NavMenuButton extends React.Component {
                 >
                     <button
                         className='profile_pic'>
-                        pic
-                </button>
+                        <img src="https://image.flaticon.com/icons/svg/149/149071.svg" alt="" />
+                    </button>
                     <div
                         id='nav_menu_contents'
                         className='hide'

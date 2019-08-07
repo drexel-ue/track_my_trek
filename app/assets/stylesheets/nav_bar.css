@@ -38,11 +38,31 @@
 }
 .nav_menu {
    float: right;
-   margin-right: 280px
-}
-.nav_menu_button {
    display: flex;
    flex-direction: column;
+   justify-content: end;
+   margin-right: 280px;
+   position: relative;
+   background-color: turquoise;
+}
+.nav_menu_button {
+   align-self: flex-end;
+   height: 20px;
+   width: 20px;
+}
+.profile_pic {
+   height: 60px;
+   width: 60px;
+   background-color: transparent;
+   border: none;
+}
+.nav_menu_contents {
+   position: absolute;
+   z-index: 1;
+   background-color: brown;
+}
+.nav_menu_contents ul {
+   list-style-type: none;
 }
 .hide {
    display: none
