@@ -58,7 +58,7 @@
    position: absolute;
    z-index: 1;
    padding-top: 10px;
-   right:2-px
+   right: 0
 }
 #nav_menu_contents ul {
    padding: 0;
@@ -71,7 +71,12 @@
    background-color: white;
    display: flex;
    justify-content: center;
-   border: solid 1px;
+   border-left: solid 1px #6d717a;
+   border-right: solid 1px #6d717a;
+   border-bottom: solid 1px #6d717a;
+   padding: 10px 20px;
+   color: #6d717a;
+   cursor: pointer;
 }
 .nav_menu:hover {
    #nav_menu_contents {
