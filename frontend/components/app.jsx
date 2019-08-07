@@ -9,11 +9,13 @@ import DashboardContainer from './dashboard/dashboard_container'
 import TrekShowContainer from './trek/trek_show_container'
 import TrekCreate from './trek/trek_create'
 import NonUserRerouter from './non_user_rerouter';
+import UserNavContainer from './user_nav/user_nav_container';
 
 const App = () => (
   <div>
     <header>
       <NavBarContainer />
+      <UserNavContainer />
     </header>
 
     <Switch>

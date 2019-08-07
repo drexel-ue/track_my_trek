@@ -34,11 +34,7 @@ export default class NavMenuButton extends React.Component {
         ]
 
         return (
-            <div
-                className='nav_menu'
-                onMouseOver={this.toggleContents(SHOW)}
-                onMouseLeave={this.toggleContents(HIDE)}
-            >
+            <div className='nav_menu'>
                 <div
                     id='nav_menu_button'
                 >
