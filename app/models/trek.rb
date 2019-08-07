@@ -11,6 +11,10 @@
 #  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  distance    :decimal(5, 2)
+#  climb       :decimal(5, 2)
+#  begins_in   :string
+#
 
 class Trek < ApplicationRecord
     validates :map_name, :activity, :user_id, presence: true

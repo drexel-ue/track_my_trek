@@ -14,6 +14,7 @@
 #  subscribed      :boolean
 #  country         :string
 #  birth_date      :date
+#  friends         :string           default([]), is an Array
 #
 
 class User < ApplicationRecord
@@ -23,6 +24,12 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6, allow_nil: true}
 
     has_many :treks
+    has_many :sent_requests,
+        class_name: :FriendRequest,
+        foreign_key: :requestor_id
+    has_many :received_requests,
+        class_name: :FriendRequest,
+        foreign_key: :requestor_id
 
     after_initialize :ensure_session_token
     
