@@ -8,6 +8,7 @@ export default class FriendIndex extends React.Component {
                 <div className='friend_count'>
                     FRIENDS
                 </div>
+
             </div>
         )
     }

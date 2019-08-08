@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     # protect_from_forgery with: :null_session if we want to use postman
     
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :execute_query
 
     def login(user)
         session[:session_token] = user.reset_session_token!
@@ -30,5 +30,15 @@ class ApplicationController < ActionController::Base
     
     def require_logged_out
         redirect_to user_url(current_user) if logged_in?
+    end
+
+    def execute_query(sql)
+        results = ActiveRecord::Base.connection.execute(sql)
+        
+        if results.present?
+            return results
+        else
+            return nil
+        end
     end
 end

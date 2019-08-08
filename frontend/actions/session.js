@@ -24,7 +24,6 @@ export const signup = userData => dispatch =>
             error =>
                 alert(error.responseJSON.errors.join(' / '))
         );
-// dispatch(receiveErrors(error.responseJSON.errors))
 
 export const login = userData => dispatch =>
     SessionUtil.login(userData)
@@ -32,7 +31,6 @@ export const login = userData => dispatch =>
             error =>
                 alert(error.responseJSON.errors)
         );
-// dispatch(receiveErrors(error.responseJSON.errors))
 
 export const logout = () => dispatch =>
     SessionUtil.logout()
