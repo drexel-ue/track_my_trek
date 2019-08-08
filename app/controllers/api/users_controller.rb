@@ -1,8 +1,8 @@
 class Api::UsersController < ApplicationController
 
     def show
-        if params[:friends]
-            id = params[:friends]
+        if params[:friends_of]
+            id = params[:friends_of]
             sql = %Q{
                 select * from users
                 where id in (
