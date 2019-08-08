@@ -1,0 +1,1 @@
+json.extract! request, :requestee_id, :accepted

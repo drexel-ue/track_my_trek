@@ -1,10 +1,10 @@
 class Api::FriendRequestsController < ApplicationController
     def create
-        data= {
+        data = {
             requester_id: current_user.id,
             requestee_id: params[:userId]
         }
-        FriendRequest.create!(data)
+        @request = FriendRequest.create!(data)
     end
 
     def show
