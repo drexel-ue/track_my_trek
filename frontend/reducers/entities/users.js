@@ -9,7 +9,7 @@ export default (state = {}, action) => {
             return Object.assign({}, state, { [action.user.id]: action.user });
         case RECEIVE_PROSPECTIVE_FRIENDS:
             let friends = {}
-            action.prospective_friends.forEach(friend => friends[friend.id] = friend)
+            action.users.forEach(friend => friends[friend.id] = friend)
             return merge({}, state, friends)
         case RECEIVE_FRIENDS:
             let users = {}

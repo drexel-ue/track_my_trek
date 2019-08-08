@@ -20,7 +20,7 @@ class Api::UsersController < ApplicationController
             }
             @friends = []
             execute_query(sql).each { |user| @friends << User.new(user) if user['id'] != current_user.id }
-            render :show_friends
+            render :show_prospects
         else
             @user = User.find(params[:id])
             render :show

@@ -5,6 +5,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
             showError: this.props.showError,
             query_string: this.props.query_string,
@@ -27,7 +28,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
 
         if (this.state.query_string.length > 0) {
             this.props.fetchProspectiveFriends(this.props.userId, this.state.query_string)
-                .then(results => this.setState({ results: results.prospective_friends }))
+                .then(results => { this.setState({ results: results.users }) })
         } else {
             this.setState({ showError: true })
         }

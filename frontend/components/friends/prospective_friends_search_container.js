@@ -4,7 +4,6 @@ import { fetchProspectiveFriends } from '../../actions/friends';
 
 const msp = ({ session, entities }) => {
     let results = Object.values(entities.users).filter(user => user.id != session.userId)
-    // debugger
     return ({
         userId: session.userId,
         showError: false,

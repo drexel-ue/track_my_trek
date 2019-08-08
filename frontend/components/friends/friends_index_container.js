@@ -4,14 +4,14 @@ import { fetchFriends } from '../../actions/friends'
 import FriendsIndex from './friends_index'
 
 const msp = ({ session, entities }) => ({
-    // userId: session.userId,
-    // friendCount: 0,
-    // accepted: Object.values(entities.users).filter(user =>
-    //     session.accepted.includes(user.id)
-    // ),
-    // pending: Object.values(entities.users).filter(user =>
-    //     session.pending.includes(user.id)
-    // )
+    userId: session.userId,
+    friendCount: 0,
+    accepted: Object.values(entities.users).filter(user =>
+        session.friends.accepted.includes(user.id)
+    ),
+    pending: Object.values(entities.users).filter(user =>
+        session.friends.pending.includes(user.id)
+    )
 })
 const mdp = dispatch => ({
     fetchFriends: userId => dispatch(fetchFriends(userId))
