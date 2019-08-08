@@ -4,7 +4,8 @@ import ProspectiveFriendIndexItem from './friend_index_item'
 import { sendRequest } from '../../actions/friends';
 
 const msp = (state, ownProps) => ({
-    user: ownProps.user
+    user: ownProps.user,
+    accepted: ownProps
 })
 const mdp = dispatch => ({
     sendRequest: id => dispatch(sendRequest(id))

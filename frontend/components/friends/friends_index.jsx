@@ -1,4 +1,5 @@
 import React from 'react'
+import FriendIndexItemContainer from './friend_index_item_container'
 
 export default class FriendIndex extends React.Component {
 
@@ -10,12 +11,13 @@ export default class FriendIndex extends React.Component {
         return (
             <div className='friends'>
                 <div className='results'>
-                    {this.state.results.map(user => (
+                    {this.props.accepted.map(user => (
                         <FriendIndexItemContainer key={user.id} user={user} />
                     ))}
                 </div>
+                <div className='divider'></div>
                 <div className='results'>
-                    {this.state.results.map(user => (
+                    {this.props.accepted.map(user => (
                         <FriendIndexItemContainer key={user.id} user={user} />
                     ))}
                 </div>
