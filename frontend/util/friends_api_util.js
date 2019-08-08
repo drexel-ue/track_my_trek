@@ -15,3 +15,8 @@ export const sendRequest = userId => $.ajax({
     method: 'post',
     data: { userId }
 })
+
+export const acceptRequest = requestId => $.ajax({
+    url: `api/friend_requests/${requestId}`,
+    method: 'patch'
+})
