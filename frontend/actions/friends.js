@@ -4,10 +4,11 @@ export const RECEIVE_FRIENDS = 'RECEIVE_FRIENDS';
 export const RECEIVE_PROSPECTIVE_FRIENDS = 'RECEIVE_PROSPECTIVE_FRIENDS';
 export const RECEIVE_REQUEST = 'RECEIVE_REQUEST';
 
-const receiveFriends = ({ users, requests }) => ({
+const receiveFriends = ({ users, requests, userId }) => ({
     type: RECEIVE_FRIENDS,
     users,
-    requests
+    requests,
+    userId
 })
 const receiveProspectiveFriends = prospective_friends => ({
     type: RECEIVE_PROSPECTIVE_FRIENDS,
@@ -20,7 +21,10 @@ const receiveRequest = request => ({
 
 export const fetchFriends = userId => dispatch =>
     FriendsApiUtil.fetchFriends(userId)
-        .then(payload => dispatch(receiveFriends(payload)))
+        .then(payload => {
+            payload.userId = userId
+            dispatch(receiveFriends(payload))
+        })
 
 export const fetchProspectiveFriends = (userId, query_string) => dispatch =>
     FriendsApiUtil.fetchProspectiveFriends(userId, query_string)
