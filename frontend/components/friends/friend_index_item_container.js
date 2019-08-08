@@ -14,7 +14,11 @@ const msp = (state, ownProps) => ({
     type: ownProps.type
 })
 const mdp = dispatch => ({
-    sendRequest: id => dispatch(sendRequest(id))
+    action: type => {
+        if (type == ADD_FRIEND) {
+            return id => dispatch(sendRequest(id))
+        }
+    }
 })
 
 export default withRouter(connect(msp, mdp)(FriendIndexItem))

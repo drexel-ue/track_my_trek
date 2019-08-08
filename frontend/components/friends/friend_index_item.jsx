@@ -5,13 +5,13 @@ export default class ProspectiveFriendIndexItem extends React.Component {
     constructor(props) {
         super(props)
         this.user = this.props.user
-        this.sendRequest = this.sendRequest.bind(this)
+        this.action = this.action.bind(this)
     }
 
-    sendRequest(event) {
+    action(event) {
         event.preventDefault()
         event.stopPropagation()
-        this.props.sendRequest(this.user.id)
+        this.props.action(this.user.id)
     }
 
     render() {
@@ -24,7 +24,7 @@ export default class ProspectiveFriendIndexItem extends React.Component {
                 <Link to='#'>{this.user.first_name} {this.user.last_name.slice(0, 1)}.</Link>
                 <button
                     className='send_request'
-                    onClick={this.sendRequest}>
+                    onClick={this.action}>
                     ADD
                 </button>
             </div>
