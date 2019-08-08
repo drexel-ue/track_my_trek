@@ -62,10 +62,23 @@ export default class ProspectiveFriendsSreach extends React.Component {
         )
     }
 
+    results() {
+        return (
+            <div className='results'>
+                {this.state.results.map(user => (
+                    <div>
+                        {user.first_name}
+                    </div>
+                ))}
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className='prospective_friends_search'>
                 {this.searchBar()}
+                {this.results()}
             </div>
         )
     }
