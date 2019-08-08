@@ -14,6 +14,11 @@ class Api::UsersController < ApplicationController
                 )
             }
             @friends = execute_query(sql).map { |user| User.new(user) }
+            sql = %Q{
+                select * from friend_requests
+                where requester_id = #{id} or requestee_id = #{id}
+            }
+            @requests = execute_query(sql).map { |user| FriendRequest.new(user) }
             render :show_friends
         elsif params[:query_string]
             query_string = params[:query_string]
