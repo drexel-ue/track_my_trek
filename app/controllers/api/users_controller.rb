@@ -13,8 +13,7 @@ class Api::UsersController < ApplicationController
                     where accepted = true and requester_id = #{id}
                 )
             }
-            @friends = []
-            execute_query(sql).each { |user| @friends << user }
+            @friends = execute_query(sql).each { |user| User.new(user) }
             render :show_friends
         elsif params[:query_string]
             query_string = params[:query_string]
@@ -22,8 +21,7 @@ class Api::UsersController < ApplicationController
                 select * from users
                 where first_name like '%#{query_string}%' or last_name like '%#{query_string}%' or username like '%#{query_string}%'
             }
-            @friends = []
-            execute_query(sql).each { |user| @friends << User.new(user) }
+            @friends = execute_query(sql).map { |user| User.new(user) }
             render :show_friends
         else
             @user = User.find(params[:id])
