@@ -1,11 +1,11 @@
-import { RECEIVE_WAYPOINTS } from '../actions/trek'
+import { RECEIVE_STEPS_ERROR } from '../../actions/trek'
 import { merge } from 'lodash'
 
 export default (state = [], action) => {
     Object.freeze(state)
     switch (action.type) {
-        case RECEIVE_WAYPOINTS:
-            return merge([], action.waypoints)
+        case RECEIVE_STEPS_ERROR:
+            return merge({}, state, action.error)
         default:
             return state
     }

@@ -22,4 +22,4 @@ export const fetchProspectiveFriends = (userId, query_string) => dispatch =>
 
 export const sendRequest = userId =>
     FriendsApiUtil.sendRequest(userId)
-        // .then(request => { debugger })
+        .then(request => { debugger })

@@ -1,6 +1,6 @@
 import {
     RECEIVE_USER, RECEIVE_SESSION_ERRORS
-} from '../actions/session';
+} from '../../actions/session';
 import { merge } from 'lodash';
 
 

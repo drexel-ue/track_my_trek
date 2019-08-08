@@ -1,4 +1,4 @@
-import { RECEIVE_TREK } from '../actions/trek'
+import { RECEIVE_TREK } from '../../actions/trek'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {

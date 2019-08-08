@@ -1,5 +1,5 @@
-import { RECEIVE_USER } from '../actions/session'
-import { RECEIVE_PROSPECTIVE_FRIENDS } from '../actions/friends'
+import { RECEIVE_USER } from '../../actions/session'
+import { RECEIVE_PROSPECTIVE_FRIENDS } from '../../actions/friends'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {
