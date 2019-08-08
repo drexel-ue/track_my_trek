@@ -1,8 +1,15 @@
 .search_bar_row {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 .search_input {
     width: 475px;
     height: 35px;
     padding-left: 10px;
+}
+.search_button {
+    width: 140px;
+    color: white;
+    background-color: rgb(255, 135, 20);
 }
