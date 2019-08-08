@@ -7,13 +7,13 @@ class Api::UsersController < ApplicationController
                 select * from users
                 where id in (
                     select requester_id from friend_requests
-                    where accepted = true and requestee_id = #{id}
+                    where requestee_id = #{id}
                 ) or id in (
                     select requestee_id from friend_requests
-                    where accepted = true and requester_id = #{id}
+                    where requester_id = #{id}
                 )
             }
-            @friends = execute_query(sql).each { |user| User.new(user) }
+            @friends = execute_query(sql).map { |user| User.new(user) }
             render :show_friends
         elsif params[:query_string]
             query_string = params[:query_string]

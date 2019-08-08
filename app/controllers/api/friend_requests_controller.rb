@@ -8,5 +8,6 @@ class Api::FriendRequestsController < ApplicationController
     end
 
     def show
+        
     end
 end
