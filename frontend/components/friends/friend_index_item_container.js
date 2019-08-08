@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import ProspectiveFriendIndexItem from './friend_index_item'
+import FriendIndexItem from './friend_index_item'
 import { sendRequest } from '../../actions/friends';
 
 export const ADD_FRIEND = 'ADD_FRIEND'
@@ -17,4 +17,4 @@ const mdp = dispatch => ({
     sendRequest: id => dispatch(sendRequest(id))
 })
 
-export default withRouter(connect(msp, mdp)(ProspectiveFriendIndexItem))
+export default withRouter(connect(msp, mdp)(FriendIndexItem))
