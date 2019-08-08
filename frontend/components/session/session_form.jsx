@@ -10,6 +10,7 @@ export default class SessionForm extends React.Component {
     }
 
     onChange(field) {
+        this.removeShow()
         return event => this.setState({ [field]: event.target.value })
     }
 

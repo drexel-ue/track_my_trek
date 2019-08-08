@@ -9,5 +9,12 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 40.times do 
-    user = User.create({first_name: Faker::Name.name, last_name: Faker::Name.name, gender: Faker::Gender, username: Faker::Internet.email, password: 'test123'})
+    fake = {
+        first_name: Faker::Name.first_name,
+         last_name: Faker::Name.last_name,
+         gender: Faker::Gender.binary_type,
+         username: Faker::Internet.email,
+         password: 'test123'
+        }
+    user = User.create(fake)
 end
