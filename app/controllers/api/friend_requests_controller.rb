@@ -4,10 +4,12 @@ class Api::FriendRequestsController < ApplicationController
             requester_id: current_user.id,
             requestee_id: params[:userId]
         }
+
         @request = FriendRequest.create!(data)
     end
 
     def update
-        @request FriendRequest.where(id: params[:id]).update(accepted: true)
+        FriendRequest.where(id: params[:id]).update(accepted: true)
+        @request = FriendRequest.find(params[:id])
     end
 end

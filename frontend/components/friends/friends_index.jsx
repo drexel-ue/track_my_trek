@@ -24,7 +24,8 @@ export default class FriendIndex extends React.Component {
                             type={
                                 this.props.requestMap[user.id].requester_id == user.id ?
                                     RECEIVED : SENT
-                            } />
+                            }
+                            requestId={this.props.requestMap[user.id].id} />
                     ))}
                 </div>
             </div>

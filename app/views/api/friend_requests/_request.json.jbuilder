@@ -1,1 +1,1 @@
-json.extract! request, :requestee_id, :requester_id, :accepted
+json.extract! request, :id, :requestee_id, :requester_id, :accepted
