@@ -1,1 +1,0 @@
-json.array! @friends, patial: 'api/users/user', as: :user

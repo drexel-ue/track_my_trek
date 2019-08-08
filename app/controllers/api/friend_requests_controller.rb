@@ -8,6 +8,6 @@ class Api::FriendRequestsController < ApplicationController
     end
 
     def update
-
+        @request FriendRequest.where(id: params[:id]).update(accepted: true)
     end
 end
