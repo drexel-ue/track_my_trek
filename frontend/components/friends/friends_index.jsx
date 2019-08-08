@@ -1,5 +1,5 @@
 import React from 'react'
-import FriendIndexItemContainer from './friend_index_item_container'
+import FriendIndexItemContainer, { REMOVE_FRIEND } from './friend_index_item_container'
 
 export default class FriendIndex extends React.Component {
 
@@ -12,13 +12,16 @@ export default class FriendIndex extends React.Component {
             <div className='friends'>
                 <div className='results'>
                     {this.props.accepted.map(user => (
-                        <FriendIndexItemContainer key={user.id} user={user} />
+                        <FriendIndexItemContainer key={user.id} user={user} type={REMOVE_FRIEND} />
                     ))}
                 </div>
                 <div className='divider'></div>
                 <div className='results'>
                     {this.props.pending.map(user => (
-                        <FriendIndexItemContainer key={user.id} user={user} />
+                        <FriendIndexItemContainer
+                            key={user.id}
+                            user={user}
+                        />
                     ))}
                 </div>
             </div>
