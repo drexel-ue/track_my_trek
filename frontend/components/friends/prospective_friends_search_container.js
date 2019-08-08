@@ -3,7 +3,13 @@ import ProspectiveFriendsSearch from './prospective_friends_search'
 import { fetchProspectiveFriends } from '../../actions/friends';
 
 const msp = ({ session, entities }) => {
-    let results = Object.values(entities.users).filter(user => user.id != session.userId)
+    let results =
+        Object.values(entities.users)
+            .filter(user =>
+                user.id != session.userId
+                && !session.friends.accepted.includes(user.id)
+                && !session.friends.pending.includes(user.id)
+            )
     return ({
         userId: session.userId,
         showError: false,
