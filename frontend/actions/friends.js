@@ -30,3 +30,7 @@ export const fetchProspectiveFriends = (userId, query_string) => dispatch =>
 export const sendRequest = userId => dispatch =>
     FriendsApiUtil.sendRequest(userId)
         .then(request => dispatch(receiveRequest(request)))
+
+export const acceptRequest = requestId => dispatch =>
+    FriendsApiUtil.acceptRequest(requestId)
+        .then(request => dispatch(receiveRequest(request)))
