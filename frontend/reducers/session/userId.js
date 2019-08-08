@@ -4,18 +4,16 @@ import {
 import { merge } from 'lodash';
 
 
-const defaultState = {
-    userId: null
-};
+const defaultState = null;
 
 export default (state = defaultState, action) => {
     Object.freeze(state);
 
     switch (action.type) {
         case RECEIVE_USER:
-            return merge({}, { userId: action.user.id });
+            return action.user.id;
         case LOGOUT_CURRENT_USER:
-            return merge({}, defaultState);
+            return defaultState;
         default:
             return state;
     }

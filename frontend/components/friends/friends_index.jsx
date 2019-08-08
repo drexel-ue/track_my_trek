@@ -17,7 +17,7 @@ export default class FriendIndex extends React.Component {
                 </div>
                 <div className='divider'></div>
                 <div className='results'>
-                    {this.props.accepted.map(user => (
+                    {this.props.pending.map(user => (
                         <FriendIndexItemContainer key={user.id} user={user} />
                     ))}
                 </div>
@@ -33,12 +33,7 @@ export default class FriendIndex extends React.Component {
                     FRIENDS ({this.props.friendCount} OF {this.props.friendCount})
                 </div>
 
-                <div>
-                    {this.props.accepted.map(user => {
-                        this.props.friendCount += 1
-                        return <FriendIndexItemContainer key={user.id} user={user} />
-                    })}
-                </div>
+                {this.friends()}
 
             </div>
         )
