@@ -7,7 +7,7 @@ const msp = (state, ownProps) => ({
     user: ownProps.user
 })
 const mdp = dispatch => ({
-    sendRequest: id => sendRequest(id)
+    sendRequest: id => dispatch(sendRequest(id))
 })
 
 export default withRouter(connect(msp, mdp)(ProspectiveFriendIndexItem))
