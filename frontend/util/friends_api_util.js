@@ -10,3 +10,8 @@ export const fetchProspectiveFriends = (userId, query_string) => $.ajax({
     data: { query_string }
 })
 
+export const sendRequest = userId => $.ajax({
+    url: `api/friend_requests`,
+    method: 'post',
+    data: { userId }
+})
