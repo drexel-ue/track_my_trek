@@ -26,7 +26,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
 
         if (this.state.query_string.length > 0) {
             this.props.fetchProspectiveFriends(this.props.userId, this.state.query_string)
-                .then(results => { debugger })
+                .then(results => this.setState({ results: results.prospective_friends }))
         } else {
             this.setState({ showError: true })
         }
