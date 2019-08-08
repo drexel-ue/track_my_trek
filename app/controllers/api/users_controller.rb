@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
             query_string = params[:query_string]
             sql = %Q{
                 select * from users
-                where first_name like '%#{query_string}%' or last_name like '%#{query_string}%' or username like '%#{query_string}%'
+                where lower(first_name) like lower('%#{query_string}%') or lower(last_name) like lower('%#{query_string}%') or lower(username) like lower('%#{query_string}%')
             }
             @friends = []
             execute_query(sql).each { |user| @friends << User.new(user) if user['id'] != current_user.id }
