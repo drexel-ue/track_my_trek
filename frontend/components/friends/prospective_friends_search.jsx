@@ -1,4 +1,5 @@
 import React from 'react'
+import ProspectiveFriendIndexItemContainer from './prospective_friend_index_item_container';
 
 export default class ProspectiveFriendsSreach extends React.Component {
 
@@ -66,9 +67,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
         return (
             <div className='results'>
                 {this.state.results.map(user => (
-                    <div key={user.id}>
-                        {user.first_name}
-                    </div>
+                    <ProspectiveFriendIndexItemContainer key={user.id} user={user} />
                 ))}
             </div>
         )
