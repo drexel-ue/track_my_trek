@@ -21,7 +21,8 @@ class Api::UsersController < ApplicationController
                 select * from users
                 where first_name like '%#{query_string}%' or last_name like '%#{query_string}%' or username like '%#{query_string}%'
             }
-            @friends = execute_query(sql).map { |user| User.new(user) }
+            @friends = []
+            execute_query(sql).each { |user| @friends << User.new(user) if user['id'] != current_user.id }
             render :show_friends
         else
             @user = User.find(params[:id])

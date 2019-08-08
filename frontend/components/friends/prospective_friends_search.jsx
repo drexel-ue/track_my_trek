@@ -6,7 +6,8 @@ export default class ProspectiveFriendsSreach extends React.Component {
         super(props)
         this.state = {
             showError: this.props.showError,
-            query_string: this.props.query_string
+            query_string: this.props.query_string,
+            results: this.props.results
         }
         this.handleInput = this.handleInput.bind(this)
         this.performSearch = this.performSearch.bind(this)
@@ -25,6 +26,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
 
         if (this.state.query_string.length > 0) {
             this.props.fetchProspectiveFriends(this.props.userId, this.state.query_string)
+                .then(results => { debugger })
         } else {
             this.setState({ showError: true })
         }

@@ -2,12 +2,16 @@ import { connect } from 'react-redux'
 import ProspectiveFriendsSearch from './prospective_friends_search'
 import { fetchProspectiveFriends } from '../../actions/friends';
 
-const msp = ({ session }) => ({
-    userId: session.userId,
-    showError: false,
-    query_string: '',
-    friends: []
-})
+const msp = ({ session, entities }) => {
+    let results = Object.values(entities.users).filter(user => user.id != session.userId)
+    // debugger
+    return ({
+        userId: session.userId,
+        showError: false,
+        query_string: '',
+        results
+    })
+}
 const mdp = dispatch => ({
     fetchProspectiveFriends: (userId, query_string) =>
         dispatch(fetchProspectiveFriends(userId, query_string))
