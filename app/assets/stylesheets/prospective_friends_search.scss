@@ -7,9 +7,16 @@
     width: 475px;
     height: 35px;
     padding-left: 10px;
+    font-size: 20px;
 }
 .search_button {
     width: 140px;
     color: white;
     background-color: rgb(255, 135, 20);
+}
+.results {
+    display: grid;
+    grid-template-columns: 317px 317px;
+    grid-gap: 10px;
+    grid-column-gap: 15px;
 }
