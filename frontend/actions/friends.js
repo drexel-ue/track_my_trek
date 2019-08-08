@@ -12,10 +12,10 @@ const receiveProspectiveFriends = prospective_friends => ({
     prospective_friends
 })
 
-export const fethFriends = userId => dispatch =>
+export const fetchFriends = userId => dispatch =>
     FriendsApiUtil.fetchFriends(userId)
         .then(friends => { debugger; dispatch(receiveFriends(friends)) })
 
-export const fethProspectiveFriends = (userId, query_string) => dispatch =>
+export const fetchProspectiveFriends = (userId, query_string) => dispatch =>
     FriendsApiUtil.fetchProspectiveFriends(userId, query_string)
         .then(friends => { debugger; dispatch(receiveProspectiveFriends(friends)) })
