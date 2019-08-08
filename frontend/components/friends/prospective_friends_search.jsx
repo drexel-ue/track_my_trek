@@ -66,7 +66,7 @@ export default class ProspectiveFriendsSreach extends React.Component {
         return (
             <div className='results'>
                 {this.state.results.map(user => (
-                    <div>
+                    <div key={user.id}>
                         {user.first_name}
                     </div>
                 ))}
