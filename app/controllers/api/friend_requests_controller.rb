@@ -7,7 +7,7 @@ class Api::FriendRequestsController < ApplicationController
         @request = FriendRequest.create!(data)
     end
 
-    def show
-        
+    def update
+
     end
 end
