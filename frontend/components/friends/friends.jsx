@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import FriendsIndexContainer from './friends_index_container';
+import ProspectiveFriendsSearchContainer from './prospective_friends_search_container';
 
 export default class Friends extends React.Component {
 
@@ -50,6 +51,7 @@ export default class Friends extends React.Component {
             <div className='switch'>
                 <Switch>
                     <Route exact path='/friends' component={FriendsIndexContainer} />
+                    <Route exact path='/friends/find' component={ProspectiveFriendsSearchContainer} />
                 </Switch>
             </div>
         )
