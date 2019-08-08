@@ -6,6 +6,24 @@ export default class FriendIndex extends React.Component {
         this.props.fetchFriends(this.props.userId)
     }
 
+    friends() {
+        return (
+            <div className='friends'>
+                <div className='results'>
+                    {this.state.results.map(user => (
+                        <FriendIndexItemContainer key={user.id} user={user} />
+                    ))}
+                </div>
+                <div className='results'>
+                    {this.state.results.map(user => (
+                        <FriendIndexItemContainer key={user.id} user={user} />
+                    ))}
+                </div>
+            </div>
+
+        )
+    }
+
     render() {
         return (
             <div className='friends_index'>

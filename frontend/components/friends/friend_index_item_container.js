@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import ProspectiveFriendIndexItem from './prospective_friend_index_item'
+import ProspectiveFriendIndexItem from './friend_index_item'
 import { sendRequest } from '../../actions/friends';
 
 const msp = (state, ownProps) => ({

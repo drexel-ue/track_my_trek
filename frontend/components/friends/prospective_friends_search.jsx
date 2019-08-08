@@ -1,5 +1,5 @@
 import React from 'react'
-import ProspectiveFriendIndexItemContainer from './prospective_friend_index_item_container';
+import ProspectiveFriendIndexItemContainer from './friend_index_item_container';
 
 export default class ProspectiveFriendsSreach extends React.Component {
 
