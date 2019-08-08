@@ -4,8 +4,10 @@ import ProspectiveFriendIndexItem from './friend_index_item'
 import { sendRequest } from '../../actions/friends';
 
 export const ADD_FRIEND = 'ADD_FRIEND'
-export const REMOVE_FRIEND = 'REMOVE_FRIEND'
+export const UNFRIEND = 'UNFRIEND'
 export const DISPLAY_NONE = 'DISPLAY_NONE'
+export const RECEIVED = 'RECEIVED'
+export const SENT = 'SENT'
 
 const msp = (state, ownProps) => ({
     user: ownProps.user,

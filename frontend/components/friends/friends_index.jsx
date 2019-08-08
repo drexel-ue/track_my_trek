@@ -1,5 +1,5 @@
 import React from 'react'
-import FriendIndexItemContainer, { REMOVE_FRIEND } from './friend_index_item_container'
+import FriendIndexItemContainer, { UNFRIEND, RECEIVED, SENT } from './friend_index_item_container'
 
 export default class FriendIndex extends React.Component {
 
@@ -12,7 +12,7 @@ export default class FriendIndex extends React.Component {
             <div className='friends'>
                 <div className='results'>
                     {this.props.accepted.map(user => (
-                        <FriendIndexItemContainer key={user.id} user={user} type={REMOVE_FRIEND} />
+                        <FriendIndexItemContainer key={user.id} user={user} type={UNFRIEND} />
                     ))}
                 </div>
                 <div className='divider'></div>
@@ -21,7 +21,10 @@ export default class FriendIndex extends React.Component {
                         <FriendIndexItemContainer
                             key={user.id}
                             user={user}
-                        />
+                            type={
+                                this.props.requestMap[user.id].requester_id == user.id ?
+                                    RECEIVED : SENT
+                            } />
                     ))}
                 </div>
             </div>
