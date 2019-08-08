@@ -27,17 +27,16 @@ export default class FriendIndex extends React.Component {
     }
 
     render() {
-        return null
         return (
             <div className='friends_index'>
                 <div className='friend_count'>
-                    FRIENDS ({this.props.friendCount} OF {this.props.friends.length})
+                    FRIENDS ({this.props.friendCount} OF {this.props.friendCount})
                 </div>
 
                 <div>
-                    {this.props.friends.map(friend => {
+                    {this.props.accepted.map(user => {
                         this.props.friendCount += 1
-                        return <div></div>
+                        return <FriendIndexItemContainer key={user.id} user={user} />
                     })}
                 </div>
 
