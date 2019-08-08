@@ -26,7 +26,7 @@ class User < ApplicationRecord
     has_many :treks
     has_many :sent_requests,
         class_name: :FriendRequest,
-        foreign_key: :requestor_id
+        foreign_key: :requester_id
     has_many :received_requests,
         class_name: :FriendRequest,
         foreign_key: :requestee_id

@@ -12,6 +12,7 @@
 
 class FriendRequest < ApplicationRecord
     validates :requester_id, :requestee_id, presence: true
+    validates_uniqueness_of :requester_id, scope: :requestee_id
 
     belongs_to :requestor,
         class_name: :User,

@@ -3,22 +3,14 @@ class Api::UsersController < ApplicationController
     def show
         if params[:friends_of]
             id = params[:friends_of]
-            sql = %Q{
-                select * from users
-                where id in (
-                    select requester_id from friend_requests
-                    where requestee_id = #{id}
-                ) or id in (
-                    select requestee_id from friend_requests
-                    where requester_id = #{id}
-                )
-            }
-            @friends = execute_query(sql).map { |user| User.new(user) }
-            sql = %Q{
-                select * from friend_requests
-                where requester_id = #{id} or requestee_id = #{id}
-            }
-            @requests = execute_query(sql).map { |user| FriendRequest.new(user) }
+
+            requests = current_user.sent_requests + current_user.received_requests
+            ids = (requests.pluck(:requester_id) + requests.pluck(:requestee_id)).uniq
+
+            @friends = User.where('id in (?) and id <> ?', ids, current_user.id)
+
+            @accepted = requests.select { |request| request[:accepted] }
+            @pending = requests.select { |request| !request[:accepted] }
             render :show_friends
         elsif params[:query_string]
             query_string = params[:query_string]

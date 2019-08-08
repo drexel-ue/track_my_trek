@@ -27,6 +27,7 @@ export default class FriendIndex extends React.Component {
     }
 
     render() {
+        return null
         return (
             <div className='friends_index'>
                 <div className='friend_count'>
