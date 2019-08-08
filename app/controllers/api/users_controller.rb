@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
             @friends = execute_query(sql)
             render :show_friends
         elsif params[:query_string]
-            @perspective_friends = User.find_perspective_friends(params[:query_string])
+            @prospective_friends = User.find_prospective_friends(params[:query_string])
             render :show_friends
         else
             @user = User.find(params[:id])

@@ -41,7 +41,7 @@ class User < ApplicationRecord
         user.is_password?(password) ? user : nil
     end
 
-    def self.find_perspective_friends(query_string)
+    def self.find_prospective_friends(query_string)
         User.where(["first_name like :q or last_name like :q or username like :q", {q: "%#{query_string}%"}])
     end
 
