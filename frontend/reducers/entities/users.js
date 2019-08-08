@@ -1,5 +1,5 @@
 import { RECEIVE_USER } from '../../actions/session'
-import { RECEIVE_PROSPECTIVE_FRIENDS } from '../../actions/friends'
+import { RECEIVE_PROSPECTIVE_FRIENDS, RECEIVE_FRIENDS } from '../../actions/friends'
 import { merge } from 'lodash'
 
 export default (state = {}, action) => {
@@ -11,6 +11,10 @@ export default (state = {}, action) => {
             let friends = {}
             action.prospective_friends.forEach(friend => friends[friend.id] = friend)
             return merge({}, state, friends)
+        case RECEIVE_FRIENDS:
+            let users = {}
+            action.users.forEach(user => users[user.id] = user)
+            return merge({}, state, users)
         default:
             return state;
     }
