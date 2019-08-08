@@ -18,4 +18,4 @@ export const fetchFriends = userId => dispatch =>
 
 export const fetchProspectiveFriends = (userId, query_string) => dispatch =>
     FriendsApiUtil.fetchProspectiveFriends(userId, query_string)
-        .then(friends => { debugger; dispatch(receiveProspectiveFriends(friends)) })
+        .then(friends => dispatch(receiveProspectiveFriends(friends)))
