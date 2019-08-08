@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ADD_FRIEND, UNFRIEND, DISPLAY_NONE, SENT } from './friend_index_item_container';
 
 export default class ProspectiveFriendIndexItem extends React.Component {
     constructor(props) {
@@ -25,7 +26,13 @@ export default class ProspectiveFriendIndexItem extends React.Component {
                 <button
                     className='send_request'
                     onClick={this.action}>
-                    ADD
+                    {this.props.type == ADD_FRIEND ?
+                        'ADD'
+                        : this.props.type == UNFRIEND ?
+                            'unfriend'
+                            : this.props.type == SENT ?
+                                'CANCEL'
+                                : 'ACCEPT'}
                 </button>
             </div>
         )
