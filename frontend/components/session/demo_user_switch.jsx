@@ -12,7 +12,7 @@ export default class DemoUserSwitch extends React.Component {
             this.props.login(user == 1 ?
                 this.props.user1
                 : this.props.user2)
-                .then(() => location.reload())
+                .then(() => location.reload(true))
         }
     }
 
