@@ -3,6 +3,7 @@ import * as FriendsApiUtil from '../util/friends_api_util'
 export const RECEIVE_FRIENDS = 'RECEIVE_FRIENDS';
 export const RECEIVE_PROSPECTIVE_FRIENDS = 'RECEIVE_PROSPECTIVE_FRIENDS';
 export const RECEIVE_REQUEST = 'RECEIVE_REQUEST';
+export const DELETE_REQUEST = 'DELETE_REQUEST';
 
 const receiveFriends = ({ users, accepted, pending }) => ({
     type: RECEIVE_FRIENDS,
@@ -17,6 +18,10 @@ const receiveProspectiveFriends = ({ users }) => ({
 const receiveRequest = request => ({
     type: RECEIVE_REQUEST,
     request
+})
+const deleteRequest = requestId => ({
+    type: DELETE_REQUEST,
+    requestId
 })
 
 export const fetchFriends = userId => dispatch =>
@@ -34,3 +39,7 @@ export const sendRequest = userId => dispatch =>
 export const acceptRequest = requestId => dispatch =>
     FriendsApiUtil.acceptRequest(requestId)
         .then(request => dispatch(receiveRequest(request)))
+
+export const deleteRequest = requestId => dispatch =>
+    FriendsApiUtil.acceptRequest(requestId)
+        .then(() => dispatch(deleteRequest(requestId)))

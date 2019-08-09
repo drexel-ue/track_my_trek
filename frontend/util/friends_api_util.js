@@ -20,3 +20,8 @@ export const acceptRequest = requestId => $.ajax({
     url: `api/friend_requests/${requestId}`,
     method: 'patch'
 })
+
+export const unfriend = requestId => $.ajax({
+    url: `api/friend_requests/${requestId}`,
+    method: 'delete'
+})
