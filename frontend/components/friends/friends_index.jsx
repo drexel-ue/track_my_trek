@@ -23,6 +23,9 @@ export default class FriendIndex extends React.Component {
                     ))}
                 </div>
                 <div className='divider'></div>
+                <div className='friend_count pending'>
+                    PENDING
+                </div>
                 <div className='results'>
                     {this.props.pending.map(user => (
                         <FriendIndexItemContainer
