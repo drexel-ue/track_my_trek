@@ -7,8 +7,8 @@ const msp = ({ session, entities }) => {
         Object.values(entities.users)
             .filter(user =>
                 user.id != session.userId
-                && !session.friends.accepted.includes(user.id)
-                && !session.friends.pending.includes(user.id)
+                && !Object.values(session.friends.accepted).includes(user.id)
+                && !Object.values(session.friends.pending).includes(user.id)
             )
     return ({
         userId: session.userId,
