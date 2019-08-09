@@ -22,12 +22,12 @@ export default class NavBar extends React.Component {
 
     render() {
         const titles = [
-            'Training',
-            'Treks',
-            'Challenges',
-            'Go MVP',
-            'Blog',
-            'Shop'
+            'TRAINING',
+            'TREKS',
+            'CHALLENGES',
+            'GO MVP',
+            'BLOG',
+            'SHOP'
         ]
 
         const style = this.props.location.pathname == '/treks/create' ?
