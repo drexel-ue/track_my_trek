@@ -2,13 +2,20 @@ import React from 'react'
 import FriendIndexItemContainer, { UNFRIEND, RECEIVED, SENT } from './friend_index_item_container'
 
 export default class FriendIndex extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            render: false
+        }
+    }
 
     componentDidMount() {
         this.props.fetchFriends(this.props.userId)
+            .then(() => this.setState({ render: true }))
     }
 
     friends() {
-        return (
+        return this.state.render ? (
             <div className='friends'>
                 <div className='results'>
                     {this.props.accepted.map(user => (
@@ -30,7 +37,7 @@ export default class FriendIndex extends React.Component {
                 </div>
             </div>
 
-        )
+        ) : <div></div>
     }
 
     render() {
