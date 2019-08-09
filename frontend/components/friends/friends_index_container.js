@@ -5,11 +5,12 @@ import FriendsIndex from './friends_index'
 
 const msp = ({ session, entities }) => {
     const users = Object.values(entities.users)
-    const accepted = users.filter(user => {
-        const accepted = Object.values(session.friends.accepted) || []
-            (accepted.some(request => request.requester_id == user.id)
-                || accepted.some(request => request.requestee_id == user.id))
+    const accepted = []
+    users.forEach(user => {
+        if (Object.values(session.friends.accepted).some(request =>
+            (request.requester_id == user.id || request.requestee_id == user.id)
             && user.id != session.userId
+        )) { accepted.push(user) }
     })
     const pendings = users.filter(user => !accepted.includes(user) && user.id != session.userId)
     const requestMap = {}

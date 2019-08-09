@@ -40,6 +40,6 @@ export const acceptRequest = requestId => dispatch =>
     FriendsApiUtil.acceptRequest(requestId)
         .then(request => dispatch(receiveRequest(request)))
 
-export const deleteRequest = requestId => dispatch =>
-    FriendsApiUtil.acceptRequest(requestId)
+export const unfriend = requestId => dispatch =>
+    FriendsApiUtil.unfriend(requestId)
         .then(() => dispatch(deleteRequest(requestId)))

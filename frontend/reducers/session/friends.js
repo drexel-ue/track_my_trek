@@ -8,9 +8,12 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     Object.freeze(state)
+    let newState
     switch (action.type) {
         case RECEIVE_REQUEST:
-            let newState =
+            delete newState.accepted[action.requestId]
+            delete newState.pending[action.requestId]
+            newState =
                 action.request.accepted ? {
                     accepted: { [action.request.id]: action.request }
                 } : {
@@ -23,10 +26,10 @@ export default (state = defaultState, action) => {
                 pending: {}
             }
             action.accepted.forEach(request => requests.accepted[request.id] = request)
-            action.accepted.forEach(request => requests.pending[request.id] = request)
-            return merge({}, state, requests)
+            action.pending.forEach(request => requests.pending[request.id] = request)
+            return merge({}, requests)
         case DELETE_REQUEST:
-            let newState = merge({}, state)
+            newState = merge({}, state)
             delete newState.accepted[action.requestId]
             delete newState.pending[action.requestId]
             return newState

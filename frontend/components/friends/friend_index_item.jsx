@@ -13,7 +13,7 @@ export default class ProspectiveFriendIndexItem extends React.Component {
         event.stopPropagation()
         this.props.action(
             this.props.type, this.props.user.id, this.props.requestId
-        )
+        ).then(() => location.reload(true))
     }
 
     render() {
