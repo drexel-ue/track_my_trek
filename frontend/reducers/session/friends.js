@@ -1,4 +1,4 @@
-import { RECEIVE_REQUEST, RECEIVE_FRIENDS } from '../../actions/friends'
+import { RECEIVE_REQUEST, RECEIVE_FRIENDS, DELETE_REQUEST } from '../../actions/friends'
 import { merge } from 'lodash'
 
 const defaultState = {
@@ -25,6 +25,11 @@ export default (state = defaultState, action) => {
             action.accepted.forEach(request => requests.accepted[request.id] = request)
             action.accepted.forEach(request => requests.pending[request.id] = request)
             return merge({}, state, requests)
+        case DELETE_REQUEST:
+            let newState = merge({}, state)
+            delete newState.accepted[action.requestId]
+            delete newState.pending[action.requestId]
+            return newState
         default:
             return state
     }
