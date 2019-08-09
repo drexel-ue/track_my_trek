@@ -12,4 +12,8 @@ class Api::FriendRequestsController < ApplicationController
         FriendRequest.where(id: params[:id]).update(accepted: true)
         @request = FriendRequest.find(params[:id])
     end
+
+    def destroy
+        FriendRequest.delete(params[:id])
+    end
 end
