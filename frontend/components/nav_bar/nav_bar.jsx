@@ -3,7 +3,8 @@ import HomeButton from './home_button'
 import LoginButtonContainer from './login_button_container'
 import SignupButtonContainer from './signup_button_container'
 import NavBarItemContainer from './nav_bar_item_container'
-import NavMenuButtonContainer from './nav_menu_button_container';
+import NavMenuButtonContainer from './nav_menu_button_container'
+import DemoUserSwitchContainer from '../session/demo_user_switch_container'
 
 export default class NavBar extends React.Component {
     constructor(props) {
@@ -47,6 +48,7 @@ export default class NavBar extends React.Component {
                         key={index} />)
                 }
                 {this.props.loggedIn ? <NavMenuButtonContainer /> : this.authButtons()}
+                <DemoUserSwitchContainer />
             </ul>
         </div>
     }

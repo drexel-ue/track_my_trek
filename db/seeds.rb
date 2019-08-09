@@ -8,6 +8,27 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(
+    {
+        first_name: 'Trek',
+         last_name: 'Tracker',
+         gender: 'quasar',
+         username: 'trek@tracker.com',
+         password: 'test123'
+    }
+)
+
+User.create(
+    {
+        first_name: 'Track',
+         last_name: 'Trecker',
+         gender: 'fimpsybuffet',
+         username: 'track@trecker.com',
+         password: 'test123'
+    }
+)
+
+
 40.times do 
     fake = {
         first_name: Faker::Name.first_name,
