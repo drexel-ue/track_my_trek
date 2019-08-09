@@ -16,7 +16,7 @@ export default class FriendIndex extends React.Component {
 
     friends() {
         return this.state.render ? (
-            <div className='friends'>
+            <div className='pending_and_accepted'>
                 <div className='results'>
                     {this.props.accepted.map(user => (
                         <FriendIndexItemContainer key={user.id} user={user} type={UNFRIEND} />
