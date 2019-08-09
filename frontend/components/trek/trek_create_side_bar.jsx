@@ -6,7 +6,7 @@ import TrekDirectionsContainer from './trek_create_directions_container';
 export default props => {
     return (
         <div className='create_sidebar'>
-            <div>Choose Trek Location</div>
+            <div className='side_bar_title'>Choose Trek Location</div>
             <TrekCreateSearcbar />
             <TrekDetailsContainer />
             <TrekDirectionsContainer />
