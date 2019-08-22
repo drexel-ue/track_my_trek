@@ -47,6 +47,12 @@ export default class Dashboard extends React.Component {
   }
 
   render() {
-    return <div className="dashboard">{this.persist()}</div>;
+    return (
+      <div className="dashboard">
+        {this.persist()}
+        <div className="main_content" />
+        <div className="sidebar" />
+      </div>
+    );
   }
 }
