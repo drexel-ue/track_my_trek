@@ -1,4 +1,5 @@
 import React from "react";
+import SideBarInfoCard from "./side_bar_info_card_container";
 
 export default class Dashboard extends React.Component {
   pushTo(to) {
@@ -50,8 +51,12 @@ export default class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         {this.persist()}
-        <div className="main_content" />
-        <div className="sidebar" />
+        <div className="switch">
+          <div className="main_content" />
+          <div className="sidebar">
+            <SideBarInfoCard />
+          </div>
+        </div>
       </div>
     );
   }
