@@ -19,5 +19,12 @@
 
   .side_bar_info_card {
     height: 133px;
+
+    .profile_img {
+      height: 105px;
+      width: 105px;
+      //   size: 105px;
+      border: 1px solid black;
+    }
   }
 }
