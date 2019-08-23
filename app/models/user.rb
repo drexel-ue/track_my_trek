@@ -16,7 +16,7 @@
 #  birth_date      :date
 #  friends         :string           default([]), is an Array
 #
-
+p
 class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true 
     validates :first_name,:last_name, presence: true

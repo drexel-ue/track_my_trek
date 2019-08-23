@@ -8,34 +8,53 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(
-    {
-        first_name: 'Trek',
-         last_name: 'Tracker',
-         gender: 'quasar',
-         username: 'trek@tracker.com',
-         password: 'test123'
-    }
-)
+track = User.find_by(username: 'track@trecker.com')
+trek = User.find_by(username: 'trek@tracker.com')
 
-User.create(
-    {
-        first_name: 'Track',
-         last_name: 'Trecker',
-         gender: 'fimpsybuffet',
-         username: 'track@trecker.com',
-         password: 'test123'
-    }
-)
+if !track
+    User.create(
+        {
+            first_name: 'Trek',
+            last_name: 'Tracker',
+            gender: 'quasar',
+            username: 'trek@tracker.com',
+            password: 'test123',
+            subscribed: Faker::Boolean.boolean,
+            country: Faker::Nation.capital_city,
+            birth_date: Faker::Date.birthday
+        }
+    )
+end
+
+if !trek
+    User.create(
+        {
+            first_name: 'Track',
+            last_name: 'Trecker',
+            gender: 'fimpsybuffet',
+            username: 'track@trecker.com',
+            password: 'test123',
+            subscribed: Faker::Boolean.boolean,
+            country: Faker::Nation.capital_city,
+            birth_date: Faker::Date.birthday
+        }
+    )
+end
+
 
 
 40.times do 
     fake = {
+        username: Faker::Internet.username,
+        password: 'test123',
         first_name: Faker::Name.first_name,
-         last_name: Faker::Name.last_name,
-         gender: Faker::Gender.binary_type,
-         username: Faker::Internet.email,
-         password: 'test123'
+        last_name: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type,
+        subscribed: Faker::Boolean.boolean,
+        country: Faker::Nation.capital_city,
+        birth_date: Faker::Date.birthday,
         }
     user = User.create(fake)
 end
+
+
