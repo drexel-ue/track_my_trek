@@ -1,6 +1,6 @@
 import React from "react";
 
-export default () => {
+export default ({ user }) => {
   return (
     <div className="side_bar_info_card">
       <div className="top">
