@@ -3,7 +3,8 @@ import { withRouter } from "react-router-dom";
 import SideBarInfoCard from "./side_bar_info_card";
 
 const msp = ({ entities, session }, ownProps) => ({
-  user: entities.users[ownProps.match.params.id || session.userId]
+  user: entities.users[ownProps.match.params.id || session.userId],
+  id: ownProps.match.params.id || session.userId
 });
 const mdp = dispatch => ({});
 
