@@ -50,7 +50,6 @@ export default class NavBar extends React.Component {
           ) : (
             this.authButtons()
           )}
-          <DemoUserSwitchContainer />
         </ul>
       </div>
     );
