@@ -38,9 +38,13 @@ export default class NavBar extends React.Component {
       <div id="nav_bar" style={style}>
         <ul>
           <HomeButton />
-          {titles.map((title, index) => (
-            <NavBarItemContainer title={title} key={index} />
-          ))}
+          {this.props.loggedIn ? (
+            titles.map((title, index) => (
+              <NavBarItemContainer title={title} key={index} />
+            ))
+          ) : (
+            <div />
+          )}
           {this.props.loggedIn ? (
             <NavMenuButtonContainer />
           ) : (
