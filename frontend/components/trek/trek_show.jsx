@@ -91,8 +91,7 @@ export default class TrekShow extends React.Component {
   navigation() {
     return (
       <div className="navigation">
-        <Link to="/dashboard/activity">Home</Link> >{" "}
-        <Link to="/dashboard/activity">My Treks</Link> > Trek Details
+        <Link to="/dashboard/activity">Home</Link> > Trek Details
       </div>
     );
   }
