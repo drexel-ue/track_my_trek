@@ -25,41 +25,47 @@ export default class TrekDetails extends React.Component {
   }
 
   saveRoute(event) {
-    let that = this;
-    event.preventDefault();
-    this.props.waypoints.forEach(waypoint => {
-      this.router.addPoint(new GHInput(waypoint.lat, waypoint.lng));
-    });
-    this.router.doRequest().then(json => {
-      that.setState(
-        {
-          distance: json.paths[0].distance / 160.9344,
-          climb: json.paths[0].ascend * 3.281
-        },
-        () => {
-          this.props.fetchLocation(this.props.waypoints[0]).then(response => {
-            const result = response.hits[0];
-            this.setState(
-              {
-                beginsIn: `${result.city}, ${result.state}, ${result.country}`
-              },
-              () => {
-                this.props
-                  .saveRoute(
-                    merge({}, this.state, {
-                      waypoints: this.props.waypoints,
-                      points: this.props.points
-                    })
-                  )
-                  .then(({ trek }) => {
-                    this.props.history.push(`/treks/${trek.id}`);
-                  });
-              }
-            );
-          });
-        }
-      );
-    });
+    if (this.state.mapName.length > 0 && this.state.activity.length > 0) {
+      let that = this;
+      event.preventDefault();
+      this.props.waypoints.forEach(waypoint => {
+        this.router.addPoint(new GHInput(waypoint.lat, waypoint.lng));
+      });
+      this.router.doRequest().then(json => {
+        that.setState(
+          {
+            distance: json.paths[0].distance / 160.9344,
+            climb: json.paths[0].ascend * 3.281
+          },
+          () => {
+            this.props.fetchLocation(this.props.waypoints[0]).then(response => {
+              const result = response.hits[0];
+              this.setState(
+                {
+                  beginsIn: `${result.city}, ${result.state}, ${result.country}`
+                },
+                () => {
+                  this.props
+                    .saveRoute(
+                      merge({}, this.state, {
+                        waypoints: this.props.waypoints,
+                        points: this.props.points
+                      })
+                    )
+                    .then(({ trek }) => {
+                      this.props.history.push(`/treks/${trek.id}`);
+                    });
+                }
+              );
+            });
+          }
+        );
+      });
+    } else {
+      if (this.state.mapName.length === 0) alert("Please name this Trek");
+      else if (this.state.activity.length === 0)
+        alert("Please add an Activity (swimming, hiking, yadda yadda...)");
+    }
   }
 
   render() {
