@@ -66,7 +66,7 @@ export default class TrekCreateMap extends React.Component {
             const polyPath = new google.maps.Polyline({
               path: coords,
               geodesic: true,
-              strokeColor: "#FF0000",
+              strokeColor: "green",
               strokeOpacity: 1.0,
               strokeWeight: 2
             });
