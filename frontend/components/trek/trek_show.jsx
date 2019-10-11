@@ -41,20 +41,15 @@ export default class TrekShow extends React.Component {
           this.map = new google.maps.Map(this.mapNode, mapOptions);
 
           let coords = [];
-          let leftStep = false;
           let that = this;
 
           this.state.waypoints.forEach(waypoint => {
             let image = {
-              url: leftStep
-                ? "https://image.flaticon.com/icons/svg/2/2058.svg"
-                : "https://image.flaticon.com/icons/svg/1/1390.svg",
+              url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
               scaledSize: new google.maps.Size(20, 20),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(10, 10)
             };
-
-            leftStep = !leftStep;
 
             new google.maps.Marker({
               animation: google.maps.Animation.BOUNCE,
@@ -77,7 +72,7 @@ export default class TrekShow extends React.Component {
           const polyPath = new google.maps.Polyline({
             path: coords,
             geodesic: true,
-            strokeColor: "#FF0000",
+            strokeColor: "green",
             strokeOpacity: 1.0,
             strokeWeight: 2
           });
@@ -119,39 +114,13 @@ export default class TrekShow extends React.Component {
           <div className="body">{this.state.trek.begins_in}</div>
           <div className="label">CREATED BY: </div>
           <div className="body">
-            <Link to="/">
-              {this.state.user.first_name} {this.state.user.last_name}
-            </Link>
+              {`${this.state.user.first_name} ${this.state.user.last_name}`}
           </div>
           <div className="label">DESCRIPTION: </div>
           <div className="body">{this.state.trek.description}</div>
-          <div className="label">TYPE: </div>
+          <div className="label">ACTIVITY: </div>
           <div className="body">{this.state.trek.activity}</div>
         </div>
-      </div>
-    );
-  }
-
-  privacyAndShare() {
-    return (
-      <div className="privacy_and_share">
-        <div className="privacy">
-          TREK PRIVACY:{" "}
-          <Link to="/">{this.state.trek.privacy.toUpperCase()}</Link>
-        </div>
-        <div className="share">SHARE: logos</div>
-      </div>
-    );
-  }
-
-  actionButtons() {
-    return (
-      <div className="action_buttons">
-        <button className="actions">ACTIONS</button>
-        <button>PRINT</button>
-        <button>SEND TO PHONE</button>
-        <button>{/*TODO:STAR*/} BOOKMARK</button>
-        <button>EDIT</button>
       </div>
     );
   }
@@ -159,8 +128,6 @@ export default class TrekShow extends React.Component {
   mapView() {
     return <div id="map_container" ref={map => (this.mapNode = map)} />;
   }
-
-  elevation() {}
 
   spacerDiv() {
     return <div className="spacer_div" />;
@@ -183,14 +150,7 @@ export default class TrekShow extends React.Component {
           {this.navigation()}
           {this.mapName()}
           {this.writtenDeats()}
-          {this.privacyAndShare()}
-          {this.actionButtons()}
           {this.mapView()}
-        </div>
-
-        <div className="sidebar">
-          {this.spacerDiv()}
-          {this.createBox()}
         </div>
       </div>
     );
