@@ -1,5 +1,6 @@
 import React from "react";
 import { merge } from "lodash";
+import LoadingAnim from "../loading_anim";
 
 export default class TrekDetails extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ export default class TrekDetails extends React.Component {
                   beginsIn: `${result.city}, ${result.state}, ${result.country}`
                 },
                 () => {
+                  this.setState({ loading: true });
                   this.props
                     .saveRoute(
                       merge({}, this.state, {
@@ -90,9 +92,13 @@ export default class TrekDetails extends React.Component {
               placeholder="Describe this Trek"
               onChange={this.handleInput("description")}
             />
-            <button className="save_button" onClick={this.saveRoute}>
-              SAVE TREK
-            </button>
+            {this.state.loading ? (
+              <LoadingAnim />
+            ) : (
+              <button className="save_button" onClick={this.saveRoute}>
+                SAVE TREK
+              </button>
+            )}
           </div>
         </div>
       </div>
