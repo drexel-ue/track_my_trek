@@ -3,7 +3,6 @@ import React from "react";
 export default class TrekCreateMap extends React.Component {
   constructor(props) {
     super(props);
-    this.leftStep = true;
     this.router = new GraphHopper.Routing({
       key: "712bf675-0c2c-4c45-9e79-c6b2731f54ad",
       vehicle: "foot",
@@ -41,14 +40,11 @@ export default class TrekCreateMap extends React.Component {
             });
 
             const image = {
-              url: that.leftStep
-                ? "https://image.flaticon.com/icons/svg/2/2058.svg"
-                : "https://image.flaticon.com/icons/svg/1/1390.svg",
+              url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
               scaledSize: new google.maps.Size(20, 20),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(10, 10)
             };
-            that.leftStep = !that.leftStep;
             const marker = new google.maps.Marker({
               animation: google.maps.Animation.BOUNCE,
               position: latLng,
@@ -85,14 +81,11 @@ export default class TrekCreateMap extends React.Component {
           });
       } else {
         const image = {
-          url: that.leftStep
-            ? "https://image.flaticon.com/icons/svg/2/2058.svg"
-            : "https://image.flaticon.com/icons/svg/1/1390.svg",
+          url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
           scaledSize: new google.maps.Size(20, 20),
           origin: new google.maps.Point(0, 0),
           anchor: new google.maps.Point(10, 10)
         };
-        that.leftStep = !that.leftStep;
         const marker = new google.maps.Marker({
           animation: google.maps.Animation.BOUNCE,
           position: latLng,
