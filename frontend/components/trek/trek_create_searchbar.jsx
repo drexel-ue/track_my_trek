@@ -16,7 +16,6 @@ export default class TrekCreateSearcbar extends React.Component {
       <div className="search_bar">
         <input
           type="text"
-          value={this.state.location}
           onChange={this.handleInput}
           placeholder="Where'd you Trek?"
         />
