@@ -36,8 +36,7 @@ class Api::TreksController < ApplicationController
     end
 
     def index
-        @treks = Trek.all
-        puts @treks
+        @treks = Trek.includes([:user, :waypoints, :points])
     end
 
     private
