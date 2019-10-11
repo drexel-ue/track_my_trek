@@ -35,6 +35,11 @@ class Api::TreksController < ApplicationController
         @points = Point.where(['trek_id = :id', {id: @trek.id}])
     end
 
+    def index
+        @treks = Trek.all
+        puts @treks
+    end
+
     private
 
     def trek_params
