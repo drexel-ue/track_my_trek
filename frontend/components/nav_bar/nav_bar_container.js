@@ -9,6 +9,6 @@ const msp = ({ session }) => ({
 export default withRouter(
   connect(
     msp,
-    _
+    {}
   )(NavBar)
 );

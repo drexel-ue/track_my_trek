@@ -8,9 +8,11 @@ const msp = _ => ({
     password: "test123"
   }
 });
-const mdp = dispatch => ({
-  login: user => dispatch(login(user))
-});
+const mdp = dispatch => {
+  return {
+    login: user => dispatch(login(user))
+  };
+};
 
 export default connect(
   msp,
