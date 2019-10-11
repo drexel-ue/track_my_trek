@@ -1,13 +1,13 @@
 import React from "react";
 import countries from "../consts/countries";
 import { Link } from "react-router-dom";
-import DemoLoginContainer from "./demo_login_container";
 
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.user;
     this.submit = this.submit.bind(this);
+    this.initLogin = this.initLogin.bind(this);
   }
 
   onChange(field) {
@@ -16,7 +16,7 @@ export default class SessionForm extends React.Component {
   }
 
   submit(event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
     this.props.handleSubmit(this.state);
   }
 
@@ -50,6 +50,27 @@ export default class SessionForm extends React.Component {
     };
   }
 
+  initLogin(event) {
+    event.preventDefault();
+    const username = "trek@tracker.com";
+    const password = "test123";
+
+    username.split("").forEach((char, usernameIndex) => {
+      setTimeout(() => {
+        this.setState({ username: this.state.username + char });
+      }, usernameIndex * 50);
+
+      if (usernameIndex === username.length - 1)
+        password.split("").forEach((char, passwordIndex) => {
+          setTimeout(() => {
+            this.setState({ password: this.state.password + char }, () => {
+              if (passwordIndex === password.length - 1) this.submit();
+            });
+          }, passwordIndex * 50 + usernameIndex * 50);
+        });
+    });
+  }
+
   render() {
     const days =
       this.state.birth_month === undefined
@@ -80,7 +101,6 @@ export default class SessionForm extends React.Component {
     const signupForm = (
       <div>
         <div className="demo_and_link">
-          <DemoLoginContainer />
           <Link
             to={this.props.type == "login" ? "/signup" : "/login"}
             className="link_to_other"
@@ -218,7 +238,9 @@ export default class SessionForm extends React.Component {
     const loginForm = (
       <div>
         <div className="demo_and_link">
-          <DemoLoginContainer />
+          <div className="demo_login" onClick={this.initLogin}>
+            DEMO LOGIN
+          </div>
           <Link
             to={this.props.type == "login" ? "/signup" : "/login"}
             className="link_to_other"
@@ -228,12 +250,14 @@ export default class SessionForm extends React.Component {
         </div>
         <input
           type="email"
+          ref={emailInput => (this.emailInput = emailInput)}
           value={this.state.username}
           onChange={this.onChange("username")}
           placeholder="Email"
         />
         <input
           type="password"
+          ref={passwordInput => (this.passwordInput = passwordInput)}
           value={this.state.password}
           onChange={this.onChange("password")}
           placeholder="Password"
