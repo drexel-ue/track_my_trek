@@ -6,6 +6,9 @@
 .trek_create {
   display: flex;
 }
+.create_sidebar {
+  width: 400px;
+}
 .hide_get_directions_div {
   display: flex;
   justify-content: space-between;
@@ -75,5 +78,26 @@
     width: 100px;
     border-radius: 5px;
     color: white;
+  }
+}
+.route_directions {
+  width: 360px;
+
+  .title {
+    color: #999;
+    padding-bottom: 5px;
+    font-size: 18px;
+  }
+  ul {
+    height: 60vh;
+    overflow-y: scroll;
+
+    .trek_step {
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #999;
+      padding: 5px 0;
+    }
   }
 }
