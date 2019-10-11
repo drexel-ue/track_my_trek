@@ -6,6 +6,7 @@ export const RECEIVE_STEPS_ERROR = "RECEIVE_STEPS_ERROR";
 export const RECEIVE_WAYPOINTS = "RECEIVE_WAYPOINTS";
 export const RECEIVE_POINTS = "RECEIVE_POINTS";
 export const RECEIVE_TREK = "RECEIVE_TREK";
+export const RECEIVE_TREKS = "RECEIVE_TREKS";
 
 const receiveSteps = steps => ({
   type: RECEIVE_STEPS,
@@ -27,6 +28,10 @@ const receiveTrek = trek => ({
   type: RECEIVE_TREK,
   trek
 });
+const receiveTreks = treks => ({
+  type: RECEIVE_TREK,
+  treks
+});
 
 export const setSteps = steps => dispatch => dispatch(receiveSteps(steps));
 export const setErrors = error => dispatch =>
@@ -43,4 +48,6 @@ export const fetchTrek = id => dispatch =>
     points: dispatch(receivePoints(response.points)),
     user: dispatch(receiveUser(response.user))
   }));
+export const fetchTreks = () => dispatch =>
+  TrekApiUtil.fetchTreks().then(treks => dispatch(receiveTreks(treks)));
 export const fethLocation = point => TrekApiUtil.fetchLocation(point);

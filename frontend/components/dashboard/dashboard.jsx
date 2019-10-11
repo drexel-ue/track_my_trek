@@ -1,7 +1,10 @@
 import React from "react";
-import SideBarInfoCard from "./side_bar_info_card_container";
 
 export default class Dashboard extends React.Component {
+  componentDidMount() {
+    this.props.fetchTreks().then(treks => console.log(treks));
+  }
+
   pushTo(to) {
     return event => {
       event.preventDefault();
