@@ -6,19 +6,24 @@ export default class LoadingAnim extends Component {
     this.state = { index: 0 };
   }
 
-  //   componentDidMount() {
-  //     this.timeout = setTimeout(() =>
-  //       this.setState({ index: (this.state.index + 1) % 3 }, 250)
-  //     );
-  //   }
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      let newIndex;
 
-  //   componentWillUnmount() {
-  //     clearTimeout(this.timeout);
-  //   }
+      if (this.state.index === 2) newIndex = 0;
+      if (this.state.index === 1) newIndex = 2;
+      if (this.state.index === 0) newIndex = 1;
+
+      this.setState({ index: newIndex });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   visibility(index) {
-    if (index !== this.state.index % 3) return "hidden";
-    return "";
+    if (index === this.state.index) return { opacity: "0" };
   }
 
   render() {
@@ -27,13 +32,15 @@ export default class LoadingAnim extends Component {
         <img
           src="https://www.jing.fm/clipimg/full/24-247097_boot-clip-art-outdoor-boots-transprent-png-boot.png"
           alt="boot"
+          style={this.visibility(0)}
         />
         <img
-          className="raised_boot"
+          style={this.visibility(1)}
           src="https://www.jing.fm/clipimg/full/24-247097_boot-clip-art-outdoor-boots-transprent-png-boot.png"
           alt="boot"
         />
         <img
+          style={this.visibility(2)}
           src="https://www.jing.fm/clipimg/full/24-247097_boot-clip-art-outdoor-boots-transprent-png-boot.png"
           alt="boot"
         />
