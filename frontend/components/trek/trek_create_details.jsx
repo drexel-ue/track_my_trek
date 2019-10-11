@@ -78,7 +78,7 @@ export default class TrekDetails extends React.Component {
               type="text"
               value={this.state.activity}
               onChange={this.handleInput("activity")}
-              placeholder="Choose an Activity"
+              placeholder="What was the Activity?"
             />
             <input
               placeholder="Describe this Trek"
