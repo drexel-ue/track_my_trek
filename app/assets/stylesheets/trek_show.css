@@ -45,7 +45,7 @@
   color: black;
   font-size: inherit;
 }
-.description {
+.trek_show .description {
   width: 24pc;
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -57,7 +57,7 @@
 .trek_show a {
   color: blue;
 }
-.map_name {
+.trek_show .map_name {
   font-size: 25px;
   padding: 10px 0;
   border-bottom: solid 1px #c3c2c2;

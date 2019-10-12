@@ -7,4 +7,35 @@
     height: 150px;
     width: 150px;
   }
+
+  .written_deats {
+    display: flex;
+    align-items: center;
+    .distance_and_climb {
+      background: linear-gradient(to bottom, #f6f4f4 0, #fbf9f9 100%);
+      width: 80px;
+      height: fit-content;
+      border: 1px solid #c3c2c2;
+      color: #999999;
+      margin-left: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .map_name {
+        font-size: 25px;
+        margin-bottom: 10px;
+        border-bottom: solid 1px #c3c2c2;
+      }
+
+      .label {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }

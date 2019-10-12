@@ -71,10 +71,34 @@ export default class TrekIndexItem extends Component {
     polyPath.setMap(that.map);
   }
 
+  writtenDeats() {
+    return (
+      <div className="written_deats">
+        <div className="distance_and_climb">
+          <div className="the_distance">
+            <div>Distance</div>
+            <div className="distance_total">{this.state.trek.distance}</div>
+            <div>miles</div>
+          </div>
+          <div className="the_climb">
+            <div>climb</div>
+            <div className="climb_total">{this.state.trek.climb} ft</div>
+          </div>
+        </div>
+        <div className="description">
+          <div className="map_name">{this.state.trek.map_name}</div>
+          <div className="label">BEGINS IN: </div>
+          <div className="body">{this.state.trek.begins_in}</div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <Link to={`/treks/${this.state.trek.id}`} className="trek_index_item">
         <div className="map_container" ref={map => (this.mapNode = map)} />
+        {this.writtenDeats()}
       </Link>
     );
   }
