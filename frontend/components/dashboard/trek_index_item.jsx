@@ -30,17 +30,20 @@ export default class TrekIndexItem extends Component {
 
     let coords = [];
     let that = this;
+    const waypoints = this.state.trek.waypoints;
 
-    this.state.trek.waypoints.forEach(waypoint => {
+    waypoints.forEach((waypoint, index) => {
       let image = {
         url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
-        scaledSize: new google.maps.Size(0, 0),
+        scaledSize: new google.maps.Size(
+          index == 0 || index == waypoints.length - 1 ? 20 : 0,
+          index == 0 || index == waypoints.length - 1 ? 20 : 0
+        ),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(10, 10)
       };
 
       new google.maps.Marker({
-        animation: google.maps.Animation.BOUNCE,
         position: {
           lat: Number.parseFloat(waypoint.lat),
           lng: Number.parseFloat(waypoint.lng)
