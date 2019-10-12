@@ -26,6 +26,10 @@ export default class TrekCreateSearcbar extends React.Component {
       });
   }
 
+  reload() {
+    window.location.reload();
+  }
+
   render() {
     return (
       <div className="search_bar">
@@ -37,7 +41,9 @@ export default class TrekCreateSearcbar extends React.Component {
         <button onClick={this.geocode} id="search_button">
           Search
         </button>
-        <button className="expand_button">X</button>
+        <button onClick={this.reload} className="expand_button">
+          X
+        </button>
         <div className="show_get_directions"></div>
       </div>
     );
