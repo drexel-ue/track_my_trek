@@ -80,6 +80,7 @@ export default class TrekDetails extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="trek_details">
         <div className="details_title">Trek Details</div>
