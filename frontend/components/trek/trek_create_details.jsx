@@ -26,7 +26,11 @@ export default class TrekDetails extends React.Component {
   }
 
   saveRoute(event) {
-    if (this.state.mapName.length > 0 && this.state.activity.length > 0) {
+    if (
+      this.state.mapName.length > 0 &&
+      this.state.activity.length > 0 &&
+      this.props.waypoints.length > 1
+    ) {
       let that = this;
       event.preventDefault();
       this.props.waypoints.forEach(waypoint => {
@@ -67,6 +71,11 @@ export default class TrekDetails extends React.Component {
       if (this.state.mapName.length === 0) alert("Please name this Trek");
       else if (this.state.activity.length === 0)
         alert("Please add an Activity (swimming, hiking, yadda yadda...)");
+      else if (this.props.waypoints.length < 2)
+        alert(
+          `Please add at least ${2 -
+            this.props.waypoints.length} waypoint(s). Thank you.`
+        );
     }
   }
 
