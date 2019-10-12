@@ -1,7 +1,7 @@
 import * as TrekApiUtil from "../util/trek_api_util";
-import { receiveUser } from "./session";
 
 export const RECEIVE_STEPS = "RECEIVE_STEPS";
+export const CLEAR_STEPS = "CLEAR_STEPS";
 export const RECEIVE_STEPS_ERROR = "RECEIVE_STEPS_ERROR";
 export const RECEIVE_WAYPOINTS = "RECEIVE_WAYPOINTS";
 export const RECEIVE_POINTS = "RECEIVE_POINTS";
@@ -12,6 +12,7 @@ const receiveSteps = steps => ({
   type: RECEIVE_STEPS,
   steps
 });
+const clearSteps = () => ({ type: CLEAR_STEPS });
 const receiveStepsError = error => ({
   type: RECEIVE_STEPS_ERROR,
   error
@@ -34,6 +35,7 @@ const receiveTreks = treks => ({
 });
 
 export const setSteps = steps => dispatch => dispatch(receiveSteps(steps));
+export const unsetSteps = () => dispatch => dispatch(clearSteps());
 export const setErrors = error => dispatch =>
   dispatch(receiveStepsError(error));
 export const setWaypoints = waypoints => dispatch =>

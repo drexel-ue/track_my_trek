@@ -2,6 +2,10 @@ import React from "react";
 import TrekStep from "./trek_create_step";
 
 export default class TrekDirections extends React.Component {
+  componentWillUnmount() {
+    this.props.unsetSteps();
+  }
+
   render() {
     return (
       <div className="route_directions">
