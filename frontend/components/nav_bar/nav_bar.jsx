@@ -22,16 +22,8 @@ export default class NavBar extends React.Component {
   }
 
   render() {
-    const style =
-      this.props.location.pathname == "/treks/create"
-        ? {
-            marginBottom: "3px",
-            boxShadow: "0 2px 2px rgba(0, 0, 0, 0.2)"
-          }
-        : {};
-
     return (
-      <div id="nav_bar" style={style}>
+      <div id="nav_bar">
         <ul>
           <HomeButton />
           {this.props.loggedIn ? (

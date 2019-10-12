@@ -114,7 +114,7 @@ export default class TrekShow extends React.Component {
           <div className="body">{this.state.trek.begins_in}</div>
           <div className="label">CREATED BY: </div>
           <div className="body">
-              {`${this.state.user.first_name} ${this.state.user.last_name}`}
+            {`${this.state.user.first_name} ${this.state.user.last_name}`}
           </div>
           <div className="label">DESCRIPTION: </div>
           <div className="body">{this.state.trek.description}</div>
@@ -131,16 +131,6 @@ export default class TrekShow extends React.Component {
 
   spacerDiv() {
     return <div className="spacer_div" />;
-  }
-
-  createBox() {
-    return (
-      <div className="create_box">
-        <button>TRACK A TREK</button>
-        <button>CREATE A COURE</button>
-        <button className="workout_button">LOG THIS WORKOUT</button>
-      </div>
-    );
   }
 
   render() {

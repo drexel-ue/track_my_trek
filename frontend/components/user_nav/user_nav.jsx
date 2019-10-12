@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 
 export default class UserNav extends React.Component {
   render() {
-    return this.props.userId &&
-      this.props.location.pathname != "/treks/create" ? (
+    console.log(this.props);
+    return this.props.userId ? (
       <div className="user_nav">
         <ul>
-          <Link to="/treks/create">Track a Trek</Link>
+          {this.props.location.pathname !== "/treks/create" ? (
+            <Link to="/treks/create">Track a Trek</Link>
+          ) : (
+            <div />
+          )}
+          {this.props.location.pathname !== "/dashboard/activity" ? (
+            <Link to="/dashboard/activity">View Treks</Link>
+          ) : (
+            <div />
+          )}
         </ul>
       </div>
     ) : (
-      <div></div>
+      <div />
     );
   }
 }
