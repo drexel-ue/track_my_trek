@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default class UserNav extends React.Component {
   render() {
-    console.log(this.props);
     return this.props.userId ? (
       <div className="user_nav">
         <ul>

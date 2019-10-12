@@ -5,81 +5,70 @@ export default class TrekShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trek: this.props.trek,
-      waypoints: this.props.waypoints,
-      points: this.props.points,
-      user: this.props.user
+      trek: this.props.trek
     };
   }
 
   componentDidMount() {
-    this.props.fetchTrek(this.props.match.params.id).then(response =>
-      this.setState(
-        {
-          trek: response.trek.trek,
-          waypoints: response.waypoints.waypoints,
-          points: response.points.points,
-          user: response.user.user
-        },
-        () => {
-          const mapOptions = {
-            center: {
-              lat: Number.parseFloat(
-                this.state.points[
-                  Math.round((this.state.points.length - 1) / 2)
-                ].lat
-              ),
-              lng: Number.parseFloat(
-                this.state.points[
-                  Math.round((this.state.points.length - 1) / 2)
-                ].lng
-              )
-            },
-            zoom: 14
+    this.props.fetchTrek(this.props.match.params.id).then(({ trek }) =>
+      this.setState({ trek }, () => {
+        const trek = this.state.trek;
+        const points = trek.points;
+        const waypoints = trek.waypoints;
+
+        const mapOptions = {
+          center: {
+            lat: Number.parseFloat(
+              points[Math.round((points.length - 1) / 2)].lat
+            ),
+            lng: Number.parseFloat(
+              points[Math.round((points.length - 1) / 2)].lng
+            )
+          },
+          zoom: 14
+        };
+
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+
+        let coords = [];
+        let that = this;
+
+        waypoints.forEach(waypoint => {
+          let image = {
+            url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
+            scaledSize: new google.maps.Size(20, 20),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(10, 10)
           };
 
-          this.map = new google.maps.Map(this.mapNode, mapOptions);
-
-          let coords = [];
-          let that = this;
-
-          this.state.waypoints.forEach(waypoint => {
-            let image = {
-              url: "https://image.flaticon.com/icons/svg/1576/1576216.svg",
-              scaledSize: new google.maps.Size(20, 20),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(10, 10)
-            };
-
-            new google.maps.Marker({
-              animation: google.maps.Animation.BOUNCE,
-              position: {
-                lat: Number.parseFloat(waypoint.lat),
-                lng: Number.parseFloat(waypoint.lng)
-              },
-              icon: image,
-              map: that.map
-            });
+          new google.maps.Marker({
+            animation: google.maps.Animation.BOUNCE,
+            position: {
+              lat: Number.parseFloat(waypoint.lat),
+              lng: Number.parseFloat(waypoint.lng)
+            },
+            icon: image,
+            map: that.map
           });
+        });
 
-          this.state.points.forEach(point => {
-            coords.push({
-              lat: Number.parseFloat(point.lat),
-              lng: Number.parseFloat(point.lng)
-            });
+        points.forEach(point => {
+          coords.push({
+            lat: Number.parseFloat(point.lat),
+            lng: Number.parseFloat(point.lng)
           });
+        });
 
-          const polyPath = new google.maps.Polyline({
-            path: coords,
-            geodesic: true,
-            strokeColor: "green",
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-          });
+        const polyPath = new google.maps.Polyline({
+          path: coords,
+          geodesic: true,
+          strokeColor: "green",
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
 
-          polyPath.setMap(that.map);
-        }
-      )
+        polyPath.setMap(that.map);
+      })
     );
   }
 

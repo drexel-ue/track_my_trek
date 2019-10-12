@@ -42,12 +42,7 @@ export const setPoints = points => dispatch => dispatch(receivePoints(points));
 export const saveRoute = trekData => dispatch =>
   TrekApiUtil.saveTrek(trekData).then(trek => dispatch(receiveTrek(trek)));
 export const fetchTrek = id => dispatch =>
-  TrekApiUtil.fetchTrek(id).then(response => ({
-    trek: dispatch(receiveTrek(response.trek)),
-    waypoints: dispatch(receiveWaypoints(response.waypoints)),
-    points: dispatch(receivePoints(response.points)),
-    user: dispatch(receiveUser(response.user))
-  }));
+  TrekApiUtil.fetchTrek(id).then(({ trek }) => dispatch(receiveTrek(trek)));
 export const fetchTreks = () => dispatch =>
   TrekApiUtil.fetchTreks().then(({ treks }) => dispatch(receiveTreks(treks)));
 export const fethLocation = point => TrekApiUtil.fetchLocation(point);
