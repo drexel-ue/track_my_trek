@@ -29,7 +29,7 @@ const receiveTrek = trek => ({
   trek
 });
 const receiveTreks = treks => ({
-  type: RECEIVE_TREK,
+  type: RECEIVE_TREKS,
   treks
 });
 
@@ -49,5 +49,5 @@ export const fetchTrek = id => dispatch =>
     user: dispatch(receiveUser(response.user))
   }));
 export const fetchTreks = () => dispatch =>
-  TrekApiUtil.fetchTreks().then(treks => dispatch(receiveTreks(treks)));
+  TrekApiUtil.fetchTreks().then(({ treks }) => dispatch(receiveTreks(treks)));
 export const fethLocation = point => TrekApiUtil.fetchLocation(point);

@@ -1,30 +1,18 @@
 .dashboard {
   width: 960px;
   margin: 0 auto;
-  margin-top: 40px;
 
   .switch {
-    margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .main_content {
     width: 630px;
-  }
-
-  .sidebar {
-    width: 300px;
-  }
-
-  .side_bar_info_card {
-    height: 133px;
-
-    .profile_img {
-      height: 105px;
-      width: 105px;
-      //   size: 105px;
-      border: 1px solid black;
-    }
+    height: 85vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

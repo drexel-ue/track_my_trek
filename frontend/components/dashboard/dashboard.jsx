@@ -1,8 +1,15 @@
 import React from "react";
+import TrekIndexItem from "./trek_index_item";
 
 export default class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { treks: props.treks || [] };
+  }
+
   componentDidMount() {
-    this.props.fetchTreks().then(treks => console.log(treks));
+    this.props.fetchTreks().then(({ treks }) => this.setState({ treks }));
   }
 
   pushTo(to) {
@@ -16,7 +23,13 @@ export default class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <div className="switch">
-          <div className="main_content" />
+          <div className="main_content">
+            {this.state.treks.map(trek => (
+              <div key={trek.id}>
+                <TrekIndexItem trek={trek} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ export default class TrekCreateMap extends React.Component {
     });
     this.state = { waypoints: [] };
   }
+
   componentDidMount() {
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 },
