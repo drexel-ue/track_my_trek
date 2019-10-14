@@ -1,4 +1,4 @@
-# [Pinergy](https://pinergy.herokuapp.com/#/login)
+# [TrackMyTrek](https://track-my-trek.herokuapp.com/#/)
 
 ## Technologies
 
