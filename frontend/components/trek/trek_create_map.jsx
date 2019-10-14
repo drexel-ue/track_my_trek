@@ -22,7 +22,7 @@ export default class TrekCreateMap extends React.Component {
     this.props.setMap(this.map);
 
     this.map.addListener("click", event => {
-      this.placeMarkerAndPanTo(event.latLng, this.map);
+      this.plotMarkerandDrawPoly(event.latLng, this.map);
     });
   }
 
@@ -30,7 +30,7 @@ export default class TrekCreateMap extends React.Component {
     this.props.unsetMap();
   }
 
-  placeMarkerAndPanTo(latLng, map) {
+  plotMarkerandDrawPoly(latLng, map) {
     if (this.router.points.length < 5) {
       this.router.addPoint(new GHInput(latLng.lat(), latLng.lng()));
       const that = this;
